@@ -4,7 +4,7 @@ Copyright (c) 2011 Jayson J. Phillips, Chronium Labs LLC
 
 
 ##ABOUT MAXCDN-API
-This project is a PHP wrapper that allows a programatic interface to MaxCDN's XML-RPC API. This file has no external dependencies and is aimed to be a lightweight drop-in for use in any project or frameworks. It is licensed under the MIT License which follows below.
+This project is a PHP wrapper that allows a programatic interface to MaxCDN's XML-RPC API. This library only has one dependency, the open source XMLRPC for PHP library (specifically, lib folder). The aim of this class is to be a lightweight drop-in for use in any project or framework. It is licensed under the MIT License which follows below.
 
 ###MIT LICENSE
 
