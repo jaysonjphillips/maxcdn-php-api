@@ -12,7 +12,7 @@
 	* @package chroniumlabs.maxcdn.api
 	*/
 
-date_default_timezone_set('America/New_York');
+date_default_timezone_set('America/Los_Angeles');
 require 'lib/xmlrpc.inc';
 
 
