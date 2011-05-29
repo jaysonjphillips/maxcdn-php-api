@@ -3,13 +3,13 @@
 	* @author Jayson J. Phillips <jayson.phillips@chroniumlabs.com>
 	* @copyright Copyright (c) 2011 Chronium Labs LLC
 	* @license http://opensource.org/licenses/mit-license.php MIT License
-	* @version 0.1.1
-	* @package chroniumlabs.maxcdn.api
+	* @version 0.1.7
+	* @package chroniumlabs.maxcdn-api
 	*
 	*/	
-	/**
+   /**
 	* The MaxCDN XMLRPC API Class
-	* @package chroniumlabs.maxcdn.api
+	* @package chroniumlabs.maxcdn-api
 	*/
 
 date_default_timezone_set('America/Los_Angeles');
@@ -39,6 +39,12 @@ class MaxCDN {
 	
 	// Utility functions for setting up the pieces for transmitting data. 
 	// TODO: Separate into separate file and add as a require
+	
+	/**
+	* The MaxCDN XMLRPC API Class
+	* @package chroniumlabs.maxcdn-api
+	* @subpackage utilities
+	*/
 	
 	/**
 	 * Set Auth String
@@ -77,11 +83,32 @@ class MaxCDN {
 		return $xmlrpc_encoded_params;
 	}
 	
+	/**
+	 * Set XML RPC Message
+	 * setXmlRpcMsg
+	 * Takes an array of encoded params and returns a new xmlrpcmsg object
+	 * 
+	 * @param string $namespace
+	 * @param string $method
+	 * @param array $params
+	 * @return object xmlrpcmsg
+	 */
 	function setXmlRpcMsg($namespace, $method, $params) {
 		$xmlrpc_msg_array = $this->encodeParameters($method, $params);
 		return new xmlrpcmsg("$namespace.$method", $xmlrpc_msg_array);
 	}
-		
+	
+	/**
+	 * Send Request
+	 * sendRequest
+	 * Uses params internally to obtain a proper xmlrpcmsg to transmit
+	 * Returns a reference to the return of the xmlrpc_client->send method 
+	 * 
+	 * @param string $namespace
+	 * @param string $method
+	 * @param array $params
+	 * @return object $result
+	 */	
 	function sendRequest($namespace, $method, $params) {
 		$xmlrpc_request = $this->setXmlRpcMsg($namespace, $method, $params);
 		$client = new xmlrpc_client('/xmlrpc/'.$namespace, "api.netdna.com", 80, 'http11');
@@ -89,12 +116,31 @@ class MaxCDN {
 	}
 	
 	
+	/**
+	* Account Methods
+	* @package chroniumlabs.maxcdn-api
+	* @subpackage account
+	*/
 	
+	/**
+	 * Get Bandwidth
+	 * getBandwidth
+	 * Takes optional parameters $from & $to in Y-m-d format
+	 * Example: $this->getBandwidth('2011-05-22', '2011-05-23');
+	 * 
+	 * @param date $form (optional)
+	 * @param date $to (optional)
+	 * @return object $xmlrpcresp 
+	 */
 	function getBandwidth($from = "", $to = "") {
 		return $this->sendRequest('account', 'getBandwidth', array($from, $to));
 	}
 	
-	// 
+	/**
+	* Reporting methods
+	* @package chroniumlabs.maxcdn-api
+	* @subpackage report
+	*/
 }
 
 
