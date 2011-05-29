@@ -1,18 +1,19 @@
 <?php
-	/**
-	* @author Jayson J. Phillips <jayson.phillips@chroniumlabs.com>
-	* @copyright Copyright (c) 2011 Chronium Labs LLC
-	* @license http://opensource.org/licenses/mit-license.php MIT License
-	* @version 0.1.7
-	* @package chroniumlabs.maxcdn-api
-	*
-	*/	
-   /**
-	* The MaxCDN XMLRPC API Class
-	* @package chroniumlabs.maxcdn-api
-	*/
+/**
+ * @author Jayson J. Phillips <jayson.phillips@chroniumlabs.com>
+ * @copyright Copyright (c) 2011 Chronium Labs LLC
+ * @license http://opensource.org/licenses/mit-license.php MIT License
+ * @version 0.1.7
+ * @package chroniumlabs.maxcdn-api
+ *
+ */	
+/**
+ * The MaxCDN XMLRPC API Class
+ * @package chroniumlabs.maxcdn-api
+ */
 
 date_default_timezone_set('America/Los_Angeles');
+require 'MaxCDN_Exceptions.php';
 require 'lib/xmlrpc.inc';
 
 
@@ -132,7 +133,7 @@ class MaxCDN {
 	 * @param date $to (optional)
 	 * @return object $xmlrpcresp 
 	 */
-	function getBandwidth($from = "", $to = "") {
+	function getBandwidth($from = null, $to = null) {
 		return $this->sendRequest('account', 'getBandwidth', array($from, $to));
 	}
 	
@@ -141,6 +142,13 @@ class MaxCDN {
 	* @package chroniumlabs.maxcdn-api
 	* @subpackage report
 	*/
+	
+	function getTotalTransfer($zone_id, $type, $from = null, $to = null, $timezone = null) {
+		if(empty($zone_id) || empty($type)) {
+			throw new MissingParameterException('One or more required parameters are missing');
+		}
+		return $this->sendRequest('report', 'getTotalTransfer', array($zone_id, $type, $from, $to, $timezone));
+	}
 }
 
 
