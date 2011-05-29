@@ -14,6 +14,7 @@
  * Custom Exceptions for the CloudFiles API
  * @package chroniumlabs.maxcdn-api.exceptions
  */
-class MissingParameterException extends Exception { }
+class SyntaxException extends Exception {}
+class MissingRequirementException extends Exception {}
 
 ?>

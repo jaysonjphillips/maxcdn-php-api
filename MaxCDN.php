@@ -10,6 +10,8 @@
 /**
  * The MaxCDN XMLRPC API Class
  * @package chroniumlabs.maxcdn-api
+ * @todo Flesh out the full API - currently the reporting methods
+ * @todo Document all elements accordingly in phpDoc syntax
  */
 
 date_default_timezone_set('America/Los_Angeles');
@@ -34,6 +36,7 @@ class MaxCDN {
 	 * @param string $user_id
 	 */
 	function __construct($api_key, $user_id) {
+		
 		$this->api_key = $api_key;
 		$this->user_id = $user_id;
 	}
@@ -119,7 +122,6 @@ class MaxCDN {
 	
 	/**
 	* Account Methods
-	* @package chroniumlabs.maxcdn-api
 	* @subpackage account
 	*/
 	
@@ -129,8 +131,8 @@ class MaxCDN {
 	 * Takes optional parameters $from & $to in Y-m-d format
 	 * Example: $this->getBandwidth('2011-05-22', '2011-05-23');
 	 * 
-	 * @param date $form (optional)
-	 * @param date $to (optional)
+	 * @param string $form (optional)
+	 * @param string $to (optional)
 	 * @return object $xmlrpcresp 
 	 */
 	function getBandwidth($from = null, $to = null) {
@@ -139,13 +141,51 @@ class MaxCDN {
 	
 	/**
 	* Reporting methods
-	* @package chroniumlabs.maxcdn-api
 	* @subpackage report
 	*/
 	
 	function getTotalTransfer($zone_id, $type, $from = null, $to = null, $timezone = null) {
 		if(empty($zone_id) || empty($type)) {
-			throw new MissingParameterException('One or more required parameters are missing');
+			throw new MissingRequirementException('One or more required parameters are empty');
+		}
+		return $this->sendRequest('report', 'getTotalTransfer', array($zone_id, $type, $from, $to, $timezone));
+	}
+	
+	function getTotalHits($zone_id, $type, $from = null, $to = null, $timezone = null) {
+		if(empty($zone_id) || empty($type)) {
+			throw new MissingRequirementException('One or more required parameters are empty');
+		}
+		return $this->sendRequest('report', 'getTotalHits', array($zone_id, $type, $from, $to, $timezone));
+	}
+	
+	/**
+	 * Get Total Stats
+	 * getTotalStats
+	 * Required: $company_id, $date_from (Y-m-d), $date_to (Y-m-d), $zone_id
+	 * Optional: $sort_by (array)
+	 *			 $view_by (either "hourly" or "daily")
+	 *			 $maximum (number of records returned) 
+	 * 			 $offset (if blank, first record is always 0)
+	 * 			 $timezone ("America/New_York")
+	 * 
+	 * Example:  $this->getTotalStats('company_id', '2011-05-23', '2011-05-28', 'zone-id');
+	 * 
+	 * @param mixed $company_id
+	 * @param string $date_from
+	 * @param string $date_to
+	 * @param int $zone_id
+	 * @param array $sort_by (optional)
+	 * @param string $view_by (optional)
+	 * @param int $maximum (optional)
+	 * @param int $offset (optional)
+	 * @param string $timezone (optional)
+	 * @return object $xmlrpcresp 
+	 */
+	function getTotalStats($company_id, $date_from, $date_to, $zone_id, $sort_by = null, 
+		$view_by = null, $maximum = null, $offset = null, $timezone = null) {
+			
+		if(empty($zone_id) || empty($type)) {
+			throw new MissingRequiredParameterException('One or more required parameters are empty');
 		}
 		return $this->sendRequest('report', 'getTotalTransfer', array($zone_id, $type, $from, $to, $timezone));
 	}
