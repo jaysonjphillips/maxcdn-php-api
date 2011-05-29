@@ -1,0 +1,12 @@
+<phpunit>
+	<testsuite name="MaxCDN_API">
+		<file>tests/Accounts.php</file>
+		<file>tests/Reports.php</file>
+		<!-- <file>tests/User.php</file>
+		<file>tests/PushZones.php</file>
+		<file>tests/PullZones.php</file>
+		<file>tests/VodZones.php</file>
+		<file>tests/LiveZones.php</file>
+		<file>tests/Cache.php</file> -->
+	</testsuite>
+</phpunit>
