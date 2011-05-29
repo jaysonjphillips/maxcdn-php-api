@@ -4,29 +4,31 @@ Copyright (c) 2011 Jayson J. Phillips, Chronium Labs LLC
 
 
 ##ABOUT MAXCDN-API
-This project is a PHP wrapper that allows a programatic interface to MaxCDN's XML-RPC API. This library only has one dependency, the open source XMLRPC for PHP library (specifically, lib folder). The aim of this class is to be a lightweight drop-in for use in any project or framework. It is licensed under the MIT License which follows below.
+This project is a PHP wrapper that allows a programatic interface to [MaxCDN's](http://wiki.netdna.com/Glossary/API_Documentation "MaxCDN API Docs") XML-RPC API. This library only has one dependency, the open source XMLRPC for PHP library (specifically, lib folder). The aim of this class is to be a lightweight drop-in for use in any project or framework. It is licensed under the MIT License, the text of which is at the bottom of this document.
 
 
 ##QUICK START
 
-Example: Get Account Bandwidth
-Returns an _xmlrpcresp_ object 
+Example: Get Account Bandwidth  
+Returns an _xmlrpcresp_ object  
 
+	$maxcdn = new MaxCDN('api-key-goes-here', 'user-id-here');
+	$result = $maxcdn->getBandwidth($from_date, $to_date);
 
-$maxcdn = new MaxCDN('api-key-goes-here', 'user-id-here');
-$result = $maxcdn->getBandwidth($from_date, $to_date);
+From here, you can simply use xmlrpc for php methods on the returned object  
 
-From here, you can simply use xmlrpc for php methods on the returned object
-if(!$result->faultCode()) {
-	$value = $result->value();
-}
+	if(!$result->faultCode()) {
+		$value = $result->value();
+	}
 
-print $value->scalarval();
+	print $value->scalarval();
 
 As you can see, no need to fuss around with dropping in namespaces, method names, ISO formatted dates or the like. 
-Two lines and you're ready to cook. 
+Two lines and you're ready to cook. _Simple_
 
-###MIT LICENSE
+
+
+## LICENSE
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
