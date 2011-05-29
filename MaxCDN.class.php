@@ -20,12 +20,18 @@ class MaxCDN {
 		
 	var $api_key;	
 	var $user_id;
-	var $current_date;
 	var $xml_rpc_options = array();
 	var $base_url = "api.netdna.com/xmlrpc/";
 	private $auth_string;
 	
-	
+	/**
+	 * Constructor - PHP5 syntax
+	 * Sets instance vars for the api key and the user id, both of which are required for
+	 * request made. No need in setting/passing them manually for each call, right?
+	 *
+	 * @param string $api_key
+	 * @param string $user_id
+	 */
 	function __construct($api_key, $user_id) {
 		$this->api_key = $api_key;
 		$this->user_id = $user_id;
@@ -33,10 +39,28 @@ class MaxCDN {
 	
 	// Utility functions for setting up the pieces for transmitting data. 
 	// TODO: Separate into separate file and add as a require
+	
+	/**
+	 * Set Auth String
+	 * Required for every call. Not in constructor so that the date (in ISO8601 format) is always fresh when called.
+	 * 
+	 * @param string $method
+	 * @return string sha-256 hash for authstring
+	 */
 	function setAuthString($method) {
-		return hash('sha256', $this->current_date . ':' . $this->api_key . ':' . $method);
+		return hash('sha256', date('c') . ':' . $this->api_key . ':' . $method);
 	}
 	
+	/**
+	 * Encode Parameters
+	 * Method abstracts xmlrpc encoding of params
+	 * Allows us to pass in params for each method as a single array, then encode them along with the 3 params that
+	 * must get sent along with each request (method, user_id, current_date)
+	 * 
+	 * @param string $method
+	 * @param array $params
+	 * @return array $xmlrpc_encoded_params
+	 */
 	function encodeParameters($method, $params) {
 		$xmlrpc_encoded_params = array(
 			php_xmlrpc_encode($this->user_id),
@@ -65,11 +89,12 @@ class MaxCDN {
 	}
 	
 	
-	//Account Namespace
+	
 	function getBandwidth($from = "", $to = "") {
 		return $this->sendRequest('account', 'getBandwidth', array($from, $to));
 	}
 	
+	// 
 }
 
 
