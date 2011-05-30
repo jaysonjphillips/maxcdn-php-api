@@ -78,7 +78,7 @@
 		</div>
 		<div class="info-box-body">			
 			<div class="method-summary">
-																																																																																						
+																																																																																																																																						
 				<div class="method-definition">
 											<span class="method-result">MaxCDN</span>
 										<a href="#__construct" title="details" class="method-name">__construct</a>
@@ -98,21 +98,57 @@
 									</div>
 														
 				<div class="method-definition">
+											<span class="method-result">object</span>
+										<a href="#getCacheHitStats" title="details" class="method-name">getCacheHitStats</a>
+											(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$company_id</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$date_from</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$date_to</span>, <span class="var-type">int</span>&nbsp;<span class="var-name">$zone_id</span>, [<span class="var-type">array</span>&nbsp;<span class="var-name">$sort_by</span> = <span class="var-default">null</span>], [<span class="var-type">int</span>&nbsp;<span class="var-name">$maximum</span> = <span class="var-default">null</span>], [<span class="var-type">int</span>&nbsp;<span class="var-name">$offset</span> = <span class="var-default">null</span>], [<span class="var-type">string</span>&nbsp;<span class="var-name">$timezone</span> = <span class="var-default">null</span>])
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">object</span>
+										<a href="#getConnectionStats" title="details" class="method-name">getConnectionStats</a>
+											(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$company_id</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$date_from</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$date_to</span>, <span class="var-type">int</span>&nbsp;<span class="var-name">$zone_id</span>, [<span class="var-type">array</span>&nbsp;<span class="var-name">$sort_by</span> = <span class="var-default">null</span>], [<span class="var-type">int</span>&nbsp;<span class="var-name">$maximum</span> = <span class="var-default">null</span>], [<span class="var-type">int</span>&nbsp;<span class="var-name">$offset</span> = <span class="var-default">null</span>], [<span class="var-type">string</span>&nbsp;<span class="var-name">$timezone</span> = <span class="var-default">null</span>])
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">object</span>
+										<a href="#getHourlyConnectionStats" title="details" class="method-name">getHourlyConnectionStats</a>
+											(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$company_id</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$date_from</span>, <span class="var-type">int</span>&nbsp;<span class="var-name">$zone_id</span>, [<span class="var-type">array</span>&nbsp;<span class="var-name">$sort_by</span> = <span class="var-default">null</span>], [<span class="var-type">int</span>&nbsp;<span class="var-name">$maximum</span> = <span class="var-default">null</span>], [<span class="var-type">int</span>&nbsp;<span class="var-name">$offset</span> = <span class="var-default">null</span>], [<span class="var-type">string</span>&nbsp;<span class="var-name">$timezone</span> = <span class="var-default">null</span>])
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">object</span>
+										<a href="#getNodeHits" title="details" class="method-name">getNodeHits</a>
+											(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$company_id</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$date_from</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$date_to</span>, <span class="var-type">int</span>&nbsp;<span class="var-name">$zone_id</span>, [<span class="var-type">array</span>&nbsp;<span class="var-name">$sort_by</span> = <span class="var-default">null</span>], [<span class="var-type">int</span>&nbsp;<span class="var-name">$maximum</span> = <span class="var-default">null</span>], [<span class="var-type">int</span>&nbsp;<span class="var-name">$offset</span> = <span class="var-default">null</span>])
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">object</span>
+										<a href="#getPopularFiles" title="details" class="method-name">getPopularFiles</a>
+											(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$company_id</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$date_from</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$date_to</span>, <span class="var-type">int</span>&nbsp;<span class="var-name">$zone_id</span>, [<span class="var-type">array</span>&nbsp;<span class="var-name">$sort_by</span> = <span class="var-default">null</span>], [<span class="var-type">int</span>&nbsp;<span class="var-name">$maximum</span> = <span class="var-default">null</span>], [<span class="var-type">int</span>&nbsp;<span class="var-name">$offset</span> = <span class="var-default">null</span>], <span class="var-type">string</span>&nbsp;<span class="var-name">$timezone</span>)
+									</div>
+														
+				<div class="method-definition">
 											<span class="method-result">void</span>
 										<a href="#getTotalHits" title="details" class="method-name">getTotalHits</a>
 											(<span class="var-type"></span>&nbsp;<span class="var-name">$zone_id</span>, <span class="var-type"></span>&nbsp;<span class="var-name">$type</span>, [<span class="var-type"></span>&nbsp;<span class="var-name">$from</span> = <span class="var-default">null</span>], [<span class="var-type"></span>&nbsp;<span class="var-name">$to</span> = <span class="var-default">null</span>], [<span class="var-type"></span>&nbsp;<span class="var-name">$timezone</span> = <span class="var-default">null</span>])
 									</div>
 														
 				<div class="method-definition">
-											<span class="method-result">object</span>
-										<a href="#getTotalStats" title="details" class="method-name">getTotalStats</a>
-											(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$company_id</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$date_from</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$date_to</span>, <span class="var-type">int</span>&nbsp;<span class="var-name">$zone_id</span>, [<span class="var-type">array</span>&nbsp;<span class="var-name">$sort_by</span> = <span class="var-default">null</span>], [<span class="var-type">string</span>&nbsp;<span class="var-name">$view_by</span> = <span class="var-default">null</span>], [<span class="var-type">int</span>&nbsp;<span class="var-name">$maximum</span> = <span class="var-default">null</span>], [<span class="var-type">int</span>&nbsp;<span class="var-name">$offset</span> = <span class="var-default">null</span>], [<span class="var-type">string</span>&nbsp;<span class="var-name">$timezone</span> = <span class="var-default">null</span>])
-									</div>
-														
-				<div class="method-definition">
 											<span class="method-result">void</span>
 										<a href="#getTotalTransfer" title="details" class="method-name">getTotalTransfer</a>
 											(<span class="var-type"></span>&nbsp;<span class="var-name">$zone_id</span>, <span class="var-type"></span>&nbsp;<span class="var-name">$type</span>, [<span class="var-type"></span>&nbsp;<span class="var-name">$from</span> = <span class="var-default">null</span>], [<span class="var-type"></span>&nbsp;<span class="var-name">$to</span> = <span class="var-default">null</span>], [<span class="var-type"></span>&nbsp;<span class="var-name">$timezone</span> = <span class="var-default">null</span>])
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">object</span>
+										<a href="#getTotalTransferStats" title="details" class="method-name">getTotalTransferStats</a>
+											(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$company_id</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$date_from</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$date_to</span>, <span class="var-type">int</span>&nbsp;<span class="var-name">$zone_id</span>, [<span class="var-type">array</span>&nbsp;<span class="var-name">$sort_by</span> = <span class="var-default">null</span>], [<span class="var-type">int</span>&nbsp;<span class="var-name">$maximum</span> = <span class="var-default">null</span>], [<span class="var-type">int</span>&nbsp;<span class="var-name">$offset</span> = <span class="var-default">null</span>], [<span class="var-type">string</span>&nbsp;<span class="var-name">$timezone</span> = <span class="var-default">null</span>], <span class="var-type">string</span>&nbsp;<span class="var-name">$view_by</span>)
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">object</span>
+										<a href="#getUsagePerDay" title="details" class="method-name">getUsagePerDay</a>
+											(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$company_id</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$date_from</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$date_to</span>, <span class="var-type">int</span>&nbsp;<span class="var-name">$zone_id</span>, [<span class="var-type">array</span>&nbsp;<span class="var-name">$sort_by</span> = <span class="var-default">null</span>], [<span class="var-type">int</span>&nbsp;<span class="var-name">$maximum</span> = <span class="var-default">null</span>], [<span class="var-type">int</span>&nbsp;<span class="var-name">$offset</span> = <span class="var-default">null</span>])
 									</div>
 														
 				<div class="method-definition">
@@ -329,8 +365,257 @@
 		
 			
 	</div>
-<a name="methodgetTotalHits" id="getTotalHits"><!-- --></a>
+<a name="methodgetCacheHitStats" id="getCacheHitStats"><!-- --></a>
 <div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getCacheHitStats</span> (line <span class="line-number">215</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Get Cache Hit Statistics</p>
+<p class="description"><p>Returns the total cache hits for a given company/zone and date range  Required: $company_id, $date_from (Y-m-d), $date_to (Y-m-d), $zone_id  Optional: $sort_by (array) 			 $maximum (number of records returned)  			 $offset  			 $timezone (&quot;America/New_York&quot;)</p><p>Example:  $this-&gt;getCacheHitStats('company_id', '2011-05-23', '2011-05-28', 'zone-id');</p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> | int $value</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">object</span>
+		<span class="method-name">
+			getCacheHitStats
+		</span>
+					(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$company_id</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$date_from</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$date_to</span>, <span class="var-type">int</span>&nbsp;<span class="var-name">$zone_id</span>, [<span class="var-type">array</span>&nbsp;<span class="var-name">$sort_by</span> = <span class="var-default">null</span>], [<span class="var-type">int</span>&nbsp;<span class="var-name">$maximum</span> = <span class="var-default">null</span>], [<span class="var-type">int</span>&nbsp;<span class="var-name">$offset</span> = <span class="var-default">null</span>], [<span class="var-type">string</span>&nbsp;<span class="var-name">$timezone</span> = <span class="var-default">null</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">mixed</span>
+				<span class="var-name">$company_id</span><span class="var-description">: - Unique company_id or alias</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$date_from</span><span class="var-description">: - Start Date</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$date_to</span><span class="var-description">: - End Date</span>			</li>
+					<li>
+				<span class="var-type">int</span>
+				<span class="var-name">$zone_id</span><span class="var-description">: - Zone identifier</span>			</li>
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$sort_by</span><span class="var-description">: (optional) - &quot;column sortorder&quot; strings. see return for possible values. sortorder can be ASC or DESC</span>			</li>
+					<li>
+				<span class="var-type">int</span>
+				<span class="var-name">$maximum</span><span class="var-description">: - the maximum number of records to return (optional)</span>			</li>
+					<li>
+				<span class="var-type">int</span>
+				<span class="var-name">$offset</span><span class="var-description">: (optional)</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$timezone</span><span class="var-description">: (optional)</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodgetConnectionStats" id="getConnectionStats"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getConnectionStats</span> (line <span class="line-number">339</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Get Connection Stats</p>
+<p class="description"><p>Returns a list of live zone daily connection stats for a given company/zone and date range  Required: $company_id, $date_from (Y-m-d), $date_to (Y-m-d), $zone_id  Optional: $sort_by (array) 			 $maximum (number of records returned)  			 $offset  			 $timezone</p><p>Example:  $this-&gt;getConnectionStats('company_id', '2011-05-23', '2011-05-28', 'zone-id');</p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> | array $value</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">object</span>
+		<span class="method-name">
+			getConnectionStats
+		</span>
+					(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$company_id</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$date_from</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$date_to</span>, <span class="var-type">int</span>&nbsp;<span class="var-name">$zone_id</span>, [<span class="var-type">array</span>&nbsp;<span class="var-name">$sort_by</span> = <span class="var-default">null</span>], [<span class="var-type">int</span>&nbsp;<span class="var-name">$maximum</span> = <span class="var-default">null</span>], [<span class="var-type">int</span>&nbsp;<span class="var-name">$offset</span> = <span class="var-default">null</span>], [<span class="var-type">string</span>&nbsp;<span class="var-name">$timezone</span> = <span class="var-default">null</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">mixed</span>
+				<span class="var-name">$company_id</span><span class="var-description">: - Unique company_id or alias</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$date_from</span><span class="var-description">: - Start Date</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$date_to</span><span class="var-description">: - End Date</span>			</li>
+					<li>
+				<span class="var-type">int</span>
+				<span class="var-name">$zone_id</span><span class="var-description">: - Zone identifier</span>			</li>
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$sort_by</span><span class="var-description">: - an array of &quot;column sortorder&quot; strings, please see returned columns for possible values.  sortorder can be ASC or DESC (optional)</span>			</li>
+					<li>
+				<span class="var-type">int</span>
+				<span class="var-name">$maximum</span><span class="var-description">: - the maximum number of records to return (optional)</span>			</li>
+					<li>
+				<span class="var-type">int</span>
+				<span class="var-name">$offset</span><span class="var-description">: (optional)</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$timezone</span><span class="var-description">: (optional)</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodgetHourlyConnectionStats" id="getHourlyConnectionStats"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getHourlyConnectionStats</span> (line <span class="line-number">370</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Get Hourly Connection Stats</p>
+<p class="description"><p>Returns a list of live zone hourly connection stats for a given company/zone and date  Required: $company_id, $date_from (Y-m-d), $zone_id  Optional: $sort_by (array) 			 $maximum (number of records returned)  			 $offset  			 $timezone</p><p>Example:  $this-&gt;getHourlyConnectionStats('company_id', '2011-05-23', 'zone-id');</p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> | array $value</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">object</span>
+		<span class="method-name">
+			getHourlyConnectionStats
+		</span>
+					(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$company_id</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$date_from</span>, <span class="var-type">int</span>&nbsp;<span class="var-name">$zone_id</span>, [<span class="var-type">array</span>&nbsp;<span class="var-name">$sort_by</span> = <span class="var-default">null</span>], [<span class="var-type">int</span>&nbsp;<span class="var-name">$maximum</span> = <span class="var-default">null</span>], [<span class="var-type">int</span>&nbsp;<span class="var-name">$offset</span> = <span class="var-default">null</span>], [<span class="var-type">string</span>&nbsp;<span class="var-name">$timezone</span> = <span class="var-default">null</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">mixed</span>
+				<span class="var-name">$company_id</span><span class="var-description">: - Unique company_id or alias</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$date_from</span><span class="var-description">: - The date you want to fetch hourly stats for</span>			</li>
+					<li>
+				<span class="var-type">int</span>
+				<span class="var-name">$zone_id</span><span class="var-description">: - Zone identifier</span>			</li>
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$sort_by</span><span class="var-description">: - an array of &quot;column sortorder&quot; strings, please see returned columns for possible values.  sortorder can be ASC or DESC (optional)</span>			</li>
+					<li>
+				<span class="var-type">int</span>
+				<span class="var-name">$maximum</span><span class="var-description">: - the maximum number of records to return (optional)</span>			</li>
+					<li>
+				<span class="var-type">int</span>
+				<span class="var-name">$offset</span><span class="var-description">: (optional)</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$timezone</span><span class="var-description">: (optional)</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodgetNodeHits" id="getNodeHits"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getNodeHits</span> (line <span class="line-number">307</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Get Node Hits</p>
+<p class="description"><p>Returns a list of node hits for a given company/zone and date range  Required: $company_id, $date_from (Y-m-d), $date_to (Y-m-d), $zone_id  Optional: $sort_by (array) 			 $maximum (number of records returned)  			 $offset</p><p>Example:  $this-&gt;getNodeHits('company_id', '2011-05-23', '2011-05-28', 'zone-id');</p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> | array $value</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">object</span>
+		<span class="method-name">
+			getNodeHits
+		</span>
+					(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$company_id</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$date_from</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$date_to</span>, <span class="var-type">int</span>&nbsp;<span class="var-name">$zone_id</span>, [<span class="var-type">array</span>&nbsp;<span class="var-name">$sort_by</span> = <span class="var-default">null</span>], [<span class="var-type">int</span>&nbsp;<span class="var-name">$maximum</span> = <span class="var-default">null</span>], [<span class="var-type">int</span>&nbsp;<span class="var-name">$offset</span> = <span class="var-default">null</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">mixed</span>
+				<span class="var-name">$company_id</span><span class="var-description">: - Unique company_id or alias</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$date_from</span><span class="var-description">: - Start Date</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$date_to</span><span class="var-description">: - End Date</span>			</li>
+					<li>
+				<span class="var-type">int</span>
+				<span class="var-name">$zone_id</span><span class="var-description">: - Zone identifier</span>			</li>
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$sort_by</span><span class="var-description">: - an array of &quot;column sortorder&quot; strings, please see returned columns for possible values.  sortorder can be ASC or DESC (optional)</span>			</li>
+					<li>
+				<span class="var-type">int</span>
+				<span class="var-name">$maximum</span><span class="var-description">: - the maximum number of records to return (optional)</span>			</li>
+					<li>
+				<span class="var-type">int</span>
+				<span class="var-name">$offset</span><span class="var-description">: (optional)</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodgetPopularFiles" id="getPopularFiles"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getPopularFiles</span> (line <span class="line-number">247</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Get Popular Files</p>
+<p class="description"><p>Returns a list of popular files for a given company/zone and date range  Required: $company_id, $date_from (Y-m-d), $date_to (Y-m-d), $zone_id  Optional: $sort_by (array) 			 $maximum (number of records returned)  			 $offset  			 $timezone (&quot;America/New_York&quot;)</p><p>Example:  $this-&gt;getPopularFiles('company_id', '2011-05-23', '2011-05-28', 'zone-id');</p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> | array $value</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">object</span>
+		<span class="method-name">
+			getPopularFiles
+		</span>
+					(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$company_id</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$date_from</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$date_to</span>, <span class="var-type">int</span>&nbsp;<span class="var-name">$zone_id</span>, [<span class="var-type">array</span>&nbsp;<span class="var-name">$sort_by</span> = <span class="var-default">null</span>], [<span class="var-type">int</span>&nbsp;<span class="var-name">$maximum</span> = <span class="var-default">null</span>], [<span class="var-type">int</span>&nbsp;<span class="var-name">$offset</span> = <span class="var-default">null</span>], <span class="var-type">string</span>&nbsp;<span class="var-name">$timezone</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">mixed</span>
+				<span class="var-name">$company_id</span><span class="var-description">: - Unique company_id or alias</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$date_from</span><span class="var-description">: - Start Date</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$date_to</span><span class="var-description">: - End Date</span>			</li>
+					<li>
+				<span class="var-type">int</span>
+				<span class="var-name">$zone_id</span><span class="var-description">: - Zone identifier</span>			</li>
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$sort_by</span><span class="var-description">: - an array of &quot;column sortorder&quot; strings, please see returned columns for possible values. sortorder can be         ASC or DESC (optional)</span>			</li>
+					<li>
+				<span class="var-type">int</span>
+				<span class="var-name">$maximum</span><span class="var-description">: - the maximum number of records to return (optional)</span>			</li>
+					<li>
+				<span class="var-type">int</span>
+				<span class="var-name">$offset</span><span class="var-description">: (optional)</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$timezone</span><span class="var-description">: (optional)</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodgetTotalHits" id="getTotalHits"><!-- --></a>
+<div class="evenrow">
 	
 	<div class="method-header">
 		<span class="method-title">getTotalHits</span> (line <span class="line-number">154</span>)
@@ -362,57 +647,6 @@
 					<li>
 				<span class="var-type"></span>
 				<span class="var-name">$timezone</span>			</li>
-				</ul>
-		
-			
-	</div>
-<a name="methodgetTotalStats" id="getTotalStats"><!-- --></a>
-<div class="evenrow">
-	
-	<div class="method-header">
-		<span class="method-title">getTotalStats</span> (line <span class="line-number">184</span>)
-	</div> 
-	
-	<!-- ========== Info from phpDoc block ========= -->
-<p class="short-description">Get Total Stats</p>
-<p class="description"><p>getTotalStats  Required: $company_id, $date_from (Y-m-d), $date_to (Y-m-d), $zone_id  Optional: $sort_by (array) 			 $view_by (either &quot;hourly&quot; or &quot;daily&quot;) 			 $maximum (number of records returned)  			 $offset (if blank, first record is always 0)  			 $timezone (&quot;America/New_York&quot;)</p><p>Example:  $this-&gt;getTotalStats('company_id', '2011-05-23', '2011-05-28', 'zone-id');</p></p>
-	
-	<div class="method-signature">
-		<span class="method-result">object</span>
-		<span class="method-name">
-			getTotalStats
-		</span>
-					(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$company_id</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$date_from</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$date_to</span>, <span class="var-type">int</span>&nbsp;<span class="var-name">$zone_id</span>, [<span class="var-type">array</span>&nbsp;<span class="var-name">$sort_by</span> = <span class="var-default">null</span>], [<span class="var-type">string</span>&nbsp;<span class="var-name">$view_by</span> = <span class="var-default">null</span>], [<span class="var-type">int</span>&nbsp;<span class="var-name">$maximum</span> = <span class="var-default">null</span>], [<span class="var-type">int</span>&nbsp;<span class="var-name">$offset</span> = <span class="var-default">null</span>], [<span class="var-type">string</span>&nbsp;<span class="var-name">$timezone</span> = <span class="var-default">null</span>])
-			</div>
-	
-			<ul class="parameters">
-					<li>
-				<span class="var-type">mixed</span>
-				<span class="var-name">$company_id</span>			</li>
-					<li>
-				<span class="var-type">string</span>
-				<span class="var-name">$date_from</span>			</li>
-					<li>
-				<span class="var-type">string</span>
-				<span class="var-name">$date_to</span>			</li>
-					<li>
-				<span class="var-type">int</span>
-				<span class="var-name">$zone_id</span>			</li>
-					<li>
-				<span class="var-type">array</span>
-				<span class="var-name">$sort_by</span><span class="var-description">: (optional)</span>			</li>
-					<li>
-				<span class="var-type">string</span>
-				<span class="var-name">$view_by</span><span class="var-description">: (optional)</span>			</li>
-					<li>
-				<span class="var-type">int</span>
-				<span class="var-name">$maximum</span><span class="var-description">: (optional)</span>			</li>
-					<li>
-				<span class="var-type">int</span>
-				<span class="var-name">$offset</span><span class="var-description">: (optional)</span>			</li>
-					<li>
-				<span class="var-type">string</span>
-				<span class="var-name">$timezone</span><span class="var-description">: (optional)</span>			</li>
 				</ul>
 		
 			
@@ -451,6 +685,108 @@
 					<li>
 				<span class="var-type"></span>
 				<span class="var-name">$timezone</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodgetTotalTransferStats" id="getTotalTransferStats"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getTotalTransferStats</span> (line <span class="line-number">184</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Get Total Stats</p>
+<p class="description"><p>Returns transfer stats for a given company/zone and date range  Required: $company_id, $date_from (Y-m-d), $date_to (Y-m-d), $zone_id  Optional: $sort_by (array) 			 $view_by (either &quot;hourly&quot; or &quot;daily&quot;) 			 $maximum (number of records returned)  			 $offset  			 $timezone (&quot;America/New_York&quot;)</p><p>Example:  $this-&gt;getTotalStats('company_id', '2011-05-23', '2011-05-28', 'zone-id');</p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> | array $value</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">object</span>
+		<span class="method-name">
+			getTotalTransferStats
+		</span>
+					(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$company_id</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$date_from</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$date_to</span>, <span class="var-type">int</span>&nbsp;<span class="var-name">$zone_id</span>, [<span class="var-type">array</span>&nbsp;<span class="var-name">$sort_by</span> = <span class="var-default">null</span>], [<span class="var-type">int</span>&nbsp;<span class="var-name">$maximum</span> = <span class="var-default">null</span>], [<span class="var-type">int</span>&nbsp;<span class="var-name">$offset</span> = <span class="var-default">null</span>], [<span class="var-type">string</span>&nbsp;<span class="var-name">$timezone</span> = <span class="var-default">null</span>], <span class="var-type">string</span>&nbsp;<span class="var-name">$view_by</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">mixed</span>
+				<span class="var-name">$company_id</span><span class="var-description">: - Unique company_id or alias</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$date_from</span><span class="var-description">: - Start Date</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$date_to</span><span class="var-description">: - End Date</span>			</li>
+					<li>
+				<span class="var-type">int</span>
+				<span class="var-name">$zone_id</span><span class="var-description">: - Zone identifier</span>			</li>
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$sort_by</span><span class="var-description">: - an array of &quot;column sortorder&quot; strings, please see returned columns for possible values. sortorder can be ASC or DESC (optional)</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$view_by</span><span class="var-description">: (optional)</span>			</li>
+					<li>
+				<span class="var-type">int</span>
+				<span class="var-name">$maximum</span><span class="var-description">: - the maximum number of records to return (optional)</span>			</li>
+					<li>
+				<span class="var-type">int</span>
+				<span class="var-name">$offset</span><span class="var-description">: (optional)</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$timezone</span><span class="var-description">: (optional)</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodgetUsagePerDay" id="getUsagePerDay"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getUsagePerDay</span> (line <span class="line-number">277</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Get Usage Per Day</p>
+<p class="description"><p>Returns usage stats for a give company/zone and date range  Required: $company_id, $date_from (Y-m-d), $date_to (Y-m-d), $zone_id  Optional: $sort_by (array) 			 $maximum (number of records returned)  			 $offset</p><p>Example:  $this-&gt;getUsagePerDay('company_id', '2011-05-23', '2011-05-28', 'zone-id');</p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> | int $value</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">object</span>
+		<span class="method-name">
+			getUsagePerDay
+		</span>
+					(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$company_id</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$date_from</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$date_to</span>, <span class="var-type">int</span>&nbsp;<span class="var-name">$zone_id</span>, [<span class="var-type">array</span>&nbsp;<span class="var-name">$sort_by</span> = <span class="var-default">null</span>], [<span class="var-type">int</span>&nbsp;<span class="var-name">$maximum</span> = <span class="var-default">null</span>], [<span class="var-type">int</span>&nbsp;<span class="var-name">$offset</span> = <span class="var-default">null</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">mixed</span>
+				<span class="var-name">$company_id</span><span class="var-description">: - Unique company_id or alias</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$date_from</span><span class="var-description">: - Start Date</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$date_to</span><span class="var-description">: - End Date</span>			</li>
+					<li>
+				<span class="var-type">int</span>
+				<span class="var-name">$zone_id</span><span class="var-description">: - Zone identifier</span>			</li>
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$sort_by</span><span class="var-description">: - an array of &quot;column sortorder&quot; strings, please see returned columns for possible values.  sortorder can be ASC or DESC (optional)</span>			</li>
+					<li>
+				<span class="var-type">int</span>
+				<span class="var-name">$maximum</span><span class="var-description">: - the maximum number of records to return (optional)</span>			</li>
+					<li>
+				<span class="var-type">int</span>
+				<span class="var-name">$offset</span><span class="var-description">: (optional)</span>			</li>
 				</ul>
 		
 			
@@ -555,7 +891,7 @@
 
 
 	<p class="notes" id="credit">
-		Documentation generated on Sun, 29 May 2011 13:10:23 -0400 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.3</a>
+		Documentation generated on Sun, 29 May 2011 22:15:14 -0400 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.3</a>
 	</p>
 	</div></body>
 </html>

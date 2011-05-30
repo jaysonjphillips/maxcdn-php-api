@@ -29,8 +29,6 @@ class Reports extends PHPUnit_Framework_TestCase {
 		$this->setExpectedException('MissingRequirementException');
 		$this->result = $this->maxcdn->getTotalTransfer('', '');
 		
-
-		
 	}
 	
 }

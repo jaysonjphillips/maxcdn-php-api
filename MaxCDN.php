@@ -3,7 +3,7 @@
  * @author Jayson J. Phillips <jayson.phillips@chroniumlabs.com>
  * @copyright Copyright (c) 2011 Chronium Labs LLC
  * @license http://opensource.org/licenses/mit-license.php MIT License
- * @version 0.1.7
+ * @version 0.2
  * @package chroniumlabs.maxcdn-api
  *
  */	
@@ -160,34 +160,221 @@ class MaxCDN {
 	
 	/**
 	 * Get Total Stats
-	 * getTotalStats
+	 * Returns transfer stats for a given company/zone and date range
 	 * Required: $company_id, $date_from (Y-m-d), $date_to (Y-m-d), $zone_id
 	 * Optional: $sort_by (array)
 	 *			 $view_by (either "hourly" or "daily")
 	 *			 $maximum (number of records returned) 
-	 * 			 $offset (if blank, first record is always 0)
+	 * 			 $offset 
 	 * 			 $timezone ("America/New_York")
 	 * 
 	 * Example:  $this->getTotalStats('company_id', '2011-05-23', '2011-05-28', 'zone-id');
 	 * 
-	 * @param mixed $company_id
-	 * @param string $date_from
-	 * @param string $date_to
-	 * @param int $zone_id
-	 * @param array $sort_by (optional)
+	 * @param mixed $company_id - Unique company_id or alias
+	 * @param string $date_from - Start Date
+	 * @param string $date_to - End Date
+	 * @param int $zone_id - Zone identifier
+	 * @param array $sort_by - an array of "column sortorder" strings, please see returned columns for possible values. sortorder can be ASC or DESC (optional)
 	 * @param string $view_by (optional)
-	 * @param int $maximum (optional)
+	 * @param int $maximum - the maximum number of records to return (optional)
 	 * @param int $offset (optional)
 	 * @param string $timezone (optional)
-	 * @return object $xmlrpcresp 
+	 * @return object $xmlrpcresp | array $value
 	 */
-	function getTotalStats($company_id, $date_from, $date_to, $zone_id, $sort_by = null, 
-		$view_by = null, $maximum = null, $offset = null, $timezone = null) {
+	function getTotalTransferStats($company_id, $date_from, $date_to, $zone_id, $sort_by = null, 
+		$maximum = null, $offset = null, $timezone = null) {
 			
-		if(empty($zone_id) || empty($type)) {
+		if(empty($company_id) || empty($zone_id) || empty($date_from) || empty($date_to)) {
 			throw new MissingRequiredParameterException('One or more required parameters are empty');
 		}
-		return $this->sendRequest('report', 'getTotalTransfer', array($zone_id, $type, $from, $to, $timezone));
+		return $this->sendRequest('report', 'getTotalTransferStats', array($company_id, $zone_id, $date_from, $date_to, $sort_by, 
+			$view_by, $maximum, $offset, $timezone));
+	}
+	
+	/**
+	 * Get Cache Hit Statistics
+	 * Returns the total cache hits for a given company/zone and date range
+	 * Required: $company_id, $date_from (Y-m-d), $date_to (Y-m-d), $zone_id
+	 * Optional: $sort_by (array)
+	 *			 $maximum (number of records returned) 
+	 * 			 $offset 
+	 * 			 $timezone ("America/New_York")
+	 * 
+	 * Example:  $this->getCacheHitStats('company_id', '2011-05-23', '2011-05-28', 'zone-id');
+	 * 
+	 * @param mixed $company_id - Unique company_id or alias
+	 * @param string $date_from - Start Date
+	 * @param string $date_to - End Date
+	 * @param int $zone_id - Zone identifier
+	 * @param array $sort_by (optional) - "column sortorder" strings. see return for possible values. sortorder can be ASC or DESC
+	 * @param int $maximum - the maximum number of records to return (optional)
+	 * @param int $offset (optional)
+	 * @param string $timezone (optional)
+	 * @return object $xmlrpcresp | int $value
+	 */
+	function getCacheHitStats($company_id, $date_from, $date_to, $zone_id, $sort_by = null, 
+		$maximum = null, $offset = null, $timezone = null) {
+			
+		if(empty($company_id) || empty($zone_id) || empty($date_from) || empty($date_to)) {
+			throw new MissingRequiredParameterException('One or more required parameters are empty');
+		}
+		return $this->sendRequest('report', 'getCacheHitStats', array($company_id, $zone_id, $date_from, $date_to, $sort_by, 
+			$maximum, $offset, $timezone));
+	}
+	
+	/**
+	 * Get Popular Files
+	 * Returns a list of popular files for a given company/zone and date range
+	 * Required: $company_id, $date_from (Y-m-d), $date_to (Y-m-d), $zone_id
+	 * Optional: $sort_by (array)
+	 *			 $maximum (number of records returned) 
+	 * 			 $offset 
+	 * 			 $timezone ("America/New_York")
+	 * 
+	 * Example:  $this->getPopularFiles('company_id', '2011-05-23', '2011-05-28', 'zone-id');
+	 * 
+	 * @param mixed $company_id - Unique company_id or alias
+	 * @param string $date_from - Start Date
+	 * @param string $date_to - End Date
+	 * @param int $zone_id - Zone identifier
+	 * @param array $sort_by - an array of "column sortorder" strings, please see returned columns for possible values. sortorder can be
+	 *        ASC or DESC (optional)
+	 * @param int $maximum - the maximum number of records to return (optional)
+	 * @param int $offset (optional)
+	 * @param string $timezone (optional)
+	 * @return object $xmlrpcresp | array $value
+	 */
+	function getPopularFiles($company_id, $date_from, $date_to, $zone_id, $sort_by = null, 
+		$maximum = null, $offset = null) {
+			
+		if(empty($company_id) || empty($zone_id) || empty($date_from) || empty($date_to)) {
+			throw new MissingRequiredParameterException('One or more required parameters are empty');
+		}
+		return $this->sendRequest('report', 'getPopularFiles', array($company_id, $zone_id, $date_from, $date_to, $sort_by, 
+			$maximum, $offset));
+	}
+	
+	/**
+	 * Get Usage Per Day
+	 * Returns usage stats for a give company/zone and date range
+	 * Required: $company_id, $date_from (Y-m-d), $date_to (Y-m-d), $zone_id
+	 * Optional: $sort_by (array)
+	 *			 $maximum (number of records returned) 
+	 * 			 $offset 
+	 * 
+	 * Example:  $this->getUsagePerDay('company_id', '2011-05-23', '2011-05-28', 'zone-id');
+	 * 
+	 * @param mixed $company_id - Unique company_id or alias
+	 * @param string $date_from - Start Date
+	 * @param string $date_to - End Date
+	 * @param int $zone_id - Zone identifier
+	 * @param array $sort_by - an array of "column sortorder" strings, please see returned columns for possible values. 
+	 * sortorder can be ASC or DESC (optional)
+	 * @param int $maximum - the maximum number of records to return (optional)
+	 * @param int $offset (optional)
+	 * @return object $xmlrpcresp | int $value
+	 */
+	function getUsagePerDay($company_id, $date_from, $date_to, $zone_id, $sort_by = null, 
+		$maximum = null, $offset = null) {
+			
+		if(empty($company_id) || empty($zone_id) || empty($date_from) || empty($date_to)) {
+			throw new MissingRequiredParameterException('One or more required parameters are empty');
+		}
+		return $this->sendRequest('report', 'getUsagePerDay', array($company_id, $zone_id, $date_from, $date_to, $sort_by, 
+			$maximum, $offset));
+	}
+	
+	/**
+	 * Get Node Hits
+	 * Returns a list of node hits for a given company/zone and date range
+	 * Required: $company_id, $date_from (Y-m-d), $date_to (Y-m-d), $zone_id
+	 * Optional: $sort_by (array)
+	 *			 $maximum (number of records returned) 
+	 * 			 $offset 
+	 * 
+	 * Example:  $this->getNodeHits('company_id', '2011-05-23', '2011-05-28', 'zone-id');
+	 * 
+	 * @param mixed $company_id - Unique company_id or alias
+	 * @param string $date_from - Start Date
+	 * @param string $date_to - End Date
+	 * @param int $zone_id - Zone identifier
+	 * @param array $sort_by - an array of "column sortorder" strings, please see returned columns for possible values. 
+	 * sortorder can be ASC or DESC (optional)
+	 * @param int $maximum - the maximum number of records to return (optional)
+	 * @param int $offset (optional)
+	 * @return object $xmlrpcresp | array $value
+	 */
+	function getNodeHits($company_id, $date_from, $date_to, $zone_id, $sort_by = null, 
+		$maximum = null, $offset = null) {
+			
+		if(empty($company_id) || empty($zone_id) || empty($date_from) || empty($date_to)) {
+			throw new MissingRequiredParameterException('One or more required parameters are empty');
+		}
+		return $this->sendRequest('report', 'getNodeHits', array($company_id, $zone_id, $date_from, $date_to, $sort_by, 
+			$maximum, $offset));
+	}
+	
+	/**
+	 * Get Connection Stats
+	 * Returns a list of live zone daily connection stats for a given company/zone and date range
+	 * Required: $company_id, $date_from (Y-m-d), $date_to (Y-m-d), $zone_id
+	 * Optional: $sort_by (array)
+	 *			 $maximum (number of records returned) 
+	 * 			 $offset 
+	 * 			 $timezone
+	 * 
+	 * Example:  $this->getConnectionStats('company_id', '2011-05-23', '2011-05-28', 'zone-id');
+	 * 
+	 * @param mixed $company_id - Unique company_id or alias
+	 * @param string $date_from - Start Date
+	 * @param string $date_to - End Date
+	 * @param int $zone_id - Zone identifier
+	 * @param array $sort_by - an array of "column sortorder" strings, please see returned columns for possible values. 
+	 * sortorder can be ASC or DESC (optional)
+	 * @param int $maximum - the maximum number of records to return (optional)
+	 * @param int $offset (optional)
+	 * @param string $timezone (optional)
+	 * @return object $xmlrpcresp | array $value
+	 */
+	function getConnectionStats($company_id, $date_from, $date_to, $zone_id, $sort_by = null, 
+		$maximum = null, $offset = null, $timezone = null) {
+			
+		if(empty($company_id) || empty($zone_id) || empty($date_from) || empty($date_to)) {
+			throw new MissingRequiredParameterException('One or more required parameters are empty');
+		}
+		return $this->sendRequest('report', 'getConnectionStats', array($company_id, $zone_id, $date_from, $date_to, $sort_by, 
+			$maximum, $offset, $timezone));
+	}
+	
+	/**
+	 * Get Hourly Connection Stats
+	 * Returns a list of live zone hourly connection stats for a given company/zone and date
+	 * Required: $company_id, $date_from (Y-m-d), $zone_id
+	 * Optional: $sort_by (array)
+	 *			 $maximum (number of records returned) 
+	 * 			 $offset 
+	 * 			 $timezone
+	 * 
+	 * Example:  $this->getHourlyConnectionStats('company_id', '2011-05-23', 'zone-id');
+	 * 
+	 * @param mixed $company_id - Unique company_id or alias
+	 * @param string $date_from - The date you want to fetch hourly stats for
+	 * @param int $zone_id - Zone identifier
+	 * @param array $sort_by - an array of "column sortorder" strings, please see returned columns for possible values. 
+	 * sortorder can be ASC or DESC (optional)
+	 * @param int $maximum - the maximum number of records to return (optional)
+	 * @param int $offset (optional)
+	 * @param string $timezone (optional)
+	 * @return object $xmlrpcresp | array $value
+	 */
+	function getHourlyConnectionStats($company_id, $date_from, $zone_id, $sort_by = null, 
+		$maximum = null, $offset = null, $timezone = null) {
+			
+		if(empty($company_id) || empty($zone_id) || empty($date_from)) {
+			throw new MissingRequiredParameterException('One or more required parameters are empty');
+		}
+		return $this->sendRequest('report', 'getHourlyConnectionStats', array($company_id, $zone_id, $date_from, $sort_by, 
+			$maximum, $offset, $timezone));
 	}
 }
 
