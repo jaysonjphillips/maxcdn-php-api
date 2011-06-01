@@ -15,6 +15,7 @@
  * @package chroniumlabs.maxcdn-api.exceptions
  */
 class SyntaxException extends Exception {}
+class VariableTypeException extends Exception {}
 class MissingRequirementException extends Exception {}
 
 ?>
