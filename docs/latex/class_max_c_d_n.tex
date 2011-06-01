@@ -1,0 +1,758 @@
+\hypertarget{class_max_c_d_n}{
+\section{MaxCDN Class Reference}
+\label{class_max_c_d_n}\index{MaxCDN@{MaxCDN}}
+}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_max_c_d_n_a190228266dc0a8defc0c6a8fa8bf2079}{\_\-\_\-construct} (\$api\_\-key, \$user\_\-id)
+\item 
+\hyperlink{class_max_c_d_n_ae777d7e14890a345988fffed800d0e8e}{setAuthString} (\$method)
+\item 
+\hyperlink{class_max_c_d_n_ab03d4f2c7f3b6d1e3505f25c33ac4eb4}{encodeParameters} (\$method, \$params)
+\item 
+\hyperlink{class_max_c_d_n_a8c54c313b1f5bbae025c3c30cf12a1ee}{setXmlRpcMsg} (\$namespace, \$method, \$params)
+\item 
+\hyperlink{class_max_c_d_n_aa496f1ad190fdbd8682df3dea24abf1a}{sendRequest} (\$namespace, \$method, \$params=null)
+\item 
+\hyperlink{class_max_c_d_n_aa7c52da790e6d9e3acceb12d93c90de6}{getBandwidth} (\$from=null, \$to=null)
+\item 
+\hyperlink{class_max_c_d_n_a4182fd3c7541817bfed426647cdf24b6}{getTotalTransfer} (\$zone\_\-id, \$type, \$from=null, \$to=null, \$timezone=null)
+\item 
+\hyperlink{class_max_c_d_n_aa14c507a271bdd2536047035549153e7}{getTotalHits} (\$zone\_\-id, \$type, \$from=null, \$to=null, \$timezone=null)
+\item 
+\hyperlink{class_max_c_d_n_a2f721064cd497651f42b949d8cbeae27}{getTotalTransferStats} (\$company\_\-id, \$date\_\-from, \$date\_\-to, \$zone\_\-id, \$sort\_\-by=null, \$maximum=null, \$offset=null, \$timezone=null)
+\item 
+\hyperlink{class_max_c_d_n_a2eba6ff5a4ac4d5348b6fc17ad4e90de}{getCacheHitStats} (\$company\_\-id, \$date\_\-from, \$date\_\-to, \$zone\_\-id, \$sort\_\-by=null, \$maximum=null, \$offset=null, \$timezone=null)
+\item 
+\hyperlink{class_max_c_d_n_ad34a2fa79fb678324ec5d8a98f6f58f4}{getPopularFiles} (\$company\_\-id, \$date\_\-from, \$date\_\-to, \$zone\_\-id, \$sort\_\-by=null, \$maximum=null, \$offset=null)
+\item 
+\hyperlink{class_max_c_d_n_a0f0f34de0a9b9e8aee763a10620b0310}{getUsagePerDay} (\$company\_\-id, \$date\_\-from, \$date\_\-to, \$zone\_\-id, \$sort\_\-by=null, \$maximum=null, \$offset=null)
+\item 
+\hyperlink{class_max_c_d_n_a5edac3917b1fc456d9919a2b27954032}{getNodeHits} (\$company\_\-id, \$date\_\-from, \$date\_\-to, \$zone\_\-id, \$sort\_\-by=null, \$maximum=null, \$offset=null)
+\item 
+\hyperlink{class_max_c_d_n_a0ccdaad45884b8d37ec214a9fef96f69}{getConnectionStats} (\$company\_\-id, \$date\_\-from, \$date\_\-to, \$zone\_\-id, \$sort\_\-by=null, \$maximum=null, \$offset=null, \$timezone=null)
+\item 
+\hyperlink{class_max_c_d_n_a6a37fba9236e945837fdab2615463fd8}{getHourlyConnectionStats} (\$company\_\-id, \$date\_\-from, \$zone\_\-id, \$sort\_\-by=null, \$maximum=null, \$offset=null, \$timezone=null)
+\item 
+\hyperlink{class_max_c_d_n_aeb20dee182d29e6d339cab9682b4ff04}{getUserList} ()
+\item 
+\hyperlink{class_max_c_d_n_a1d86f2ee4963b6bfeb447979f58e8e0e}{updateUser} (\$user\_\-id, \$update\_\-values)
+\end{DoxyCompactItemize}
+\subsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_max_c_d_n_a186dfe06d14a3bc248c4eb4bcdaec562}{\$api\_\-key}
+\item 
+\hyperlink{class_max_c_d_n_af0fcd925f00973e32f7214859dfb3c6b}{\$user\_\-id}
+\item 
+\hyperlink{class_max_c_d_n_aa9300810e8d9adff7d3fdc176c218363}{\$xml\_\-rpc\_\-options} = array()
+\item 
+\hyperlink{class_max_c_d_n_a6886427c9c643f707fcb35c018049bc7}{\$base\_\-url} = \char`\"{}api.netdna.com/xmlrpc/\char`\"{}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+Definition at line 21 of file MaxCDN.php.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_max_c_d_n_a190228266dc0a8defc0c6a8fa8bf2079}{
+\index{MaxCDN@{MaxCDN}!\_\-\_\-construct@{\_\-\_\-construct}}
+\index{\_\-\_\-construct@{\_\-\_\-construct}!MaxCDN@{MaxCDN}}
+\subsubsection[{\_\-\_\-construct}]{\setlength{\rightskip}{0pt plus 5cm}\_\-\_\-construct (
+\begin{DoxyParamCaption}
+\item[{\$}]{api\_\-key, }
+\item[{\$}]{user\_\-id}
+\end{DoxyParamCaption}
+)}}
+\label{class_max_c_d_n_a190228266dc0a8defc0c6a8fa8bf2079}
+Constructor -\/ PHP5 syntax Sets instance vars for the api key and the user id, both of which are required for request made. No need in setting/passing them manually for each call, right?
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$api\_\-key} & \\
+\hline
+string & {\em \$user\_\-id} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 37 of file MaxCDN.php.
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_max_c_d_n_ab03d4f2c7f3b6d1e3505f25c33ac4eb4}{
+\index{MaxCDN@{MaxCDN}!encodeParameters@{encodeParameters}}
+\index{encodeParameters@{encodeParameters}!MaxCDN@{MaxCDN}}
+\subsubsection[{encodeParameters}]{\setlength{\rightskip}{0pt plus 5cm}encodeParameters (
+\begin{DoxyParamCaption}
+\item[{\$}]{method, }
+\item[{\$}]{params}
+\end{DoxyParamCaption}
+)}}
+\label{class_max_c_d_n_ab03d4f2c7f3b6d1e3505f25c33ac4eb4}
+Encode Parameters Method abstracts xmlrpc encoding of params Allows us to pass in params for each method as a single array, then encode them along with the 3 params that must get sent along with each request (method, user\_\-id, current\_\-date)
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$method} & \\
+\hline
+array & {\em \$params} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+array \$xmlrpc\_\-encoded\_\-params 
+\end{DoxyReturn}
+
+
+Definition at line 73 of file MaxCDN.php.
+
+
+
+Here is the call graph for this function:
+
+
+
+
+Here is the caller graph for this function:
+
+
+\hypertarget{class_max_c_d_n_aa7c52da790e6d9e3acceb12d93c90de6}{
+\index{MaxCDN@{MaxCDN}!getBandwidth@{getBandwidth}}
+\index{getBandwidth@{getBandwidth}!MaxCDN@{MaxCDN}}
+\subsubsection[{getBandwidth}]{\setlength{\rightskip}{0pt plus 5cm}getBandwidth (
+\begin{DoxyParamCaption}
+\item[{\$}]{from = {\ttfamily null}, }
+\item[{\$}]{to = {\ttfamily null}}
+\end{DoxyParamCaption}
+)}}
+\label{class_max_c_d_n_aa7c52da790e6d9e3acceb12d93c90de6}
+Account Methods  account Get Bandwidth getBandwidth Takes optional parameters \$from \& \$to in Y-\/m-\/d format Example: \$this-\/$>$getBandwidth('2011-\/05-\/22', '2011-\/05-\/23');
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$form} & (optional) \\
+\hline
+string & {\em \$to} & (optional) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+object \$xmlrpcresp 
+\end{DoxyReturn}
+
+
+Definition at line 137 of file MaxCDN.php.
+
+
+
+Here is the call graph for this function:
+
+
+\hypertarget{class_max_c_d_n_a2eba6ff5a4ac4d5348b6fc17ad4e90de}{
+\index{MaxCDN@{MaxCDN}!getCacheHitStats@{getCacheHitStats}}
+\index{getCacheHitStats@{getCacheHitStats}!MaxCDN@{MaxCDN}}
+\subsubsection[{getCacheHitStats}]{\setlength{\rightskip}{0pt plus 5cm}getCacheHitStats (
+\begin{DoxyParamCaption}
+\item[{\$}]{company\_\-id, }
+\item[{\$}]{date\_\-from, }
+\item[{\$}]{date\_\-to, }
+\item[{\$}]{zone\_\-id, }
+\item[{\$}]{sort\_\-by = {\ttfamily null}, }
+\item[{\$}]{maximum = {\ttfamily null}, }
+\item[{\$}]{offset = {\ttfamily null}, }
+\item[{\$}]{timezone = {\ttfamily null}}
+\end{DoxyParamCaption}
+)}}
+\label{class_max_c_d_n_a2eba6ff5a4ac4d5348b6fc17ad4e90de}
+Get Cache Hit Statistics Returns the total cache hits for a given company/zone and date range Required: \$company\_\-id, \$date\_\-from (Y-\/m-\/d), \$date\_\-to (Y-\/m-\/d), \$zone\_\-id Optional: \$sort\_\-by (array) \$maximum (number of records returned) \$offset \$timezone (\char`\"{}America/New\_\-York\char`\"{})
+
+Example: \$this-\/$>$getCacheHitStats('company\_\-id', '2011-\/05-\/23', '2011-\/05-\/28', 'zone-\/id');
+
+
+\begin{DoxyParams}[1]{Parameters}
+mixed & {\em \$company\_\-id} & -\/ Unique company\_\-id or alias \\
+\hline
+string & {\em \$date\_\-from} & -\/ Start Date \\
+\hline
+string & {\em \$date\_\-to} & -\/ End Date \\
+\hline
+int & {\em \$zone\_\-id} & -\/ Zone identifier \\
+\hline
+array & {\em \$sort\_\-by} & (optional) -\/ \char`\"{}column sortorder\char`\"{} strings. see return for possible values. sortorder can be ASC or DESC \\
+\hline
+int & {\em \$maximum} & -\/ the maximum number of records to return (optional) \\
+\hline
+int & {\em \$offset} & (optional) \\
+\hline
+string & {\em \$timezone} & (optional) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+object \$xmlrpcresp $|$ int \$value 
+\end{DoxyReturn}
+
+
+Definition at line 212 of file MaxCDN.php.
+
+
+
+Here is the call graph for this function:
+
+
+\hypertarget{class_max_c_d_n_a0ccdaad45884b8d37ec214a9fef96f69}{
+\index{MaxCDN@{MaxCDN}!getConnectionStats@{getConnectionStats}}
+\index{getConnectionStats@{getConnectionStats}!MaxCDN@{MaxCDN}}
+\subsubsection[{getConnectionStats}]{\setlength{\rightskip}{0pt plus 5cm}getConnectionStats (
+\begin{DoxyParamCaption}
+\item[{\$}]{company\_\-id, }
+\item[{\$}]{date\_\-from, }
+\item[{\$}]{date\_\-to, }
+\item[{\$}]{zone\_\-id, }
+\item[{\$}]{sort\_\-by = {\ttfamily null}, }
+\item[{\$}]{maximum = {\ttfamily null}, }
+\item[{\$}]{offset = {\ttfamily null}, }
+\item[{\$}]{timezone = {\ttfamily null}}
+\end{DoxyParamCaption}
+)}}
+\label{class_max_c_d_n_a0ccdaad45884b8d37ec214a9fef96f69}
+Get Connection Stats Returns a list of live zone daily connection stats for a given company/zone and date range Required: \$company\_\-id, \$date\_\-from (Y-\/m-\/d), \$date\_\-to (Y-\/m-\/d), \$zone\_\-id Optional: \$sort\_\-by (array) \$maximum (number of records returned) \$offset \$timezone
+
+Example: \$this-\/$>$getConnectionStats('company\_\-id', '2011-\/05-\/23', '2011-\/05-\/28', 'zone-\/id');
+
+
+\begin{DoxyParams}[1]{Parameters}
+mixed & {\em \$company\_\-id} & -\/ Unique company\_\-id or alias \\
+\hline
+string & {\em \$date\_\-from} & -\/ Start Date \\
+\hline
+string & {\em \$date\_\-to} & -\/ End Date \\
+\hline
+int & {\em \$zone\_\-id} & -\/ Zone identifier \\
+\hline
+array & {\em \$sort\_\-by} & -\/ an array of \char`\"{}column sortorder\char`\"{} strings, please see returned columns for possible values. sortorder can be ASC or DESC (optional) \\
+\hline
+int & {\em \$maximum} & -\/ the maximum number of records to return (optional) \\
+\hline
+int & {\em \$offset} & (optional) \\
+\hline
+string & {\em \$timezone} & (optional) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+object \$xmlrpcresp $|$ array \$value 
+\end{DoxyReturn}
+
+
+Definition at line 332 of file MaxCDN.php.
+
+
+
+Here is the call graph for this function:
+
+
+\hypertarget{class_max_c_d_n_a6a37fba9236e945837fdab2615463fd8}{
+\index{MaxCDN@{MaxCDN}!getHourlyConnectionStats@{getHourlyConnectionStats}}
+\index{getHourlyConnectionStats@{getHourlyConnectionStats}!MaxCDN@{MaxCDN}}
+\subsubsection[{getHourlyConnectionStats}]{\setlength{\rightskip}{0pt plus 5cm}getHourlyConnectionStats (
+\begin{DoxyParamCaption}
+\item[{\$}]{company\_\-id, }
+\item[{\$}]{date\_\-from, }
+\item[{\$}]{zone\_\-id, }
+\item[{\$}]{sort\_\-by = {\ttfamily null}, }
+\item[{\$}]{maximum = {\ttfamily null}, }
+\item[{\$}]{offset = {\ttfamily null}, }
+\item[{\$}]{timezone = {\ttfamily null}}
+\end{DoxyParamCaption}
+)}}
+\label{class_max_c_d_n_a6a37fba9236e945837fdab2615463fd8}
+Get Hourly Connection Stats Returns a list of live zone hourly connection stats for a given company/zone and date Required: \$company\_\-id, \$date\_\-from (Y-\/m-\/d), \$zone\_\-id Optional: \$sort\_\-by (array) \$maximum (number of records returned) \$offset \$timezone
+
+Example: \$this-\/$>$getHourlyConnectionStats('company\_\-id', '2011-\/05-\/23', 'zone-\/id');
+
+
+\begin{DoxyParams}[1]{Parameters}
+mixed & {\em \$company\_\-id} & -\/ Unique company\_\-id or alias \\
+\hline
+string & {\em \$date\_\-from} & -\/ The date you want to fetch hourly stats for \\
+\hline
+int & {\em \$zone\_\-id} & -\/ Zone identifier \\
+\hline
+array & {\em \$sort\_\-by} & -\/ an array of \char`\"{}column sortorder\char`\"{} strings, please see returned columns for possible values. sortorder can be ASC or DESC (optional) \\
+\hline
+int & {\em \$maximum} & -\/ the maximum number of records to return (optional) \\
+\hline
+int & {\em \$offset} & (optional) \\
+\hline
+string & {\em \$timezone} & (optional) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+object \$xmlrpcresp $|$ array \$value 
+\end{DoxyReturn}
+
+
+Definition at line 362 of file MaxCDN.php.
+
+
+
+Here is the call graph for this function:
+
+
+\hypertarget{class_max_c_d_n_a5edac3917b1fc456d9919a2b27954032}{
+\index{MaxCDN@{MaxCDN}!getNodeHits@{getNodeHits}}
+\index{getNodeHits@{getNodeHits}!MaxCDN@{MaxCDN}}
+\subsubsection[{getNodeHits}]{\setlength{\rightskip}{0pt plus 5cm}getNodeHits (
+\begin{DoxyParamCaption}
+\item[{\$}]{company\_\-id, }
+\item[{\$}]{date\_\-from, }
+\item[{\$}]{date\_\-to, }
+\item[{\$}]{zone\_\-id, }
+\item[{\$}]{sort\_\-by = {\ttfamily null}, }
+\item[{\$}]{maximum = {\ttfamily null}, }
+\item[{\$}]{offset = {\ttfamily null}}
+\end{DoxyParamCaption}
+)}}
+\label{class_max_c_d_n_a5edac3917b1fc456d9919a2b27954032}
+Get Node Hits Returns a list of node hits for a given company/zone and date range Required: \$company\_\-id, \$date\_\-from (Y-\/m-\/d), \$date\_\-to (Y-\/m-\/d), \$zone\_\-id Optional: \$sort\_\-by (array) \$maximum (number of records returned) \$offset
+
+Example: \$this-\/$>$getNodeHits('company\_\-id', '2011-\/05-\/23', '2011-\/05-\/28', 'zone-\/id');
+
+
+\begin{DoxyParams}[1]{Parameters}
+mixed & {\em \$company\_\-id} & -\/ Unique company\_\-id or alias \\
+\hline
+string & {\em \$date\_\-from} & -\/ Start Date \\
+\hline
+string & {\em \$date\_\-to} & -\/ End Date \\
+\hline
+int & {\em \$zone\_\-id} & -\/ Zone identifier \\
+\hline
+array & {\em \$sort\_\-by} & -\/ an array of \char`\"{}column sortorder\char`\"{} strings, please see returned columns for possible values. sortorder can be ASC or DESC (optional) \\
+\hline
+int & {\em \$maximum} & -\/ the maximum number of records to return (optional) \\
+\hline
+int & {\em \$offset} & (optional) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+object \$xmlrpcresp $|$ array \$value 
+\end{DoxyReturn}
+
+
+Definition at line 301 of file MaxCDN.php.
+
+
+
+Here is the call graph for this function:
+
+
+\hypertarget{class_max_c_d_n_ad34a2fa79fb678324ec5d8a98f6f58f4}{
+\index{MaxCDN@{MaxCDN}!getPopularFiles@{getPopularFiles}}
+\index{getPopularFiles@{getPopularFiles}!MaxCDN@{MaxCDN}}
+\subsubsection[{getPopularFiles}]{\setlength{\rightskip}{0pt plus 5cm}getPopularFiles (
+\begin{DoxyParamCaption}
+\item[{\$}]{company\_\-id, }
+\item[{\$}]{date\_\-from, }
+\item[{\$}]{date\_\-to, }
+\item[{\$}]{zone\_\-id, }
+\item[{\$}]{sort\_\-by = {\ttfamily null}, }
+\item[{\$}]{maximum = {\ttfamily null}, }
+\item[{\$}]{offset = {\ttfamily null}}
+\end{DoxyParamCaption}
+)}}
+\label{class_max_c_d_n_ad34a2fa79fb678324ec5d8a98f6f58f4}
+Get Popular Files Returns a list of popular files for a given company/zone and date range Required: \$company\_\-id, \$date\_\-from (Y-\/m-\/d), \$date\_\-to (Y-\/m-\/d), \$zone\_\-id Optional: \$sort\_\-by (array) \$maximum (number of records returned) \$offset \$timezone (\char`\"{}America/New\_\-York\char`\"{})
+
+Example: \$this-\/$>$getPopularFiles('company\_\-id', '2011-\/05-\/23', '2011-\/05-\/28', 'zone-\/id');
+
+
+\begin{DoxyParams}[1]{Parameters}
+mixed & {\em \$company\_\-id} & -\/ Unique company\_\-id or alias \\
+\hline
+string & {\em \$date\_\-from} & -\/ Start Date \\
+\hline
+string & {\em \$date\_\-to} & -\/ End Date \\
+\hline
+int & {\em \$zone\_\-id} & -\/ Zone identifier \\
+\hline
+array & {\em \$sort\_\-by} & -\/ an array of \char`\"{}column sortorder\char`\"{} strings, please see returned columns for possible values. sortorder can be ASC or DESC (optional) \\
+\hline
+int & {\em \$maximum} & -\/ the maximum number of records to return (optional) \\
+\hline
+int & {\em \$offset} & (optional) \\
+\hline
+string & {\em \$timezone} & (optional) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+object \$xmlrpcresp $|$ array \$value 
+\end{DoxyReturn}
+
+
+Definition at line 243 of file MaxCDN.php.
+
+
+
+Here is the call graph for this function:
+
+
+\hypertarget{class_max_c_d_n_aa14c507a271bdd2536047035549153e7}{
+\index{MaxCDN@{MaxCDN}!getTotalHits@{getTotalHits}}
+\index{getTotalHits@{getTotalHits}!MaxCDN@{MaxCDN}}
+\subsubsection[{getTotalHits}]{\setlength{\rightskip}{0pt plus 5cm}getTotalHits (
+\begin{DoxyParamCaption}
+\item[{\$}]{zone\_\-id, }
+\item[{\$}]{type, }
+\item[{\$}]{from = {\ttfamily null}, }
+\item[{\$}]{to = {\ttfamily null}, }
+\item[{\$}]{timezone = {\ttfamily null}}
+\end{DoxyParamCaption}
+)}}
+\label{class_max_c_d_n_aa14c507a271bdd2536047035549153e7}
+
+
+Definition at line 152 of file MaxCDN.php.
+
+
+
+Here is the call graph for this function:
+
+
+\hypertarget{class_max_c_d_n_a4182fd3c7541817bfed426647cdf24b6}{
+\index{MaxCDN@{MaxCDN}!getTotalTransfer@{getTotalTransfer}}
+\index{getTotalTransfer@{getTotalTransfer}!MaxCDN@{MaxCDN}}
+\subsubsection[{getTotalTransfer}]{\setlength{\rightskip}{0pt plus 5cm}getTotalTransfer (
+\begin{DoxyParamCaption}
+\item[{\$}]{zone\_\-id, }
+\item[{\$}]{type, }
+\item[{\$}]{from = {\ttfamily null}, }
+\item[{\$}]{to = {\ttfamily null}, }
+\item[{\$}]{timezone = {\ttfamily null}}
+\end{DoxyParamCaption}
+)}}
+\label{class_max_c_d_n_a4182fd3c7541817bfed426647cdf24b6}
+Reporting methods  report 
+
+Definition at line 145 of file MaxCDN.php.
+
+
+
+Here is the call graph for this function:
+
+
+\hypertarget{class_max_c_d_n_a2f721064cd497651f42b949d8cbeae27}{
+\index{MaxCDN@{MaxCDN}!getTotalTransferStats@{getTotalTransferStats}}
+\index{getTotalTransferStats@{getTotalTransferStats}!MaxCDN@{MaxCDN}}
+\subsubsection[{getTotalTransferStats}]{\setlength{\rightskip}{0pt plus 5cm}getTotalTransferStats (
+\begin{DoxyParamCaption}
+\item[{\$}]{company\_\-id, }
+\item[{\$}]{date\_\-from, }
+\item[{\$}]{date\_\-to, }
+\item[{\$}]{zone\_\-id, }
+\item[{\$}]{sort\_\-by = {\ttfamily null}, }
+\item[{\$}]{maximum = {\ttfamily null}, }
+\item[{\$}]{offset = {\ttfamily null}, }
+\item[{\$}]{timezone = {\ttfamily null}}
+\end{DoxyParamCaption}
+)}}
+\label{class_max_c_d_n_a2f721064cd497651f42b949d8cbeae27}
+Get Total Stats Returns transfer stats for a given company/zone and date range Required: \$company\_\-id, \$date\_\-from (Y-\/m-\/d), \$date\_\-to (Y-\/m-\/d), \$zone\_\-id Optional: \$sort\_\-by (array) \$view\_\-by (either \char`\"{}hourly\char`\"{} or \char`\"{}daily\char`\"{}) \$maximum (number of records returned) \$offset \$timezone (\char`\"{}America/New\_\-York\char`\"{})
+
+Example: \$this-\/$>$getTotalStats('company\_\-id', '2011-\/05-\/23', '2011-\/05-\/28', 'zone-\/id');
+
+
+\begin{DoxyParams}[1]{Parameters}
+mixed & {\em \$company\_\-id} & -\/ Unique company\_\-id or alias \\
+\hline
+string & {\em \$date\_\-from} & -\/ Start Date \\
+\hline
+string & {\em \$date\_\-to} & -\/ End Date \\
+\hline
+int & {\em \$zone\_\-id} & -\/ Zone identifier \\
+\hline
+array & {\em \$sort\_\-by} & -\/ an array of \char`\"{}column sortorder\char`\"{} strings, please see returned columns for possible values. sortorder can be ASC or DESC (optional) \\
+\hline
+string & {\em \$view\_\-by} & (optional) \\
+\hline
+int & {\em \$maximum} & -\/ the maximum number of records to return (optional) \\
+\hline
+int & {\em \$offset} & (optional) \\
+\hline
+string & {\em \$timezone} & (optional) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+object \$xmlrpcresp $|$ array \$value 
+\end{DoxyReturn}
+
+
+Definition at line 182 of file MaxCDN.php.
+
+
+
+Here is the call graph for this function:
+
+
+\hypertarget{class_max_c_d_n_a0f0f34de0a9b9e8aee763a10620b0310}{
+\index{MaxCDN@{MaxCDN}!getUsagePerDay@{getUsagePerDay}}
+\index{getUsagePerDay@{getUsagePerDay}!MaxCDN@{MaxCDN}}
+\subsubsection[{getUsagePerDay}]{\setlength{\rightskip}{0pt plus 5cm}getUsagePerDay (
+\begin{DoxyParamCaption}
+\item[{\$}]{company\_\-id, }
+\item[{\$}]{date\_\-from, }
+\item[{\$}]{date\_\-to, }
+\item[{\$}]{zone\_\-id, }
+\item[{\$}]{sort\_\-by = {\ttfamily null}, }
+\item[{\$}]{maximum = {\ttfamily null}, }
+\item[{\$}]{offset = {\ttfamily null}}
+\end{DoxyParamCaption}
+)}}
+\label{class_max_c_d_n_a0f0f34de0a9b9e8aee763a10620b0310}
+Get Usage Per Day Returns usage stats for a give company/zone and date range Required: \$company\_\-id, \$date\_\-from (Y-\/m-\/d), \$date\_\-to (Y-\/m-\/d), \$zone\_\-id Optional: \$sort\_\-by (array) \$maximum (number of records returned) \$offset
+
+Example: \$this-\/$>$getUsagePerDay('company\_\-id', '2011-\/05-\/23', '2011-\/05-\/28', 'zone-\/id');
+
+
+\begin{DoxyParams}[1]{Parameters}
+mixed & {\em \$company\_\-id} & -\/ Unique company\_\-id or alias \\
+\hline
+string & {\em \$date\_\-from} & -\/ Start Date \\
+\hline
+string & {\em \$date\_\-to} & -\/ End Date \\
+\hline
+int & {\em \$zone\_\-id} & -\/ Zone identifier \\
+\hline
+array & {\em \$sort\_\-by} & -\/ an array of \char`\"{}column sortorder\char`\"{} strings, please see returned columns for possible values. sortorder can be ASC or DESC (optional) \\
+\hline
+int & {\em \$maximum} & -\/ the maximum number of records to return (optional) \\
+\hline
+int & {\em \$offset} & (optional) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+object \$xmlrpcresp $|$ int \$value 
+\end{DoxyReturn}
+
+
+Definition at line 272 of file MaxCDN.php.
+
+
+
+Here is the call graph for this function:
+
+
+\hypertarget{class_max_c_d_n_aeb20dee182d29e6d339cab9682b4ff04}{
+\index{MaxCDN@{MaxCDN}!getUserList@{getUserList}}
+\index{getUserList@{getUserList}!MaxCDN@{MaxCDN}}
+\subsubsection[{getUserList}]{\setlength{\rightskip}{0pt plus 5cm}getUserList (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{class_max_c_d_n_aeb20dee182d29e6d339cab9682b4ff04}
+User methods  users List Users user.listUsers
+
+{\ttfamily  \$this-\/$>$\hyperlink{class_max_c_d_n_aeb20dee182d29e6d339cab9682b4ff04}{getUserList()}; }
+
+\begin{DoxyReturn}{Returns}
+object xmlrpcresp $|$ array \$value 
+\end{DoxyReturn}
+
+
+Definition at line 387 of file MaxCDN.php.
+
+
+
+Here is the call graph for this function:
+
+
+\hypertarget{class_max_c_d_n_aa496f1ad190fdbd8682df3dea24abf1a}{
+\index{MaxCDN@{MaxCDN}!sendRequest@{sendRequest}}
+\index{sendRequest@{sendRequest}!MaxCDN@{MaxCDN}}
+\subsubsection[{sendRequest}]{\setlength{\rightskip}{0pt plus 5cm}sendRequest (
+\begin{DoxyParamCaption}
+\item[{\$}]{namespace, }
+\item[{\$}]{method, }
+\item[{\$}]{params = {\ttfamily null}}
+\end{DoxyParamCaption}
+)}}
+\label{class_max_c_d_n_aa496f1ad190fdbd8682df3dea24abf1a}
+Send Request sendRequest Uses params internally to obtain a proper xmlrpcmsg to transmit Returns a reference to the return of the xmlrpc\_\-client-\/$>$send method
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$namespace} & \\
+\hline
+string & {\em \$method} & \\
+\hline
+array & {\em \$params} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+object \$result 
+\end{DoxyReturn}
+
+
+Definition at line 116 of file MaxCDN.php.
+
+
+
+Here is the call graph for this function:
+
+
+
+
+Here is the caller graph for this function:
+
+
+\hypertarget{class_max_c_d_n_ae777d7e14890a345988fffed800d0e8e}{
+\index{MaxCDN@{MaxCDN}!setAuthString@{setAuthString}}
+\index{setAuthString@{setAuthString}!MaxCDN@{MaxCDN}}
+\subsubsection[{setAuthString}]{\setlength{\rightskip}{0pt plus 5cm}setAuthString (
+\begin{DoxyParamCaption}
+\item[{\$}]{method}
+\end{DoxyParamCaption}
+)}}
+\label{class_max_c_d_n_ae777d7e14890a345988fffed800d0e8e}
+Set Auth String Required for every call. Not in constructor so that the date (in ISO8601 format) is always fresh when called.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$method} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+string sha-\/256 hash for authstring 
+\end{DoxyReturn}
+
+
+Definition at line 59 of file MaxCDN.php.
+
+
+
+Here is the caller graph for this function:
+
+
+\hypertarget{class_max_c_d_n_a8c54c313b1f5bbae025c3c30cf12a1ee}{
+\index{MaxCDN@{MaxCDN}!setXmlRpcMsg@{setXmlRpcMsg}}
+\index{setXmlRpcMsg@{setXmlRpcMsg}!MaxCDN@{MaxCDN}}
+\subsubsection[{setXmlRpcMsg}]{\setlength{\rightskip}{0pt plus 5cm}setXmlRpcMsg (
+\begin{DoxyParamCaption}
+\item[{\$}]{namespace, }
+\item[{\$}]{method, }
+\item[{\$}]{params}
+\end{DoxyParamCaption}
+)}}
+\label{class_max_c_d_n_a8c54c313b1f5bbae025c3c30cf12a1ee}
+Set XML RPC Message setXmlRpcMsg Takes an array of encoded params and returns a new xmlrpcmsg object
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$namespace} & \\
+\hline
+string & {\em \$method} & \\
+\hline
+array & {\em \$params} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+object xmlrpcmsg 
+\end{DoxyReturn}
+
+
+Definition at line 100 of file MaxCDN.php.
+
+
+
+Here is the call graph for this function:
+
+
+
+
+Here is the caller graph for this function:
+
+
+\hypertarget{class_max_c_d_n_a1d86f2ee4963b6bfeb447979f58e8e0e}{
+\index{MaxCDN@{MaxCDN}!updateUser@{updateUser}}
+\index{updateUser@{updateUser}!MaxCDN@{MaxCDN}}
+\subsubsection[{updateUser}]{\setlength{\rightskip}{0pt plus 5cm}updateUser (
+\begin{DoxyParamCaption}
+\item[{\$}]{user\_\-id, }
+\item[{\$}]{update\_\-values}
+\end{DoxyParamCaption}
+)}}
+\label{class_max_c_d_n_a1d86f2ee4963b6bfeb447979f58e8e0e}
+Update User user.update
+
+{\ttfamily  \$this-\/$>$updateUser(\$user\_\-id, \$update\_\-values); }
+
+Required: int \$user\_\-id, struct \$update\_\-values
+
+
+\begin{DoxyParams}[1]{Parameters}
+int & {\em \$user\_\-id} & \\
+\hline
+array & {\em \$update\_\-values} & (key/value pair of settings) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+object xmlrpcresp $|$ array \$value 
+\end{DoxyReturn}
+
+
+Definition at line 405 of file MaxCDN.php.
+
+
+
+Here is the call graph for this function:
+
+
+
+
+\subsection{Field Documentation}
+\hypertarget{class_max_c_d_n_a186dfe06d14a3bc248c4eb4bcdaec562}{
+\index{MaxCDN@{MaxCDN}!\$api\_\-key@{\$api\_\-key}}
+\index{\$api\_\-key@{\$api\_\-key}!MaxCDN@{MaxCDN}}
+\subsubsection[{\$api\_\-key}]{\setlength{\rightskip}{0pt plus 5cm}\$api\_\-key}}
+\label{class_max_c_d_n_a186dfe06d14a3bc248c4eb4bcdaec562}
+
+
+Definition at line 23 of file MaxCDN.php.
+
+\hypertarget{class_max_c_d_n_a6886427c9c643f707fcb35c018049bc7}{
+\index{MaxCDN@{MaxCDN}!\$base\_\-url@{\$base\_\-url}}
+\index{\$base\_\-url@{\$base\_\-url}!MaxCDN@{MaxCDN}}
+\subsubsection[{\$base\_\-url}]{\setlength{\rightskip}{0pt plus 5cm}\$base\_\-url = \char`\"{}api.netdna.com/xmlrpc/\char`\"{}}}
+\label{class_max_c_d_n_a6886427c9c643f707fcb35c018049bc7}
+
+
+Definition at line 26 of file MaxCDN.php.
+
+\hypertarget{class_max_c_d_n_af0fcd925f00973e32f7214859dfb3c6b}{
+\index{MaxCDN@{MaxCDN}!\$user\_\-id@{\$user\_\-id}}
+\index{\$user\_\-id@{\$user\_\-id}!MaxCDN@{MaxCDN}}
+\subsubsection[{\$user\_\-id}]{\setlength{\rightskip}{0pt plus 5cm}\$user\_\-id}}
+\label{class_max_c_d_n_af0fcd925f00973e32f7214859dfb3c6b}
+
+
+Definition at line 24 of file MaxCDN.php.
+
+\hypertarget{class_max_c_d_n_aa9300810e8d9adff7d3fdc176c218363}{
+\index{MaxCDN@{MaxCDN}!\$xml\_\-rpc\_\-options@{\$xml\_\-rpc\_\-options}}
+\index{\$xml\_\-rpc\_\-options@{\$xml\_\-rpc\_\-options}!MaxCDN@{MaxCDN}}
+\subsubsection[{\$xml\_\-rpc\_\-options}]{\setlength{\rightskip}{0pt plus 5cm}\$xml\_\-rpc\_\-options = array()}}
+\label{class_max_c_d_n_aa9300810e8d9adff7d3fdc176c218363}
+
+
+Definition at line 25 of file MaxCDN.php.
+
+
+
+The documentation for this class was generated from the following file:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{_max_c_d_n_8php}{MaxCDN.php}\end{DoxyCompactItemize}

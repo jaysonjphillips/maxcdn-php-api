@@ -1,0 +1,35 @@
+digraph G
+{
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir=LR;
+  Node1 [label="encodeParameters",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled" fontcolor="black"];
+  Node1 -> Node2 [dir=back,color="midnightblue",fontsize="10",style="solid"];
+  Node2 [label="setXmlRpcMsg",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_max_c_d_n.html#a8c54c313b1f5bbae025c3c30cf12a1ee"];
+  Node2 -> Node3 [dir=back,color="midnightblue",fontsize="10",style="solid"];
+  Node3 [label="sendRequest",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_max_c_d_n.html#aa496f1ad190fdbd8682df3dea24abf1a"];
+  Node3 -> Node4 [dir=back,color="midnightblue",fontsize="10",style="solid"];
+  Node4 [label="getBandwidth",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_max_c_d_n.html#aa7c52da790e6d9e3acceb12d93c90de6"];
+  Node3 -> Node5 [dir=back,color="midnightblue",fontsize="10",style="solid"];
+  Node5 [label="getCacheHitStats",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_max_c_d_n.html#a2eba6ff5a4ac4d5348b6fc17ad4e90de"];
+  Node3 -> Node6 [dir=back,color="midnightblue",fontsize="10",style="solid"];
+  Node6 [label="getConnectionStats",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_max_c_d_n.html#a0ccdaad45884b8d37ec214a9fef96f69"];
+  Node3 -> Node7 [dir=back,color="midnightblue",fontsize="10",style="solid"];
+  Node7 [label="getHourlyConnectionStats",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_max_c_d_n.html#a6a37fba9236e945837fdab2615463fd8"];
+  Node3 -> Node8 [dir=back,color="midnightblue",fontsize="10",style="solid"];
+  Node8 [label="getNodeHits",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_max_c_d_n.html#a5edac3917b1fc456d9919a2b27954032"];
+  Node3 -> Node9 [dir=back,color="midnightblue",fontsize="10",style="solid"];
+  Node9 [label="getPopularFiles",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_max_c_d_n.html#ad34a2fa79fb678324ec5d8a98f6f58f4"];
+  Node3 -> Node10 [dir=back,color="midnightblue",fontsize="10",style="solid"];
+  Node10 [label="getTotalHits",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_max_c_d_n.html#aa14c507a271bdd2536047035549153e7"];
+  Node3 -> Node11 [dir=back,color="midnightblue",fontsize="10",style="solid"];
+  Node11 [label="getTotalTransfer",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_max_c_d_n.html#a4182fd3c7541817bfed426647cdf24b6"];
+  Node3 -> Node12 [dir=back,color="midnightblue",fontsize="10",style="solid"];
+  Node12 [label="getTotalTransferStats",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_max_c_d_n.html#a2f721064cd497651f42b949d8cbeae27"];
+  Node3 -> Node13 [dir=back,color="midnightblue",fontsize="10",style="solid"];
+  Node13 [label="getUsagePerDay",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_max_c_d_n.html#a0f0f34de0a9b9e8aee763a10620b0310"];
+  Node3 -> Node14 [dir=back,color="midnightblue",fontsize="10",style="solid"];
+  Node14 [label="getUserList",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_max_c_d_n.html#aeb20dee182d29e6d339cab9682b4ff04"];
+  Node3 -> Node15 [dir=back,color="midnightblue",fontsize="10",style="solid"];
+  Node15 [label="updateUser",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_max_c_d_n.html#a1d86f2ee4963b6bfeb447979f58e8e0e"];
+}
