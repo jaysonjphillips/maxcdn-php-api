@@ -411,8 +411,59 @@ class MaxCDN {
       throw new VariableTypeException('Required parameter is expected to be an array');
     }
 
-    return $this->sendRequest('user', 'update');
+    return $this->sendRequest('user', 'update', array($user_id, $update_values));
   }
+
+  /**
+   * Cache methods
+   * @subpackage cache
+   */
+
+  /**
+   * Purge - Purge a file from cache
+   * cache.purge
+   * 
+   * <code>
+   *  $this->purgeFromCache($url);
+   * </code>
+   * 
+   * Required: $url
+   *
+   * @param string $url 
+   * @return object xmlrpcresp | boolean $value
+   * 
+   */
+  function purgeFromCache($url) {
+    if (empty($url)) {
+      throw new MissingRequiredParameterException('One or more required parameters are empty');
+    }
+    
+    $this->sendRequest('cache', 'purge', array($url));
+  }
+  
+  /**
+   * Purge All Cache 
+   * Purges a file from cache so it is pulled from the origin server the next time it is requested
+   * cache.purgeAllCache
+   * 
+   * <code>
+   *  $this->purgeAllCache($zone);
+   * </code>
+   * 
+   * Required: $zone
+   *
+   * @param string $zone - name of the zone you wish to purge 
+   * @return object xmlrpcresp | boolean $value
+   * 
+   */
+  function purgeAllCache($zone) {
+    if (empty($zone)) {
+      throw new MissingRequiredParameterException('One or more required parameters are empty');
+    }
+    
+    $this->sendRequest('cache', 'purgeAllCache', array($zone));
+  }
+  
 
 }
 
