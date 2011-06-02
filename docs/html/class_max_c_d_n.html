@@ -26,7 +26,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
  <tbody>
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
-   <div id="projectname">MaxCDN PHP API&#160;<span id="projectnumber">0.2.0</span></div>
+   <div id="projectname">MaxCDN PHP API&#160;<span id="projectnumber">0.2.5</span></div>
    <div id="projectbrief">PHP class for interfacing with MaCDN's XML-RPC API</div>
   </td>
  </tr>
@@ -107,6 +107,8 @@ Public Member Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_max_c_d_n.html#a6a37fba9236e945837fdab2615463fd8">getHourlyConnectionStats</a> ($company_id, $date_from, $zone_id, $sort_by=null, $maximum=null, $offset=null, $timezone=null)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_max_c_d_n.html#aeb20dee182d29e6d339cab9682b4ff04">getUserList</a> ()</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_max_c_d_n.html#a1d86f2ee4963b6bfeb447979f58e8e0e">updateUser</a> ($user_id, $update_values)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_max_c_d_n.html#a62a3e75f63fe9295ec761eaee62294fb">purgeFromCache</a> ($url)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_max_c_d_n.html#a1ffd352aec7f5cbd343401630382316b">purgeAllCache</a> ($zone)</td></tr>
 <tr><td colspan="2"><h2><a name="pub-attribs"></a>
 Data Fields</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_max_c_d_n.html#a186dfe06d14a3bc248c4eb4bcdaec562">$api_key</a></td></tr>
@@ -1006,6 +1008,82 @@ Here is the call graph for this function:</div>
 
 </div>
 </div>
+<a class="anchor" id="a1ffd352aec7f5cbd343401630382316b"></a><!-- doxytag: member="MaxCDN::purgeAllCache" ref="a1ffd352aec7f5cbd343401630382316b" args="($zone)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">purgeAllCache </td>
+          <td>(</td>
+          <td class="paramtype">$&#160;</td>
+          <td class="paramname"><em>zone</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>Purge All Cache Purges a file from cache so it is pulled from the origin server the next time it is requested cache.purgeAllCache</p>
+<p><code> $this-&gt;purgeAllCache($zone); </code></p>
+<p>Required: $zone</p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramtype">string</td><td class="paramname">$zone</td><td>- name of the zone you wish to purge </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Returns:</b></dt><dd>object xmlrpcresp | boolean $value </dd></dl>
+
+<p>Definition at line <a class="el" href="_max_c_d_n_8php_source.html#l00459">459</a> of file <a class="el" href="_max_c_d_n_8php_source.html">MaxCDN.php</a>.</p>
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_max_c_d_n_a1ffd352aec7f5cbd343401630382316b_cgraph.png" border="0" usemap="#class_max_c_d_n_a1ffd352aec7f5cbd343401630382316b_cgraph" alt=""/></div>
+<map name="class_max_c_d_n_a1ffd352aec7f5cbd343401630382316b_cgraph" id="class_max_c_d_n_a1ffd352aec7f5cbd343401630382316b_cgraph">
+</map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a62a3e75f63fe9295ec761eaee62294fb"></a><!-- doxytag: member="MaxCDN::purgeFromCache" ref="a62a3e75f63fe9295ec761eaee62294fb" args="($url)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">purgeFromCache </td>
+          <td>(</td>
+          <td class="paramtype">$&#160;</td>
+          <td class="paramname"><em>url</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>Cache methods  cache Purge - Purge a file from cache cache.purge</p>
+<p><code> $this-&gt;purgeFromCache($url); </code></p>
+<p>Required: $url</p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramtype">string</td><td class="paramname">$url</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Returns:</b></dt><dd>object xmlrpcresp | boolean $value </dd></dl>
+
+<p>Definition at line <a class="el" href="_max_c_d_n_8php_source.html#l00436">436</a> of file <a class="el" href="_max_c_d_n_8php_source.html">MaxCDN.php</a>.</p>
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_max_c_d_n_a62a3e75f63fe9295ec761eaee62294fb_cgraph.png" border="0" usemap="#class_max_c_d_n_a62a3e75f63fe9295ec761eaee62294fb_cgraph" alt=""/></div>
+<map name="class_max_c_d_n_a62a3e75f63fe9295ec761eaee62294fb_cgraph" id="class_max_c_d_n_a62a3e75f63fe9295ec761eaee62294fb_cgraph">
+</map>
+</div>
+</p>
+
+</div>
+</div>
 <a class="anchor" id="aa496f1ad190fdbd8682df3dea24abf1a"></a><!-- doxytag: member="MaxCDN::sendRequest" ref="aa496f1ad190fdbd8682df3dea24abf1a" args="($namespace, $method, $params=null)" -->
 <div class="memitem">
 <div class="memproto">
@@ -1286,7 +1364,7 @@ Here is the call graph for this function:</div>
   <div id="nav-path" class="navpath">
     <ul>
       <li class="navelem"><a class="el" href="class_max_c_d_n.html">MaxCDN</a>      </li>
-      <li class="footer">Generated on Tue May 31 2011 21:48:05 for MaxCDN PHP API by&#160;
+      <li class="footer">Generated on Thu Jun 2 2011 07:42:24 for MaxCDN PHP API by&#160;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.4 </li>
     </ul>

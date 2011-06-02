@@ -29,5 +29,9 @@ digraph G
   Node2 -> Node13 [dir=back,color="midnightblue",fontsize="10",style="solid"];
   Node13 [label="getUserList",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_max_c_d_n.html#aeb20dee182d29e6d339cab9682b4ff04"];
   Node2 -> Node14 [dir=back,color="midnightblue",fontsize="10",style="solid"];
-  Node14 [label="updateUser",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_max_c_d_n.html#a1d86f2ee4963b6bfeb447979f58e8e0e"];
+  Node14 [label="purgeAllCache",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_max_c_d_n.html#a1ffd352aec7f5cbd343401630382316b"];
+  Node2 -> Node15 [dir=back,color="midnightblue",fontsize="10",style="solid"];
+  Node15 [label="purgeFromCache",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_max_c_d_n.html#a62a3e75f63fe9295ec761eaee62294fb"];
+  Node2 -> Node16 [dir=back,color="midnightblue",fontsize="10",style="solid"];
+  Node16 [label="updateUser",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_max_c_d_n.html#a1d86f2ee4963b6bfeb447979f58e8e0e"];
 }

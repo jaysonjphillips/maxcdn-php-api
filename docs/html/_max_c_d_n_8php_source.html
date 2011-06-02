@@ -26,7 +26,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
  <tbody>
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
-   <div id="projectname">MaxCDN PHP API&#160;<span id="projectnumber">0.2.0</span></div>
+   <div id="projectname">MaxCDN PHP API&#160;<span id="projectnumber">0.2.5</span></div>
    <div id="projectbrief">PHP class for interfacing with MaCDN's XML-RPC API</div>
   </td>
  </tr>
@@ -231,18 +231,35 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00411"></a>00411       <span class="keywordflow">throw</span> <span class="keyword">new</span> <a class="code" href="class_variable_type_exception.html">VariableTypeException</a>(<span class="stringliteral">&#39;Required parameter is expected to be an array&#39;</span>);
 <a name="l00412"></a>00412     }
 <a name="l00413"></a>00413 
-<a name="l00414"></a>00414     <span class="keywordflow">return</span> $this-&gt;<a class="code" href="class_max_c_d_n.html#aa496f1ad190fdbd8682df3dea24abf1a">sendRequest</a>(<span class="stringliteral">&#39;user&#39;</span>, <span class="stringliteral">&#39;update&#39;</span>);
+<a name="l00414"></a>00414     <span class="keywordflow">return</span> $this-&gt;<a class="code" href="class_max_c_d_n.html#aa496f1ad190fdbd8682df3dea24abf1a">sendRequest</a>(<span class="stringliteral">&#39;user&#39;</span>, <span class="stringliteral">&#39;update&#39;</span>, array(<a class="code" href="class_max_c_d_n.html#af0fcd925f00973e32f7214859dfb3c6b">$user_id</a>, $update_values));
 <a name="l00415"></a>00415   }
 <a name="l00416"></a>00416 
-<a name="l00417"></a>00417 }
-<a name="l00418"></a>00418 
-<a name="l00419"></a>00419 ?&gt;
+<a name="l00436"></a><a class="code" href="class_max_c_d_n.html#a62a3e75f63fe9295ec761eaee62294fb">00436</a>   function <a class="code" href="class_max_c_d_n.html#a62a3e75f63fe9295ec761eaee62294fb">purgeFromCache</a>($url) {
+<a name="l00437"></a>00437     <span class="keywordflow">if</span> (empty($url)) {
+<a name="l00438"></a>00438       <span class="keywordflow">throw</span> <span class="keyword">new</span> MissingRequiredParameterException(<span class="stringliteral">&#39;One or more required parameters are empty&#39;</span>);
+<a name="l00439"></a>00439     }
+<a name="l00440"></a>00440     
+<a name="l00441"></a>00441     $this-&gt;<a class="code" href="class_max_c_d_n.html#aa496f1ad190fdbd8682df3dea24abf1a">sendRequest</a>(<span class="stringliteral">&#39;cache&#39;</span>, <span class="stringliteral">&#39;purge&#39;</span>, array($url));
+<a name="l00442"></a>00442   }
+<a name="l00443"></a>00443   
+<a name="l00459"></a><a class="code" href="class_max_c_d_n.html#a1ffd352aec7f5cbd343401630382316b">00459</a>   function <a class="code" href="class_max_c_d_n.html#a1ffd352aec7f5cbd343401630382316b">purgeAllCache</a>($zone) {
+<a name="l00460"></a>00460     <span class="keywordflow">if</span> (empty($zone)) {
+<a name="l00461"></a>00461       <span class="keywordflow">throw</span> <span class="keyword">new</span> MissingRequiredParameterException(<span class="stringliteral">&#39;One or more required parameters are empty&#39;</span>);
+<a name="l00462"></a>00462     }
+<a name="l00463"></a>00463     
+<a name="l00464"></a>00464     $this-&gt;<a class="code" href="class_max_c_d_n.html#aa496f1ad190fdbd8682df3dea24abf1a">sendRequest</a>(<span class="stringliteral">&#39;cache&#39;</span>, <span class="stringliteral">&#39;purgeAllCache&#39;</span>, array($zone));
+<a name="l00465"></a>00465   }
+<a name="l00466"></a>00466   
+<a name="l00467"></a>00467 
+<a name="l00468"></a>00468 }
+<a name="l00469"></a>00469 
+<a name="l00470"></a>00470 ?&gt;
 </pre></div></div>
 </div>
   <div id="nav-path" class="navpath">
     <ul>
       <li class="navelem"><a class="el" href="_max_c_d_n_8php.html">MaxCDN.php</a>      </li>
-      <li class="footer">Generated on Tue May 31 2011 21:48:05 for MaxCDN PHP API by&#160;
+      <li class="footer">Generated on Thu Jun 2 2011 07:42:24 for MaxCDN PHP API by&#160;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.4 </li>
     </ul>

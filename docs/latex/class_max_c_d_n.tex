@@ -38,6 +38,10 @@
 \hyperlink{class_max_c_d_n_aeb20dee182d29e6d339cab9682b4ff04}{getUserList} ()
 \item 
 \hyperlink{class_max_c_d_n_a1d86f2ee4963b6bfeb447979f58e8e0e}{updateUser} (\$user\_\-id, \$update\_\-values)
+\item 
+\hyperlink{class_max_c_d_n_a62a3e75f63fe9295ec761eaee62294fb}{purgeFromCache} (\$url)
+\item 
+\hyperlink{class_max_c_d_n_a1ffd352aec7f5cbd343401630382316b}{purgeAllCache} (\$zone)
 \end{DoxyCompactItemize}
 \subsection*{Data Fields}
 \begin{DoxyCompactItemize}
@@ -565,6 +569,70 @@ object xmlrpcresp $|$ array \$value
 
 
 Definition at line 387 of file MaxCDN.php.
+
+
+
+Here is the call graph for this function:
+
+
+\hypertarget{class_max_c_d_n_a1ffd352aec7f5cbd343401630382316b}{
+\index{MaxCDN@{MaxCDN}!purgeAllCache@{purgeAllCache}}
+\index{purgeAllCache@{purgeAllCache}!MaxCDN@{MaxCDN}}
+\subsubsection[{purgeAllCache}]{\setlength{\rightskip}{0pt plus 5cm}purgeAllCache (
+\begin{DoxyParamCaption}
+\item[{\$}]{zone}
+\end{DoxyParamCaption}
+)}}
+\label{class_max_c_d_n_a1ffd352aec7f5cbd343401630382316b}
+Purge All Cache Purges a file from cache so it is pulled from the origin server the next time it is requested cache.purgeAllCache
+
+{\ttfamily  \$this-\/$>$purgeAllCache(\$zone); }
+
+Required: \$zone
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$zone} & -\/ name of the zone you wish to purge \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+object xmlrpcresp $|$ boolean \$value 
+\end{DoxyReturn}
+
+
+Definition at line 459 of file MaxCDN.php.
+
+
+
+Here is the call graph for this function:
+
+
+\hypertarget{class_max_c_d_n_a62a3e75f63fe9295ec761eaee62294fb}{
+\index{MaxCDN@{MaxCDN}!purgeFromCache@{purgeFromCache}}
+\index{purgeFromCache@{purgeFromCache}!MaxCDN@{MaxCDN}}
+\subsubsection[{purgeFromCache}]{\setlength{\rightskip}{0pt plus 5cm}purgeFromCache (
+\begin{DoxyParamCaption}
+\item[{\$}]{url}
+\end{DoxyParamCaption}
+)}}
+\label{class_max_c_d_n_a62a3e75f63fe9295ec761eaee62294fb}
+Cache methods  cache Purge -\/ Purge a file from cache cache.purge
+
+{\ttfamily  \$this-\/$>$purgeFromCache(\$url); }
+
+Required: \$url
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$url} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+object xmlrpcresp $|$ boolean \$value 
+\end{DoxyReturn}
+
+
+Definition at line 436 of file MaxCDN.php.
 
 
 

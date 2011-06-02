@@ -33,5 +33,9 @@ digraph G
   Node4 -> Node15 [dir=back,color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
   Node15 [label="getUserList",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_max_c_d_n.html#aeb20dee182d29e6d339cab9682b4ff04"];
   Node4 -> Node16 [dir=back,color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
-  Node16 [label="updateUser",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_max_c_d_n.html#a1d86f2ee4963b6bfeb447979f58e8e0e"];
+  Node16 [label="purgeAllCache",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_max_c_d_n.html#a1ffd352aec7f5cbd343401630382316b"];
+  Node4 -> Node17 [dir=back,color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node17 [label="purgeFromCache",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_max_c_d_n.html#a62a3e75f63fe9295ec761eaee62294fb"];
+  Node4 -> Node18 [dir=back,color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node18 [label="updateUser",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_max_c_d_n.html#a1d86f2ee4963b6bfeb447979f58e8e0e"];
 }
