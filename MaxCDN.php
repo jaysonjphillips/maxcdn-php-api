@@ -543,7 +543,7 @@ class MaxCDN {
    * @return object xmlrpcresp | array $value
    * 
    */
-  function getAllPullZones() {
+  function getPullZones() {
 
     $this->sendRequest('pullzone', 'listZones');
   }
@@ -644,7 +644,7 @@ class MaxCDN {
    * @return object xmlrpcresp | array $value
    * 
    */
-  function getAllPushZones() {
+  function getPushZones() {
 
     $this->sendRequest('pushzone', 'listZones');
   }
@@ -743,11 +743,107 @@ class MaxCDN {
    * @return object xmlrpcresp | array $value
    * 
    */
-  function getAllVodZones() {
-
+  function getVodZones() {
     $this->sendRequest('vodzone', 'listZones');
   }
 
+  /**
+   * Live zone methods
+   * @subpackage livezone
+   */
+
+  /**
+   * Livezone Create 
+   * Creates a new Live Zone 
+   * livezone.create
+   * 
+   * <code>
+   *  $this->createLiveZone($name, $password, $label);
+   * </code>
+   * 
+   * Required: string $name, string $password
+   *
+   * @param string $name 
+   * @param string $password  
+   * @param string $label (optional)
+   * @return object xmlrpcresp | array $value (if failed, array(int errorCode, string errorMessage))
+   * 
+   */
+  function createLiveZone($name, $password, $label = null) {
+    if (empty($name) || empty($password)) {
+      throw new MissingRequiredParameterException('One or more required parameters are empty');
+    }
+
+	$zone_values = array($name, $password, $label);
+    $this->sendRequest('livezone', 'create', array($zone_values));
+  }
+
+/**
+   * Livezone Update 
+   * Updates an existing Live Zone
+   * livezone.update
+   * 
+   * <code>
+   *  $this->updateLiveZone($zone_id, $name, $password, $label);
+   * </code>
+   * 
+   * Required: int $zone_id
+   *
+   * @param int	    $zone_id
+   * @param string  $name (optional)
+   * @param string  $password (optional)
+   * @param string  $label (optional)
+   * @return object xmlrpcresp | int $value (0 is success, 1 if failed)
+   * 
+   */
+  function updateLiveZone($zone_id, $name = null, $password = null, $label = null) {
+    if (empty($zone_id)) {
+      throw new MissingRequiredParameterException('One or more required parameters are empty');
+    }
+
+	$zone_values = array($name, $password, $label);
+
+    $this->sendRequest('livezone', 'update', array($zone_id, $zone_values);
+  }
+
+/**
+   * Livezone Delete 
+   * Deletes an existing Live Zone
+   * livezone.delete
+   * 
+   * <code>
+   *  $this->deleteLiveZone($zone_id);
+   * </code>
+   * 
+   * Required: int $zone_id
+   *
+   * @param int	    $zone_id
+   * @return object xmlrpcresp | int $value (0 is success, 1 if failed)
+   * 
+   */
+  function deleteLiveZone($zone_id) {
+    if (empty($zone_id)) {
+      throw new MissingRequiredParameterException('One or more required parameters are empty');
+    }
+
+    $this->sendRequest('livezone', 'delete', array($zone_id);
+  }
+
+/**
+   * Livezone List Zones 
+   * Lists all Live Zones on your account
+   * Livezone.listZones
+   * 
+   * <code>
+   *  $this->getAllLiveZones();
+   * </code>
+   * 
+   * @return object xmlrpcresp | array $value
+   * 
+   */
+  function getLiveZones() {
+    $this->sendRequest('livezone', 'listZones');
+  }
 }
 
 ?>
