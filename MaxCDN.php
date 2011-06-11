@@ -649,6 +649,105 @@ class MaxCDN {
     $this->sendRequest('pushzone', 'listZones');
   }
 
+  /**
+   * Vod zone methods
+   * @subpackage vodzone
+   */
+
+  /**
+   * Vodzone Create 
+   * Creates a new Vod Zone 
+   * vodzone.create
+   * 
+   * <code>
+   *  $this->createVodZone($name, $password, $label);
+   * </code>
+   * 
+   * Required: string $name, string $password
+   *
+   * @param string $name 
+   * @param string $password  
+   * @param string $label (optional)
+   * @return object xmlrpcresp | array $value (if failed, array(int errorCode, string errorMessage))
+   * 
+   */
+  function createVodZone($name, $password, $label = null) {
+    if (empty($name) || empty($password)) {
+      throw new MissingRequiredParameterException('One or more required parameters are empty');
+    }
+
+	$zone_values = array($name, $password, $label);
+    $this->sendRequest('vodzone', 'create', array($zone_values));
+  }
+
+/**
+   * Vodzone Update 
+   * Updates an existing Vod Zone
+   * vodzone.update
+   * 
+   * <code>
+   *  $this->updateVodZone($zone_id, $name, $password, $label);
+   * </code>
+   * 
+   * Required: int $zone_id
+   *
+   * @param int	    $zone_id
+   * @param string  $name (optional)
+   * @param string  $password (optional)
+   * @param string  $label (optional)
+   * @return object xmlrpcresp | int $value (0 is success, 1 if failed)
+   * 
+   */
+  function updateVodZone($zone_id, $name = null, $password = null, $label = null) {
+    if (empty($zone_id)) {
+      throw new MissingRequiredParameterException('One or more required parameters are empty');
+    }
+
+	$zone_values = array($name, $password, $label);
+
+    $this->sendRequest('vodzone', 'update', array($zone_id, $zone_values);
+  }
+
+/**
+   * Vodzone Delete 
+   * Deletes an existing Vod Zone
+   * vodzone.delete
+   * 
+   * <code>
+   *  $this->deleteVodZone($zone_id);
+   * </code>
+   * 
+   * Required: int $zone_id
+   *
+   * @param int	    $zone_id
+   * @return object xmlrpcresp | int $value (0 is success, 1 if failed)
+   * 
+   */
+  function deleteVodZone($zone_id) {
+    if (empty($zone_id)) {
+      throw new MissingRequiredParameterException('One or more required parameters are empty');
+    }
+
+    $this->sendRequest('vodzone', 'delete', array($zone_id);
+  }
+
+/**
+   * Vodzone List Zones 
+   * Lists all Vod Zones on your account
+   * Vodzone.listZones
+   * 
+   * <code>
+   *  $this->getAllVodZones();
+   * </code>
+   * 
+   * @return object xmlrpcresp | array $value
+   * 
+   */
+  function getAllVodZones() {
+
+    $this->sendRequest('vodzone', 'listZones');
+  }
+
 }
 
 ?>
