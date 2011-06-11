@@ -482,11 +482,11 @@ class MaxCDN {
    *
    * @param string $name 
    * @param string $origin  
-   * @param string $vhost  
-   * @param string $ip  
-   * @param string $compress  
-   * @param string $vanity_url
-   * @param string $label  
+   * @param string $vhost (optional)
+   * @param string $ip (optional)
+   * @param string $compress (optional)
+   * @param string $vanity_url (optional)
+   * @param string $label (optional)
    * @return object xmlrpcresp | array $value (if failed, array(int errorCode, string errorMessage))
    * 
    */
@@ -511,13 +511,13 @@ class MaxCDN {
    * Required: int $zone_id
    *
    * @param int	    $zone_id
-   * @param string  $name 
-   * @param string  $origin  
-   * @param string  $vhost  
-   * @param string  $ip  
-   * @param string  $compress  
-   * @param string  $vanity_url
-   * @param string  $label  
+   * @param string  $name (optional)
+   * @param string  $origin (optional)
+   * @param string  $vhost (optional)
+   * @param string  $ip (optional)
+   * @param string  $compress (optional)
+   * @param string  $vanity_url (optional)
+   * @param string  $label (optional)
    * @return object xmlrpcresp | int $value (0 is success, 1 if failed)
    * 
    */
@@ -546,6 +546,107 @@ class MaxCDN {
   function getAllPullZones() {
 
     $this->sendRequest('pullzone', 'listZones');
+  }
+
+  /**
+   * Push zone methods
+   * @subpackage pushzone
+   */
+
+  /**
+   * Pushzone Create 
+   * Creates a new Push Zone 
+   * pushzone.create
+   * 
+   * <code>
+   *  $this->createPushZone($name, $password, $compress, $vanity_url, $label);
+   * </code>
+   * 
+   * Required: string $name, string $password
+   *
+   * @param string $name 
+   * @param string $password  
+   * @param string $compress (optional)
+   * @param string $vanity_url (optional)
+   * @param string $label (optional)
+   * @return object xmlrpcresp | array $value (if failed, array(int errorCode, string errorMessage))
+   * 
+   */
+  function createPushZone($name, $password, $compress = null, $vanity_url = null, $label = null) {
+    if (empty($name) || empty($password)) {
+      throw new MissingRequiredParameterException('One or more required parameters are empty');
+    }
+
+	$zone_values = array($name, $password, $compress, $vanity_url, $label);
+    $this->sendRequest('pushzone', 'create', array($zone_values));
+  }
+
+/**
+   * Pushzone Update 
+   * Updates an existing Push Zone
+   * pushzone.update
+   * 
+   * <code>
+   *  $this->updatePushZone($zone_id, $name, $password, $label);
+   * </code>
+   * 
+   * Required: int $zone_id
+   *
+   * @param int	    $zone_id
+   * @param string  $name (optional)
+   * @param string  $password (optional)
+   * @param string  $label (optional)
+   * @return object xmlrpcresp | int $value (0 is success, 1 if failed)
+   * 
+   */
+  function updatePushZone($zone_id, $name = null, $password = null, $label = null) {
+    if (empty($zone_id)) {
+      throw new MissingRequiredParameterException('One or more required parameters are empty');
+    }
+
+	$zone_values = array($name, $password, $label);
+
+    $this->sendRequest('pushzone', 'update', array($zone_id, $zone_values);
+  }
+
+/**
+   * Pushzone Delete 
+   * Deletes an existing Push Zone
+   * pushzone.delete
+   * 
+   * <code>
+   *  $this->deletePushZone($zone_id);
+   * </code>
+   * 
+   * Required: int $zone_id
+   *
+   * @param int	    $zone_id
+   * @return object xmlrpcresp | int $value (0 is success, 1 if failed)
+   * 
+   */
+  function deletePushZone($zone_id) {
+    if (empty($zone_id)) {
+      throw new MissingRequiredParameterException('One or more required parameters are empty');
+    }
+
+    $this->sendRequest('pushzone', 'delete', array($zone_id);
+  }
+
+/**
+   * Pushzone List Zones 
+   * Lists all Push Zones on your account
+   * pushzone.listZones
+   * 
+   * <code>
+   *  $this->getAllPushZones();
+   * </code>
+   * 
+   * @return object xmlrpcresp | array $value
+   * 
+   */
+  function getAllPushZones() {
+
+    $this->sendRequest('pushzone', 'listZones');
   }
 
 }
