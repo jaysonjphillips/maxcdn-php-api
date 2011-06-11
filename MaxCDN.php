@@ -464,6 +464,89 @@ class MaxCDN {
     $this->sendRequest('cache', 'purgeAllCache', array($zone));
   }
   
+  /**
+   * Pull zone methods
+   * @subpackage pullzone
+   */
+
+  /**
+   * Pullzone Create 
+   * Creates a new Pull Zone on the edge servers. This type of zone caches content on the edge servers and pulls from the customer’s origin server as needed.
+   * pullzone.create
+   * 
+   * <code>
+   *  $this->createPullZone($name, $origin, $vhost, $ip, $compress, $vanity_url, $label);
+   * </code>
+   * 
+   * Required: string $name, string $origin
+   *
+   * @param string $name 
+   * @param string $origin  
+   * @param string $vhost  
+   * @param string $ip  
+   * @param string $compress  
+   * @param string $vanity_url
+   * @param string $label  
+   * @return object xmlrpcresp | array $value (if failed, array(int errorCode, string errorMessage))
+   * 
+   */
+  function createPullZone($name, $origin, $vhost = null, $ip = null, $compress = null, $vanity_url = null, $label = null) {
+    if (empty($name) || empty($origin)) {
+      throw new MissingRequiredParameterException('One or more required parameters are empty');
+    }
+    
+	$zone_values = array($name, $origin, $vhost, $ip, $compress, $vanity_url, $label);
+    $this->sendRequest('pullzone', 'create', array($zone_values));
+  }
+
+/**
+   * Pullzone Update 
+   * Updates an existing Pull Zone
+   * pullzone.update
+   * 
+   * <code>
+   *  $this->updatePullZone($id, $name, $origin, $vhost, $ip, $compress, $vanity_url, $label);
+   * </code>
+   * 
+   * Required: int $zone_id
+   *
+   * @param int	    $zone_id
+   * @param string  $name 
+   * @param string  $origin  
+   * @param string  $vhost  
+   * @param string  $ip  
+   * @param string  $compress  
+   * @param string  $vanity_url
+   * @param string  $label  
+   * @return object xmlrpcresp | int $value (0 is success, 1 if failed)
+   * 
+   */
+  function updatePullZone($zone_id, $name = null, $origin = null, $vhost = null, $ip = null, $compress = null, $vanity_url = null, $label = null) {
+    if (empty($zone_id)) {
+      throw new MissingRequiredParameterException('One or more required parameters are empty');
+    }
+	
+	$zone_values = array($name, $origin, $vhost, $ip, $compress, $vanity_url, $label);
+	
+    $this->sendRequest('pullzone', 'update', array($zone_id, $zone_values);
+  }
+
+/**
+   * Pullzone List Zones 
+   * Lists all Pull Zones on your account
+   * pullzone.listZones
+   * 
+   * <code>
+   *  $this->getAllPullZones();
+   * </code>
+   * 
+   * @return object xmlrpcresp | array $value
+   * 
+   */
+  function getAllPullZones() {
+
+    $this->sendRequest('pullzone', 'listZones');
+  }
 
 }
 
