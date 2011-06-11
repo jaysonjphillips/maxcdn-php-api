@@ -4,15 +4,14 @@
  * @author Jayson J. Phillips <jayson.phillips@chroniumlabs.com>
  * @copyright Copyright (c) 2011 Chronium Labs LLC
  * @license http://opensource.org/licenses/mit-license.php MIT License
- * @version 0.2
+ * @version 0.5
  * @package chroniumlabs.maxcdn-api
  *
  */
 /**
  * The MaxCDN XMLRPC API Class
  * @package chroniumlabs.maxcdn-api
- * @todo Flesh out the full API - currently the reporting methods
- * @todo Document all elements accordingly in phpDoc syntax
+ * @todo Add remaining tests and cleanup test suite
  */
 date_default_timezone_set('America/Los_Angeles');
 require 'MaxCDN_Exceptions.php';
