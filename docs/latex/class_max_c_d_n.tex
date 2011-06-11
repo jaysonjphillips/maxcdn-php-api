@@ -42,6 +42,36 @@
 \hyperlink{class_max_c_d_n_a62a3e75f63fe9295ec761eaee62294fb}{purgeFromCache} (\$url)
 \item 
 \hyperlink{class_max_c_d_n_a1ffd352aec7f5cbd343401630382316b}{purgeAllCache} (\$zone)
+\item 
+\hyperlink{class_max_c_d_n_a842e2c679ffc3af1d78bc67f35edfc8b}{createPullZone} (\$name, \$origin, \$vhost=null, \$ip=null, \$compress=null, \$vanity\_\-url=null, \$label=null)
+\item 
+\hyperlink{class_max_c_d_n_ad95bc411959f49b988bed017381a6103}{updatePullZone} (\$zone\_\-id, \$name=null, \$origin=null, \$vhost=null, \$ip=null, \$compress=null, \$vanity\_\-url=null, \$label=null)
+\item 
+\hyperlink{class_max_c_d_n_af25dffec4a45683331d76e16ac82f125}{getPullZones} ()
+\item 
+\hyperlink{class_max_c_d_n_a56f74befea49b5aad3ce999b0b700cd0}{createPushZone} (\$name, \$password, \$compress=null, \$vanity\_\-url=null, \$label=null)
+\item 
+\hyperlink{class_max_c_d_n_a6f76399ae6628212637357d101c3a37f}{updatePushZone} (\$zone\_\-id, \$name=null, \$password=null, \$label=null)
+\item 
+\hyperlink{class_max_c_d_n_a020946e4c4bd99908cf439113569ef2b}{deletePushZone} (\$zone\_\-id)
+\item 
+\hyperlink{class_max_c_d_n_a16b0ec27cb42588cc908b1fa1fb5dc3b}{getPushZones} ()
+\item 
+\hyperlink{class_max_c_d_n_aa692957f148655dfb52b57856752cb1a}{createVodZone} (\$name, \$password, \$label=null)
+\item 
+\hyperlink{class_max_c_d_n_a9dbe6ee3e3316947a53c7449b5058cdb}{updateVodZone} (\$zone\_\-id, \$name=null, \$password=null, \$label=null)
+\item 
+\hyperlink{class_max_c_d_n_a44ef0c0f3348b3823a827d4f8fd1f69b}{deleteVodZone} (\$zone\_\-id)
+\item 
+\hyperlink{class_max_c_d_n_a252e5eb5e92bda7e596ef52038156db8}{getVodZones} ()
+\item 
+\hyperlink{class_max_c_d_n_a541ec1657aca049f04e53517f95d8bf6}{createLiveZone} (\$name, \$password, \$label=null)
+\item 
+\hyperlink{class_max_c_d_n_a887cf925e7b0137f584f75c0ea253a64}{updateLiveZone} (\$zone\_\-id, \$name=null, \$password=null, \$label=null)
+\item 
+\hyperlink{class_max_c_d_n_a4a95c42a3716d9f45be0cbe37db33ff9}{deleteLiveZone} (\$zone\_\-id)
+\item 
+\hyperlink{class_max_c_d_n_a1492bb1d403e0e37bbb6694ceade7431}{getLiveZones} ()
 \end{DoxyCompactItemize}
 \subsection*{Data Fields}
 \begin{DoxyCompactItemize}
@@ -90,6 +120,272 @@ Definition at line 37 of file MaxCDN.php.
 
 
 \subsection{Member Function Documentation}
+\hypertarget{class_max_c_d_n_a541ec1657aca049f04e53517f95d8bf6}{
+\index{MaxCDN@{MaxCDN}!createLiveZone@{createLiveZone}}
+\index{createLiveZone@{createLiveZone}!MaxCDN@{MaxCDN}}
+\subsubsection[{createLiveZone}]{\setlength{\rightskip}{0pt plus 5cm}createLiveZone (
+\begin{DoxyParamCaption}
+\item[{\$}]{name, }
+\item[{\$}]{password, }
+\item[{\$}]{label = {\ttfamily null}}
+\end{DoxyParamCaption}
+)}}
+\label{class_max_c_d_n_a541ec1657aca049f04e53517f95d8bf6}
+Live zone methods  livezone Livezone Create Creates a new Live Zone livezone.create
+
+{\ttfamily  \$this-\/$>$createLiveZone(\$name, \$password, \$label); }
+
+Required: string \$name, string \$password
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$name} & \\
+\hline
+string & {\em \$password} & \\
+\hline
+string & {\em \$label} & (optional) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+object xmlrpcresp $|$ array \$value (if failed, array(int errorCode, string errorMessage)) 
+\end{DoxyReturn}
+
+
+Definition at line 772 of file MaxCDN.php.
+
+
+
+Here is the call graph for this function:
+
+
+\hypertarget{class_max_c_d_n_a842e2c679ffc3af1d78bc67f35edfc8b}{
+\index{MaxCDN@{MaxCDN}!createPullZone@{createPullZone}}
+\index{createPullZone@{createPullZone}!MaxCDN@{MaxCDN}}
+\subsubsection[{createPullZone}]{\setlength{\rightskip}{0pt plus 5cm}createPullZone (
+\begin{DoxyParamCaption}
+\item[{\$}]{name, }
+\item[{\$}]{origin, }
+\item[{\$}]{vhost = {\ttfamily null}, }
+\item[{\$}]{ip = {\ttfamily null}, }
+\item[{\$}]{compress = {\ttfamily null}, }
+\item[{\$}]{vanity\_\-url = {\ttfamily null}, }
+\item[{\$}]{label = {\ttfamily null}}
+\end{DoxyParamCaption}
+)}}
+\label{class_max_c_d_n_a842e2c679ffc3af1d78bc67f35edfc8b}
+Pull zone methods  pullzone Pullzone Create Creates a new Pull Zone on the edge servers. This type of zone caches content on the edge servers and pulls from the customer’s origin server as needed. pullzone.create
+
+{\ttfamily  \$this-\/$>$createPullZone(\$name, \$origin, \$vhost, \$ip, \$compress, \$vanity\_\-url, \$label); }
+
+Required: string \$name, string \$origin
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$name} & \\
+\hline
+string & {\em \$origin} & \\
+\hline
+string & {\em \$vhost} & (optional) \\
+\hline
+string & {\em \$ip} & (optional) \\
+\hline
+string & {\em \$compress} & (optional) \\
+\hline
+string & {\em \$vanity\_\-url} & (optional) \\
+\hline
+string & {\em \$label} & (optional) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+object xmlrpcresp $|$ array \$value (if failed, array(int errorCode, string errorMessage)) 
+\end{DoxyReturn}
+
+
+Definition at line 493 of file MaxCDN.php.
+
+
+
+Here is the call graph for this function:
+
+
+\hypertarget{class_max_c_d_n_a56f74befea49b5aad3ce999b0b700cd0}{
+\index{MaxCDN@{MaxCDN}!createPushZone@{createPushZone}}
+\index{createPushZone@{createPushZone}!MaxCDN@{MaxCDN}}
+\subsubsection[{createPushZone}]{\setlength{\rightskip}{0pt plus 5cm}createPushZone (
+\begin{DoxyParamCaption}
+\item[{\$}]{name, }
+\item[{\$}]{password, }
+\item[{\$}]{compress = {\ttfamily null}, }
+\item[{\$}]{vanity\_\-url = {\ttfamily null}, }
+\item[{\$}]{label = {\ttfamily null}}
+\end{DoxyParamCaption}
+)}}
+\label{class_max_c_d_n_a56f74befea49b5aad3ce999b0b700cd0}
+Push zone methods  pushzone Pushzone Create Creates a new Push Zone pushzone.create
+
+{\ttfamily  \$this-\/$>$createPushZone(\$name, \$password, \$compress, \$vanity\_\-url, \$label); }
+
+Required: string \$name, string \$password
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$name} & \\
+\hline
+string & {\em \$password} & \\
+\hline
+string & {\em \$compress} & (optional) \\
+\hline
+string & {\em \$vanity\_\-url} & (optional) \\
+\hline
+string & {\em \$label} & (optional) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+object xmlrpcresp $|$ array \$value (if failed, array(int errorCode, string errorMessage)) 
+\end{DoxyReturn}
+
+
+Definition at line 575 of file MaxCDN.php.
+
+
+
+Here is the call graph for this function:
+
+
+\hypertarget{class_max_c_d_n_aa692957f148655dfb52b57856752cb1a}{
+\index{MaxCDN@{MaxCDN}!createVodZone@{createVodZone}}
+\index{createVodZone@{createVodZone}!MaxCDN@{MaxCDN}}
+\subsubsection[{createVodZone}]{\setlength{\rightskip}{0pt plus 5cm}createVodZone (
+\begin{DoxyParamCaption}
+\item[{\$}]{name, }
+\item[{\$}]{password, }
+\item[{\$}]{label = {\ttfamily null}}
+\end{DoxyParamCaption}
+)}}
+\label{class_max_c_d_n_aa692957f148655dfb52b57856752cb1a}
+Vod zone methods  vodzone Vodzone Create Creates a new Vod Zone vodzone.create
+
+{\ttfamily  \$this-\/$>$createVodZone(\$name, \$password, \$label); }
+
+Required: string \$name, string \$password
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$name} & \\
+\hline
+string & {\em \$password} & \\
+\hline
+string & {\em \$label} & (optional) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+object xmlrpcresp $|$ array \$value (if failed, array(int errorCode, string errorMessage)) 
+\end{DoxyReturn}
+
+
+Definition at line 674 of file MaxCDN.php.
+
+
+
+Here is the call graph for this function:
+
+
+\hypertarget{class_max_c_d_n_a4a95c42a3716d9f45be0cbe37db33ff9}{
+\index{MaxCDN@{MaxCDN}!deleteLiveZone@{deleteLiveZone}}
+\index{deleteLiveZone@{deleteLiveZone}!MaxCDN@{MaxCDN}}
+\subsubsection[{deleteLiveZone}]{\setlength{\rightskip}{0pt plus 5cm}deleteLiveZone (
+\begin{DoxyParamCaption}
+\item[{\$}]{zone\_\-id}
+\end{DoxyParamCaption}
+)}}
+\label{class_max_c_d_n_a4a95c42a3716d9f45be0cbe37db33ff9}
+Livezone Delete Deletes an existing Live Zone livezone.delete
+
+{\ttfamily  \$this-\/$>$deleteLiveZone(\$zone\_\-id); }
+
+Required: int \$zone\_\-id
+
+
+\begin{DoxyParams}[1]{Parameters}
+int & {\em \$zone\_\-id} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+object xmlrpcresp $|$ int \$value (0 is success, 1 if failed) 
+\end{DoxyReturn}
+
+
+Definition at line 824 of file MaxCDN.php.
+
+
+
+Here is the call graph for this function:
+
+
+\hypertarget{class_max_c_d_n_a020946e4c4bd99908cf439113569ef2b}{
+\index{MaxCDN@{MaxCDN}!deletePushZone@{deletePushZone}}
+\index{deletePushZone@{deletePushZone}!MaxCDN@{MaxCDN}}
+\subsubsection[{deletePushZone}]{\setlength{\rightskip}{0pt plus 5cm}deletePushZone (
+\begin{DoxyParamCaption}
+\item[{\$}]{zone\_\-id}
+\end{DoxyParamCaption}
+)}}
+\label{class_max_c_d_n_a020946e4c4bd99908cf439113569ef2b}
+Pushzone Delete Deletes an existing Push Zone pushzone.delete
+
+{\ttfamily  \$this-\/$>$deletePushZone(\$zone\_\-id); }
+
+Required: int \$zone\_\-id
+
+
+\begin{DoxyParams}[1]{Parameters}
+int & {\em \$zone\_\-id} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+object xmlrpcresp $|$ int \$value (0 is success, 1 if failed) 
+\end{DoxyReturn}
+
+
+Definition at line 627 of file MaxCDN.php.
+
+
+
+Here is the call graph for this function:
+
+
+\hypertarget{class_max_c_d_n_a44ef0c0f3348b3823a827d4f8fd1f69b}{
+\index{MaxCDN@{MaxCDN}!deleteVodZone@{deleteVodZone}}
+\index{deleteVodZone@{deleteVodZone}!MaxCDN@{MaxCDN}}
+\subsubsection[{deleteVodZone}]{\setlength{\rightskip}{0pt plus 5cm}deleteVodZone (
+\begin{DoxyParamCaption}
+\item[{\$}]{zone\_\-id}
+\end{DoxyParamCaption}
+)}}
+\label{class_max_c_d_n_a44ef0c0f3348b3823a827d4f8fd1f69b}
+Vodzone Delete Deletes an existing Vod Zone vodzone.delete
+
+{\ttfamily  \$this-\/$>$deleteVodZone(\$zone\_\-id); }
+
+Required: int \$zone\_\-id
+
+
+\begin{DoxyParams}[1]{Parameters}
+int & {\em \$zone\_\-id} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+object xmlrpcresp $|$ int \$value (0 is success, 1 if failed) 
+\end{DoxyReturn}
+
+
+Definition at line 726 of file MaxCDN.php.
+
+
+
+Here is the call graph for this function:
+
+
 \hypertarget{class_max_c_d_n_ab03d4f2c7f3b6d1e3505f25c33ac4eb4}{
 \index{MaxCDN@{MaxCDN}!encodeParameters@{encodeParameters}}
 \index{encodeParameters@{encodeParameters}!MaxCDN@{MaxCDN}}
@@ -307,6 +603,31 @@ Definition at line 362 of file MaxCDN.php.
 Here is the call graph for this function:
 
 
+\hypertarget{class_max_c_d_n_a1492bb1d403e0e37bbb6694ceade7431}{
+\index{MaxCDN@{MaxCDN}!getLiveZones@{getLiveZones}}
+\index{getLiveZones@{getLiveZones}!MaxCDN@{MaxCDN}}
+\subsubsection[{getLiveZones}]{\setlength{\rightskip}{0pt plus 5cm}getLiveZones (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{class_max_c_d_n_a1492bb1d403e0e37bbb6694ceade7431}
+Livezone List Zones Lists all Live Zones on your account Livezone.listZones
+
+{\ttfamily  \$this-\/$>$\hyperlink{class_max_c_d_n_a1492bb1d403e0e37bbb6694ceade7431}{getLiveZones()}; }
+
+\begin{DoxyReturn}{Returns}
+object xmlrpcresp $|$ array \$value 
+\end{DoxyReturn}
+
+
+Definition at line 844 of file MaxCDN.php.
+
+
+
+Here is the call graph for this function:
+
+
 \hypertarget{class_max_c_d_n_a5edac3917b1fc456d9919a2b27954032}{
 \index{MaxCDN@{MaxCDN}!getNodeHits@{getNodeHits}}
 \index{getNodeHits@{getNodeHits}!MaxCDN@{MaxCDN}}
@@ -399,6 +720,56 @@ object \$xmlrpcresp $|$ array \$value
 
 
 Definition at line 243 of file MaxCDN.php.
+
+
+
+Here is the call graph for this function:
+
+
+\hypertarget{class_max_c_d_n_af25dffec4a45683331d76e16ac82f125}{
+\index{MaxCDN@{MaxCDN}!getPullZones@{getPullZones}}
+\index{getPullZones@{getPullZones}!MaxCDN@{MaxCDN}}
+\subsubsection[{getPullZones}]{\setlength{\rightskip}{0pt plus 5cm}getPullZones (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{class_max_c_d_n_af25dffec4a45683331d76e16ac82f125}
+Pullzone List Zones Lists all Pull Zones on your account pullzone.listZones
+
+{\ttfamily  \$this-\/$>$\hyperlink{class_max_c_d_n_af25dffec4a45683331d76e16ac82f125}{getPullZones()}; }
+
+\begin{DoxyReturn}{Returns}
+object xmlrpcresp $|$ array \$value 
+\end{DoxyReturn}
+
+
+Definition at line 546 of file MaxCDN.php.
+
+
+
+Here is the call graph for this function:
+
+
+\hypertarget{class_max_c_d_n_a16b0ec27cb42588cc908b1fa1fb5dc3b}{
+\index{MaxCDN@{MaxCDN}!getPushZones@{getPushZones}}
+\index{getPushZones@{getPushZones}!MaxCDN@{MaxCDN}}
+\subsubsection[{getPushZones}]{\setlength{\rightskip}{0pt plus 5cm}getPushZones (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{class_max_c_d_n_a16b0ec27cb42588cc908b1fa1fb5dc3b}
+Pushzone List Zones Lists all Push Zones on your account pushzone.listZones
+
+{\ttfamily  \$this-\/$>$\hyperlink{class_max_c_d_n_a16b0ec27cb42588cc908b1fa1fb5dc3b}{getPushZones()}; }
+
+\begin{DoxyReturn}{Returns}
+object xmlrpcresp $|$ array \$value 
+\end{DoxyReturn}
+
+
+Definition at line 647 of file MaxCDN.php.
 
 
 
@@ -575,6 +946,31 @@ Definition at line 387 of file MaxCDN.php.
 Here is the call graph for this function:
 
 
+\hypertarget{class_max_c_d_n_a252e5eb5e92bda7e596ef52038156db8}{
+\index{MaxCDN@{MaxCDN}!getVodZones@{getVodZones}}
+\index{getVodZones@{getVodZones}!MaxCDN@{MaxCDN}}
+\subsubsection[{getVodZones}]{\setlength{\rightskip}{0pt plus 5cm}getVodZones (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{class_max_c_d_n_a252e5eb5e92bda7e596ef52038156db8}
+Vodzone List Zones Lists all Vod Zones on your account Vodzone.listZones
+
+{\ttfamily  \$this-\/$>$\hyperlink{class_max_c_d_n_a252e5eb5e92bda7e596ef52038156db8}{getVodZones()}; }
+
+\begin{DoxyReturn}{Returns}
+object xmlrpcresp $|$ array \$value 
+\end{DoxyReturn}
+
+
+Definition at line 746 of file MaxCDN.php.
+
+
+
+Here is the call graph for this function:
+
+
 \hypertarget{class_max_c_d_n_a1ffd352aec7f5cbd343401630382316b}{
 \index{MaxCDN@{MaxCDN}!purgeAllCache@{purgeAllCache}}
 \index{purgeAllCache@{purgeAllCache}!MaxCDN@{MaxCDN}}
@@ -745,6 +1141,141 @@ Here is the call graph for this function:
 Here is the caller graph for this function:
 
 
+\hypertarget{class_max_c_d_n_a887cf925e7b0137f584f75c0ea253a64}{
+\index{MaxCDN@{MaxCDN}!updateLiveZone@{updateLiveZone}}
+\index{updateLiveZone@{updateLiveZone}!MaxCDN@{MaxCDN}}
+\subsubsection[{updateLiveZone}]{\setlength{\rightskip}{0pt plus 5cm}updateLiveZone (
+\begin{DoxyParamCaption}
+\item[{\$}]{zone\_\-id, }
+\item[{\$}]{name = {\ttfamily null}, }
+\item[{\$}]{password = {\ttfamily null}, }
+\item[{\$}]{label = {\ttfamily null}}
+\end{DoxyParamCaption}
+)}}
+\label{class_max_c_d_n_a887cf925e7b0137f584f75c0ea253a64}
+Livezone Update Updates an existing Live Zone livezone.update
+
+{\ttfamily  \$this-\/$>$updateLiveZone(\$zone\_\-id, \$name, \$password, \$label); }
+
+Required: int \$zone\_\-id
+
+
+\begin{DoxyParams}[1]{Parameters}
+int & {\em \$zone\_\-id} & \\
+\hline
+string & {\em \$name} & (optional) \\
+\hline
+string & {\em \$password} & (optional) \\
+\hline
+string & {\em \$label} & (optional) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+object xmlrpcresp $|$ int \$value (0 is success, 1 if failed) 
+\end{DoxyReturn}
+
+
+Definition at line 799 of file MaxCDN.php.
+
+
+
+Here is the call graph for this function:
+
+
+\hypertarget{class_max_c_d_n_ad95bc411959f49b988bed017381a6103}{
+\index{MaxCDN@{MaxCDN}!updatePullZone@{updatePullZone}}
+\index{updatePullZone@{updatePullZone}!MaxCDN@{MaxCDN}}
+\subsubsection[{updatePullZone}]{\setlength{\rightskip}{0pt plus 5cm}updatePullZone (
+\begin{DoxyParamCaption}
+\item[{\$}]{zone\_\-id, }
+\item[{\$}]{name = {\ttfamily null}, }
+\item[{\$}]{origin = {\ttfamily null}, }
+\item[{\$}]{vhost = {\ttfamily null}, }
+\item[{\$}]{ip = {\ttfamily null}, }
+\item[{\$}]{compress = {\ttfamily null}, }
+\item[{\$}]{vanity\_\-url = {\ttfamily null}, }
+\item[{\$}]{label = {\ttfamily null}}
+\end{DoxyParamCaption}
+)}}
+\label{class_max_c_d_n_ad95bc411959f49b988bed017381a6103}
+Pullzone Update Updates an existing Pull Zone pullzone.update
+
+{\ttfamily  \$this-\/$>$updatePullZone(\$id, \$name, \$origin, \$vhost, \$ip, \$compress, \$vanity\_\-url, \$label); }
+
+Required: int \$zone\_\-id
+
+
+\begin{DoxyParams}[1]{Parameters}
+int & {\em \$zone\_\-id} & \\
+\hline
+string & {\em \$name} & (optional) \\
+\hline
+string & {\em \$origin} & (optional) \\
+\hline
+string & {\em \$vhost} & (optional) \\
+\hline
+string & {\em \$ip} & (optional) \\
+\hline
+string & {\em \$compress} & (optional) \\
+\hline
+string & {\em \$vanity\_\-url} & (optional) \\
+\hline
+string & {\em \$label} & (optional) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+object xmlrpcresp $|$ int \$value (0 is success, 1 if failed) 
+\end{DoxyReturn}
+
+
+Definition at line 524 of file MaxCDN.php.
+
+
+
+Here is the call graph for this function:
+
+
+\hypertarget{class_max_c_d_n_a6f76399ae6628212637357d101c3a37f}{
+\index{MaxCDN@{MaxCDN}!updatePushZone@{updatePushZone}}
+\index{updatePushZone@{updatePushZone}!MaxCDN@{MaxCDN}}
+\subsubsection[{updatePushZone}]{\setlength{\rightskip}{0pt plus 5cm}updatePushZone (
+\begin{DoxyParamCaption}
+\item[{\$}]{zone\_\-id, }
+\item[{\$}]{name = {\ttfamily null}, }
+\item[{\$}]{password = {\ttfamily null}, }
+\item[{\$}]{label = {\ttfamily null}}
+\end{DoxyParamCaption}
+)}}
+\label{class_max_c_d_n_a6f76399ae6628212637357d101c3a37f}
+Pushzone Update Updates an existing Push Zone pushzone.update
+
+{\ttfamily  \$this-\/$>$updatePushZone(\$zone\_\-id, \$name, \$password, \$label); }
+
+Required: int \$zone\_\-id
+
+
+\begin{DoxyParams}[1]{Parameters}
+int & {\em \$zone\_\-id} & \\
+\hline
+string & {\em \$name} & (optional) \\
+\hline
+string & {\em \$password} & (optional) \\
+\hline
+string & {\em \$label} & (optional) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+object xmlrpcresp $|$ int \$value (0 is success, 1 if failed) 
+\end{DoxyReturn}
+
+
+Definition at line 602 of file MaxCDN.php.
+
+
+
+Here is the call graph for this function:
+
+
 \hypertarget{class_max_c_d_n_a1d86f2ee4963b6bfeb447979f58e8e0e}{
 \index{MaxCDN@{MaxCDN}!updateUser@{updateUser}}
 \index{updateUser@{updateUser}!MaxCDN@{MaxCDN}}
@@ -774,6 +1305,47 @@ object xmlrpcresp $|$ array \$value
 
 
 Definition at line 405 of file MaxCDN.php.
+
+
+
+Here is the call graph for this function:
+
+
+\hypertarget{class_max_c_d_n_a9dbe6ee3e3316947a53c7449b5058cdb}{
+\index{MaxCDN@{MaxCDN}!updateVodZone@{updateVodZone}}
+\index{updateVodZone@{updateVodZone}!MaxCDN@{MaxCDN}}
+\subsubsection[{updateVodZone}]{\setlength{\rightskip}{0pt plus 5cm}updateVodZone (
+\begin{DoxyParamCaption}
+\item[{\$}]{zone\_\-id, }
+\item[{\$}]{name = {\ttfamily null}, }
+\item[{\$}]{password = {\ttfamily null}, }
+\item[{\$}]{label = {\ttfamily null}}
+\end{DoxyParamCaption}
+)}}
+\label{class_max_c_d_n_a9dbe6ee3e3316947a53c7449b5058cdb}
+Vodzone Update Updates an existing Vod Zone vodzone.update
+
+{\ttfamily  \$this-\/$>$updateVodZone(\$zone\_\-id, \$name, \$password, \$label); }
+
+Required: int \$zone\_\-id
+
+
+\begin{DoxyParams}[1]{Parameters}
+int & {\em \$zone\_\-id} & \\
+\hline
+string & {\em \$name} & (optional) \\
+\hline
+string & {\em \$password} & (optional) \\
+\hline
+string & {\em \$label} & (optional) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+object xmlrpcresp $|$ int \$value (0 is success, 1 if failed) 
+\end{DoxyReturn}
+
+
+Definition at line 701 of file MaxCDN.php.
 
 
 

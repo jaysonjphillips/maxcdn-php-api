@@ -537,7 +537,7 @@ class MaxCDN {
    * pullzone.listZones
    * 
    * <code>
-   *  $this->getAllPullZones();
+   *  $this->getPullZones();
    * </code>
    * 
    * @return object xmlrpcresp | array $value
@@ -638,7 +638,7 @@ class MaxCDN {
    * pushzone.listZones
    * 
    * <code>
-   *  $this->getAllPushZones();
+   *  $this->getPushZones();
    * </code>
    * 
    * @return object xmlrpcresp | array $value
@@ -737,7 +737,7 @@ class MaxCDN {
    * Vodzone.listZones
    * 
    * <code>
-   *  $this->getAllVodZones();
+   *  $this->getVodZones();
    * </code>
    * 
    * @return object xmlrpcresp | array $value
@@ -835,7 +835,7 @@ class MaxCDN {
    * Livezone.listZones
    * 
    * <code>
-   *  $this->getAllLiveZones();
+   *  $this->getLiveZones();
    * </code>
    * 
    * @return object xmlrpcresp | array $value
