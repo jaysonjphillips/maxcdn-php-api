@@ -84,12 +84,17 @@
 \item 
 \hyperlink{class_max_c_d_n_a6886427c9c643f707fcb35c018049bc7}{\$base\_\-url} = \char`\"{}api.netdna.com/xmlrpc/\char`\"{}
 \end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_max_c_d_n_a3538f42031d718c9e5de4b6cd8b7789e}{\$auth\_\-string}
+\end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
 
 
-Definition at line 21 of file MaxCDN.php.
+Definition at line 20 of file MaxCDN.php.
 
 
 
@@ -115,8 +120,16 @@ string & {\em \$user\_\-id} & \\
 \end{DoxyParams}
 
 
-Definition at line 37 of file MaxCDN.php.
+Definition at line 36 of file MaxCDN.php.
 
+
+\begin{DoxyCode}
+                                           {
+
+    $this->api_key = $api_key;
+    $this->user_id = $user_id;
+  }
+\end{DoxyCode}
 
 
 \subsection{Member Function Documentation}
@@ -151,13 +164,20 @@ object xmlrpcresp $|$ array \$value (if failed, array(int errorCode, string erro
 \end{DoxyReturn}
 
 
-Definition at line 772 of file MaxCDN.php.
+Definition at line 771 of file MaxCDN.php.
 
 
+\begin{DoxyCode}
+                                                           {
+    if (empty($name) || empty($password)) {
+      throw new MissingRequiredParameterException('One or more required parameter
+      s are empty');
+    }
 
-Here is the call graph for this function:
-
-
+        $zone_values = array($name, $password, $label);
+    $this->sendRequest('livezone', 'create', array($zone_values));
+  }
+\end{DoxyCode}
 \hypertarget{class_max_c_d_n_a842e2c679ffc3af1d78bc67f35edfc8b}{
 \index{MaxCDN@{MaxCDN}!createPullZone@{createPullZone}}
 \index{createPullZone@{createPullZone}!MaxCDN@{MaxCDN}}
@@ -201,13 +221,22 @@ object xmlrpcresp $|$ array \$value (if failed, array(int errorCode, string erro
 \end{DoxyReturn}
 
 
-Definition at line 493 of file MaxCDN.php.
+Definition at line 492 of file MaxCDN.php.
 
 
-
-Here is the call graph for this function:
-
-
+\begin{DoxyCode}
+                                                                                 
+                                               {
+    if (empty($name) || empty($origin)) {
+      throw new MissingRequiredParameterException('One or more required parameter
+      s are empty');
+    }
+    
+        $zone_values = array($name, $origin, $vhost, $ip, $compress, $vanity_url,
+       $label);
+    $this->sendRequest('pullzone', 'create', array($zone_values));
+  }
+\end{DoxyCode}
 \hypertarget{class_max_c_d_n_a56f74befea49b5aad3ce999b0b700cd0}{
 \index{MaxCDN@{MaxCDN}!createPushZone@{createPushZone}}
 \index{createPushZone@{createPushZone}!MaxCDN@{MaxCDN}}
@@ -245,13 +274,21 @@ object xmlrpcresp $|$ array \$value (if failed, array(int errorCode, string erro
 \end{DoxyReturn}
 
 
-Definition at line 575 of file MaxCDN.php.
+Definition at line 574 of file MaxCDN.php.
 
 
+\begin{DoxyCode}
+                                                                                 
+                      {
+    if (empty($name) || empty($password)) {
+      throw new MissingRequiredParameterException('One or more required parameter
+      s are empty');
+    }
 
-Here is the call graph for this function:
-
-
+        $zone_values = array($name, $password, $compress, $vanity_url, $label);
+    $this->sendRequest('pushzone', 'create', array($zone_values));
+  }
+\end{DoxyCode}
 \hypertarget{class_max_c_d_n_aa692957f148655dfb52b57856752cb1a}{
 \index{MaxCDN@{MaxCDN}!createVodZone@{createVodZone}}
 \index{createVodZone@{createVodZone}!MaxCDN@{MaxCDN}}
@@ -283,13 +320,20 @@ object xmlrpcresp $|$ array \$value (if failed, array(int errorCode, string erro
 \end{DoxyReturn}
 
 
-Definition at line 674 of file MaxCDN.php.
+Definition at line 673 of file MaxCDN.php.
 
 
+\begin{DoxyCode}
+                                                          {
+    if (empty($name) || empty($password)) {
+      throw new MissingRequiredParameterException('One or more required parameter
+      s are empty');
+    }
 
-Here is the call graph for this function:
-
-
+        $zone_values = array($name, $password, $label);
+    $this->sendRequest('vodzone', 'create', array($zone_values));
+  }
+\end{DoxyCode}
 \hypertarget{class_max_c_d_n_a4a95c42a3716d9f45be0cbe37db33ff9}{
 \index{MaxCDN@{MaxCDN}!deleteLiveZone@{deleteLiveZone}}
 \index{deleteLiveZone@{deleteLiveZone}!MaxCDN@{MaxCDN}}
@@ -315,13 +359,19 @@ object xmlrpcresp $|$ int \$value (0 is success, 1 if failed)
 \end{DoxyReturn}
 
 
-Definition at line 824 of file MaxCDN.php.
+Definition at line 823 of file MaxCDN.php.
 
 
+\begin{DoxyCode}
+                                    {
+    if (empty($zone_id)) {
+      throw new MissingRequiredParameterException('One or more required parameter
+      s are empty');
+    }
 
-Here is the call graph for this function:
-
-
+    $this->sendRequest('livezone', 'delete', array($zone_id);
+  }
+\end{DoxyCode}
 \hypertarget{class_max_c_d_n_a020946e4c4bd99908cf439113569ef2b}{
 \index{MaxCDN@{MaxCDN}!deletePushZone@{deletePushZone}}
 \index{deletePushZone@{deletePushZone}!MaxCDN@{MaxCDN}}
@@ -347,13 +397,19 @@ object xmlrpcresp $|$ int \$value (0 is success, 1 if failed)
 \end{DoxyReturn}
 
 
-Definition at line 627 of file MaxCDN.php.
+Definition at line 626 of file MaxCDN.php.
 
 
+\begin{DoxyCode}
+                                    {
+    if (empty($zone_id)) {
+      throw new MissingRequiredParameterException('One or more required parameter
+      s are empty');
+    }
 
-Here is the call graph for this function:
-
-
+    $this->sendRequest('pushzone', 'delete', array($zone_id);
+  }
+\end{DoxyCode}
 \hypertarget{class_max_c_d_n_a44ef0c0f3348b3823a827d4f8fd1f69b}{
 \index{MaxCDN@{MaxCDN}!deleteVodZone@{deleteVodZone}}
 \index{deleteVodZone@{deleteVodZone}!MaxCDN@{MaxCDN}}
@@ -379,13 +435,19 @@ object xmlrpcresp $|$ int \$value (0 is success, 1 if failed)
 \end{DoxyReturn}
 
 
-Definition at line 726 of file MaxCDN.php.
+Definition at line 725 of file MaxCDN.php.
 
 
+\begin{DoxyCode}
+                                   {
+    if (empty($zone_id)) {
+      throw new MissingRequiredParameterException('One or more required parameter
+      s are empty');
+    }
 
-Here is the call graph for this function:
-
-
+    $this->sendRequest('vodzone', 'delete', array($zone_id);
+  }
+\end{DoxyCode}
 \hypertarget{class_max_c_d_n_ab03d4f2c7f3b6d1e3505f25c33ac4eb4}{
 \index{MaxCDN@{MaxCDN}!encodeParameters@{encodeParameters}}
 \index{encodeParameters@{encodeParameters}!MaxCDN@{MaxCDN}}
@@ -410,18 +472,27 @@ array \$xmlrpc\_\-encoded\_\-params
 \end{DoxyReturn}
 
 
-Definition at line 73 of file MaxCDN.php.
+Definition at line 72 of file MaxCDN.php.
 
 
+\begin{DoxyCode}
+                                              {
+    $xmlrpc_encoded_params = array(
+        php_xmlrpc_encode($this->user_id),
+        php_xmlrpc_encode($this->setAuthString($method)),
+        php_xmlrpc_encode(date('c'))
+    );
 
-Here is the call graph for this function:
-
-
-
-
-Here is the caller graph for this function:
-
-
+    if (is_array($params)) {
+      foreach ($params as $param) {
+        if (!empty($param)) {
+          $xmlrpc_encoded_params[] = php_xmlrpc_encode($param);
+        }
+      }
+    }
+    return $xmlrpc_encoded_params;
+  }
+\end{DoxyCode}
 \hypertarget{class_max_c_d_n_aa7c52da790e6d9e3acceb12d93c90de6}{
 \index{MaxCDN@{MaxCDN}!getBandwidth@{getBandwidth}}
 \index{getBandwidth@{getBandwidth}!MaxCDN@{MaxCDN}}
@@ -446,13 +517,14 @@ object \$xmlrpcresp
 \end{DoxyReturn}
 
 
-Definition at line 137 of file MaxCDN.php.
+Definition at line 136 of file MaxCDN.php.
 
 
-
-Here is the call graph for this function:
-
-
+\begin{DoxyCode}
+                                                  {
+    return $this->sendRequest('account', 'getBandwidth', array($from, $to));
+  }
+\end{DoxyCode}
 \hypertarget{class_max_c_d_n_a2eba6ff5a4ac4d5348b6fc17ad4e90de}{
 \index{MaxCDN@{MaxCDN}!getCacheHitStats@{getCacheHitStats}}
 \index{getCacheHitStats@{getCacheHitStats}!MaxCDN@{MaxCDN}}
@@ -497,13 +569,23 @@ object \$xmlrpcresp $|$ int \$value
 \end{DoxyReturn}
 
 
-Definition at line 212 of file MaxCDN.php.
+Definition at line 211 of file MaxCDN.php.
 
 
+\begin{DoxyCode}
+                                                                                 
+                                                                  {
 
-Here is the call graph for this function:
-
-
+    if (empty($company_id) || empty($zone_id) || empty($date_from) || empty($date
+      _to)) {
+      throw new MissingRequiredParameterException('One or more required parameter
+      s are empty');
+    }
+    return $this->sendRequest('report', 'getCacheHitStats', array($company_id, $z
+      one_id, $date_from, $date_to, $sort_by,
+        $maximum, $offset, $timezone));
+  }
+\end{DoxyCode}
 \hypertarget{class_max_c_d_n_a0ccdaad45884b8d37ec214a9fef96f69}{
 \index{MaxCDN@{MaxCDN}!getConnectionStats@{getConnectionStats}}
 \index{getConnectionStats@{getConnectionStats}!MaxCDN@{MaxCDN}}
@@ -548,13 +630,23 @@ object \$xmlrpcresp $|$ array \$value
 \end{DoxyReturn}
 
 
-Definition at line 332 of file MaxCDN.php.
+Definition at line 331 of file MaxCDN.php.
 
 
+\begin{DoxyCode}
+                                                                                 
+                                                                    {
 
-Here is the call graph for this function:
-
-
+    if (empty($company_id) || empty($zone_id) || empty($date_from) || empty($date
+      _to)) {
+      throw new MissingRequiredParameterException('One or more required parameter
+      s are empty');
+    }
+    return $this->sendRequest('report', 'getConnectionStats', array($company_id, 
+      $zone_id, $date_from, $date_to, $sort_by,
+        $maximum, $offset, $timezone));
+  }
+\end{DoxyCode}
 \hypertarget{class_max_c_d_n_a6a37fba9236e945837fdab2615463fd8}{
 \index{MaxCDN@{MaxCDN}!getHourlyConnectionStats@{getHourlyConnectionStats}}
 \index{getHourlyConnectionStats@{getHourlyConnectionStats}!MaxCDN@{MaxCDN}}
@@ -596,13 +688,22 @@ object \$xmlrpcresp $|$ array \$value
 \end{DoxyReturn}
 
 
-Definition at line 362 of file MaxCDN.php.
+Definition at line 361 of file MaxCDN.php.
 
 
+\begin{DoxyCode}
+                                                                                 
+                                                                {
 
-Here is the call graph for this function:
-
-
+    if (empty($company_id) || empty($zone_id) || empty($date_from)) {
+      throw new MissingRequiredParameterException('One or more required parameter
+      s are empty');
+    }
+    return $this->sendRequest('report', 'getHourlyConnectionStats', array($compan
+      y_id, $zone_id, $date_from, $sort_by,
+        $maximum, $offset, $timezone));
+  }
+\end{DoxyCode}
 \hypertarget{class_max_c_d_n_a1492bb1d403e0e37bbb6694ceade7431}{
 \index{MaxCDN@{MaxCDN}!getLiveZones@{getLiveZones}}
 \index{getLiveZones@{getLiveZones}!MaxCDN@{MaxCDN}}
@@ -621,13 +722,14 @@ object xmlrpcresp $|$ array \$value
 \end{DoxyReturn}
 
 
-Definition at line 844 of file MaxCDN.php.
+Definition at line 843 of file MaxCDN.php.
 
 
-
-Here is the call graph for this function:
-
-
+\begin{DoxyCode}
+                          {
+    $this->sendRequest('livezone', 'listZones');
+  }
+\end{DoxyCode}
 \hypertarget{class_max_c_d_n_a5edac3917b1fc456d9919a2b27954032}{
 \index{MaxCDN@{MaxCDN}!getNodeHits@{getNodeHits}}
 \index{getNodeHits@{getNodeHits}!MaxCDN@{MaxCDN}}
@@ -669,13 +771,23 @@ object \$xmlrpcresp $|$ array \$value
 \end{DoxyReturn}
 
 
-Definition at line 301 of file MaxCDN.php.
+Definition at line 300 of file MaxCDN.php.
 
 
+\begin{DoxyCode}
+                                                                                 
+                                           {
 
-Here is the call graph for this function:
-
-
+    if (empty($company_id) || empty($zone_id) || empty($date_from) || empty($date
+      _to)) {
+      throw new MissingRequiredParameterException('One or more required parameter
+      s are empty');
+    }
+    return $this->sendRequest('report', 'getNodeHits', array($company_id, $zone_i
+      d, $date_from, $date_to, $sort_by,
+        $maximum, $offset));
+  }
+\end{DoxyCode}
 \hypertarget{class_max_c_d_n_ad34a2fa79fb678324ec5d8a98f6f58f4}{
 \index{MaxCDN@{MaxCDN}!getPopularFiles@{getPopularFiles}}
 \index{getPopularFiles@{getPopularFiles}!MaxCDN@{MaxCDN}}
@@ -719,13 +831,23 @@ object \$xmlrpcresp $|$ array \$value
 \end{DoxyReturn}
 
 
-Definition at line 243 of file MaxCDN.php.
+Definition at line 242 of file MaxCDN.php.
 
 
+\begin{DoxyCode}
+                                                                                 
+                                               {
 
-Here is the call graph for this function:
-
-
+    if (empty($company_id) || empty($zone_id) || empty($date_from) || empty($date
+      _to)) {
+      throw new MissingRequiredParameterException('One or more required parameter
+      s are empty');
+    }
+    return $this->sendRequest('report', 'getPopularFiles', array($company_id, $zo
+      ne_id, $date_from, $date_to, $sort_by,
+        $maximum, $offset));
+  }
+\end{DoxyCode}
 \hypertarget{class_max_c_d_n_af25dffec4a45683331d76e16ac82f125}{
 \index{MaxCDN@{MaxCDN}!getPullZones@{getPullZones}}
 \index{getPullZones@{getPullZones}!MaxCDN@{MaxCDN}}
@@ -744,13 +866,15 @@ object xmlrpcresp $|$ array \$value
 \end{DoxyReturn}
 
 
-Definition at line 546 of file MaxCDN.php.
+Definition at line 545 of file MaxCDN.php.
 
 
+\begin{DoxyCode}
+                          {
 
-Here is the call graph for this function:
-
-
+    $this->sendRequest('pullzone', 'listZones');
+  }
+\end{DoxyCode}
 \hypertarget{class_max_c_d_n_a16b0ec27cb42588cc908b1fa1fb5dc3b}{
 \index{MaxCDN@{MaxCDN}!getPushZones@{getPushZones}}
 \index{getPushZones@{getPushZones}!MaxCDN@{MaxCDN}}
@@ -769,13 +893,15 @@ object xmlrpcresp $|$ array \$value
 \end{DoxyReturn}
 
 
-Definition at line 647 of file MaxCDN.php.
+Definition at line 646 of file MaxCDN.php.
 
 
+\begin{DoxyCode}
+                          {
 
-Here is the call graph for this function:
-
-
+    $this->sendRequest('pushzone', 'listZones');
+  }
+\end{DoxyCode}
 \hypertarget{class_max_c_d_n_aa14c507a271bdd2536047035549153e7}{
 \index{MaxCDN@{MaxCDN}!getTotalHits@{getTotalHits}}
 \index{getTotalHits@{getTotalHits}!MaxCDN@{MaxCDN}}
@@ -791,13 +917,20 @@ Here is the call graph for this function:
 \label{class_max_c_d_n_aa14c507a271bdd2536047035549153e7}
 
 
-Definition at line 152 of file MaxCDN.php.
+Definition at line 151 of file MaxCDN.php.
 
 
-
-Here is the call graph for this function:
-
-
+\begin{DoxyCode}
+                                                                                 
+          {
+    if (empty($zone_id) || empty($type)) {
+      throw new MissingRequirementException('One or more required parameters are 
+      empty');
+    }
+    return $this->sendRequest('report', 'getTotalHits', array($zone_id, $type, $f
+      rom, $to, $timezone));
+  }
+\end{DoxyCode}
 \hypertarget{class_max_c_d_n_a4182fd3c7541817bfed426647cdf24b6}{
 \index{MaxCDN@{MaxCDN}!getTotalTransfer@{getTotalTransfer}}
 \index{getTotalTransfer@{getTotalTransfer}!MaxCDN@{MaxCDN}}
@@ -813,13 +946,20 @@ Here is the call graph for this function:
 \label{class_max_c_d_n_a4182fd3c7541817bfed426647cdf24b6}
 Reporting methods  report 
 
-Definition at line 145 of file MaxCDN.php.
+Definition at line 144 of file MaxCDN.php.
 
 
-
-Here is the call graph for this function:
-
-
+\begin{DoxyCode}
+                                                                                 
+              {
+    if (empty($zone_id) || empty($type)) {
+      throw new MissingRequirementException('One or more required parameters are 
+      empty');
+    }
+    return $this->sendRequest('report', 'getTotalTransfer', array($zone_id, $type
+      , $from, $to, $timezone));
+  }
+\end{DoxyCode}
 \hypertarget{class_max_c_d_n_a2f721064cd497651f42b949d8cbeae27}{
 \index{MaxCDN@{MaxCDN}!getTotalTransferStats@{getTotalTransferStats}}
 \index{getTotalTransferStats@{getTotalTransferStats}!MaxCDN@{MaxCDN}}
@@ -866,13 +1006,23 @@ object \$xmlrpcresp $|$ array \$value
 \end{DoxyReturn}
 
 
-Definition at line 182 of file MaxCDN.php.
+Definition at line 181 of file MaxCDN.php.
 
 
+\begin{DoxyCode}
+                                                                                 
+                                                                       {
 
-Here is the call graph for this function:
-
-
+    if (empty($company_id) || empty($zone_id) || empty($date_from) || empty($date
+      _to)) {
+      throw new MissingRequiredParameterException('One or more required parameter
+      s are empty');
+    }
+    return $this->sendRequest('report', 'getTotalTransferStats', array($company_i
+      d, $zone_id, $date_from, $date_to, $sort_by,
+        $view_by, $maximum, $offset, $timezone));
+  }
+\end{DoxyCode}
 \hypertarget{class_max_c_d_n_a0f0f34de0a9b9e8aee763a10620b0310}{
 \index{MaxCDN@{MaxCDN}!getUsagePerDay@{getUsagePerDay}}
 \index{getUsagePerDay@{getUsagePerDay}!MaxCDN@{MaxCDN}}
@@ -914,13 +1064,23 @@ object \$xmlrpcresp $|$ int \$value
 \end{DoxyReturn}
 
 
-Definition at line 272 of file MaxCDN.php.
+Definition at line 271 of file MaxCDN.php.
 
 
+\begin{DoxyCode}
+                                                                                 
+                                              {
 
-Here is the call graph for this function:
-
-
+    if (empty($company_id) || empty($zone_id) || empty($date_from) || empty($date
+      _to)) {
+      throw new MissingRequiredParameterException('One or more required parameter
+      s are empty');
+    }
+    return $this->sendRequest('report', 'getUsagePerDay', array($company_id, $zon
+      e_id, $date_from, $date_to, $sort_by,
+        $maximum, $offset));
+  }
+\end{DoxyCode}
 \hypertarget{class_max_c_d_n_aeb20dee182d29e6d339cab9682b4ff04}{
 \index{MaxCDN@{MaxCDN}!getUserList@{getUserList}}
 \index{getUserList@{getUserList}!MaxCDN@{MaxCDN}}
@@ -939,13 +1099,14 @@ object xmlrpcresp $|$ array \$value
 \end{DoxyReturn}
 
 
-Definition at line 387 of file MaxCDN.php.
+Definition at line 386 of file MaxCDN.php.
 
 
-
-Here is the call graph for this function:
-
-
+\begin{DoxyCode}
+                         {
+    return $this->sendRequest('user', 'listUsers');
+  }
+\end{DoxyCode}
 \hypertarget{class_max_c_d_n_a252e5eb5e92bda7e596ef52038156db8}{
 \index{MaxCDN@{MaxCDN}!getVodZones@{getVodZones}}
 \index{getVodZones@{getVodZones}!MaxCDN@{MaxCDN}}
@@ -964,13 +1125,14 @@ object xmlrpcresp $|$ array \$value
 \end{DoxyReturn}
 
 
-Definition at line 746 of file MaxCDN.php.
+Definition at line 745 of file MaxCDN.php.
 
 
-
-Here is the call graph for this function:
-
-
+\begin{DoxyCode}
+                         {
+    $this->sendRequest('vodzone', 'listZones');
+  }
+\end{DoxyCode}
 \hypertarget{class_max_c_d_n_a1ffd352aec7f5cbd343401630382316b}{
 \index{MaxCDN@{MaxCDN}!purgeAllCache@{purgeAllCache}}
 \index{purgeAllCache@{purgeAllCache}!MaxCDN@{MaxCDN}}
@@ -996,13 +1158,19 @@ object xmlrpcresp $|$ boolean \$value
 \end{DoxyReturn}
 
 
-Definition at line 459 of file MaxCDN.php.
+Definition at line 458 of file MaxCDN.php.
 
 
-
-Here is the call graph for this function:
-
-
+\begin{DoxyCode}
+                                {
+    if (empty($zone)) {
+      throw new MissingRequiredParameterException('One or more required parameter
+      s are empty');
+    }
+    
+    $this->sendRequest('cache', 'purgeAllCache', array($zone));
+  }
+\end{DoxyCode}
 \hypertarget{class_max_c_d_n_a62a3e75f63fe9295ec761eaee62294fb}{
 \index{MaxCDN@{MaxCDN}!purgeFromCache@{purgeFromCache}}
 \index{purgeFromCache@{purgeFromCache}!MaxCDN@{MaxCDN}}
@@ -1028,13 +1196,19 @@ object xmlrpcresp $|$ boolean \$value
 \end{DoxyReturn}
 
 
-Definition at line 436 of file MaxCDN.php.
+Definition at line 435 of file MaxCDN.php.
 
 
-
-Here is the call graph for this function:
-
-
+\begin{DoxyCode}
+                                {
+    if (empty($url)) {
+      throw new MissingRequiredParameterException('One or more required parameter
+      s are empty');
+    }
+    
+    $this->sendRequest('cache', 'purge', array($url));
+  }
+\end{DoxyCode}
 \hypertarget{class_max_c_d_n_aa496f1ad190fdbd8682df3dea24abf1a}{
 \index{MaxCDN@{MaxCDN}!sendRequest@{sendRequest}}
 \index{sendRequest@{sendRequest}!MaxCDN@{MaxCDN}}
@@ -1062,18 +1236,17 @@ object \$result
 \end{DoxyReturn}
 
 
-Definition at line 116 of file MaxCDN.php.
+Definition at line 115 of file MaxCDN.php.
 
 
-
-Here is the call graph for this function:
-
-
-
-
-Here is the caller graph for this function:
-
-
+\begin{DoxyCode}
+                                                            {
+    $xmlrpc_request = $this->setXmlRpcMsg($namespace, $method, $params);
+    $client = new xmlrpc_client('/xmlrpc/' . $namespace, "api.netdna.com", 80, 'h
+      ttp11');
+    return $result = & $client->send($xmlrpc_request);
+  }
+\end{DoxyCode}
 \hypertarget{class_max_c_d_n_ae777d7e14890a345988fffed800d0e8e}{
 \index{MaxCDN@{MaxCDN}!setAuthString@{setAuthString}}
 \index{setAuthString@{setAuthString}!MaxCDN@{MaxCDN}}
@@ -1095,13 +1268,14 @@ string sha-\/256 hash for authstring
 \end{DoxyReturn}
 
 
-Definition at line 59 of file MaxCDN.php.
+Definition at line 58 of file MaxCDN.php.
 
 
-
-Here is the caller graph for this function:
-
-
+\begin{DoxyCode}
+                                  {
+    return hash('sha256', date('c') . ':' . $this->api_key . ':' . $method);
+  }
+\end{DoxyCode}
 \hypertarget{class_max_c_d_n_a8c54c313b1f5bbae025c3c30cf12a1ee}{
 \index{MaxCDN@{MaxCDN}!setXmlRpcMsg@{setXmlRpcMsg}}
 \index{setXmlRpcMsg@{setXmlRpcMsg}!MaxCDN@{MaxCDN}}
@@ -1129,18 +1303,15 @@ object xmlrpcmsg
 \end{DoxyReturn}
 
 
-Definition at line 100 of file MaxCDN.php.
+Definition at line 99 of file MaxCDN.php.
 
 
-
-Here is the call graph for this function:
-
-
-
-
-Here is the caller graph for this function:
-
-
+\begin{DoxyCode}
+                                                      {
+    $xmlrpc_msg_array = $this->encodeParameters($method, $params);
+    return new xmlrpcmsg("$namespace.$method", $xmlrpc_msg_array);
+  }
+\end{DoxyCode}
 \hypertarget{class_max_c_d_n_a887cf925e7b0137f584f75c0ea253a64}{
 \index{MaxCDN@{MaxCDN}!updateLiveZone@{updateLiveZone}}
 \index{updateLiveZone@{updateLiveZone}!MaxCDN@{MaxCDN}}
@@ -1175,13 +1346,22 @@ object xmlrpcresp $|$ int \$value (0 is success, 1 if failed)
 \end{DoxyReturn}
 
 
-Definition at line 799 of file MaxCDN.php.
+Definition at line 798 of file MaxCDN.php.
 
 
+\begin{DoxyCode}
+                                                                                 
+        {
+    if (empty($zone_id)) {
+      throw new MissingRequiredParameterException('One or more required parameter
+      s are empty');
+    }
 
-Here is the call graph for this function:
+        $zone_values = array($name, $password, $label);
 
-
+    $this->sendRequest('livezone', 'update', array($zone_id, $zone_values);
+  }
+\end{DoxyCode}
 \hypertarget{class_max_c_d_n_ad95bc411959f49b988bed017381a6103}{
 \index{MaxCDN@{MaxCDN}!updatePullZone@{updatePullZone}}
 \index{updatePullZone@{updatePullZone}!MaxCDN@{MaxCDN}}
@@ -1228,13 +1408,23 @@ object xmlrpcresp $|$ int \$value (0 is success, 1 if failed)
 \end{DoxyReturn}
 
 
-Definition at line 524 of file MaxCDN.php.
+Definition at line 523 of file MaxCDN.php.
 
 
-
-Here is the call graph for this function:
-
-
+\begin{DoxyCode}
+                                                                                 
+                                                                       {
+    if (empty($zone_id)) {
+      throw new MissingRequiredParameterException('One or more required parameter
+      s are empty');
+    }
+        
+        $zone_values = array($name, $origin, $vhost, $ip, $compress, $vanity_url,
+       $label);
+        
+    $this->sendRequest('pullzone', 'update', array($zone_id, $zone_values);
+  }
+\end{DoxyCode}
 \hypertarget{class_max_c_d_n_a6f76399ae6628212637357d101c3a37f}{
 \index{MaxCDN@{MaxCDN}!updatePushZone@{updatePushZone}}
 \index{updatePushZone@{updatePushZone}!MaxCDN@{MaxCDN}}
@@ -1269,13 +1459,22 @@ object xmlrpcresp $|$ int \$value (0 is success, 1 if failed)
 \end{DoxyReturn}
 
 
-Definition at line 602 of file MaxCDN.php.
+Definition at line 601 of file MaxCDN.php.
 
 
+\begin{DoxyCode}
+                                                                                 
+        {
+    if (empty($zone_id)) {
+      throw new MissingRequiredParameterException('One or more required parameter
+      s are empty');
+    }
 
-Here is the call graph for this function:
+        $zone_values = array($name, $password, $label);
 
-
+    $this->sendRequest('pushzone', 'update', array($zone_id, $zone_values);
+  }
+\end{DoxyCode}
 \hypertarget{class_max_c_d_n_a1d86f2ee4963b6bfeb447979f58e8e0e}{
 \index{MaxCDN@{MaxCDN}!updateUser@{updateUser}}
 \index{updateUser@{updateUser}!MaxCDN@{MaxCDN}}
@@ -1304,13 +1503,25 @@ object xmlrpcresp $|$ array \$value
 \end{DoxyReturn}
 
 
-Definition at line 405 of file MaxCDN.php.
+Definition at line 404 of file MaxCDN.php.
 
 
+\begin{DoxyCode}
+                                                {
+    if (empty($user_id) || empty($update_values)) {
+      throw new MissingRequiredParameterException('One or more required parameter
+      s are empty');
+    }
 
-Here is the call graph for this function:
+    if (!is_array($update_values)) {
+      throw new VariableTypeException('Required parameter is expected to be an ar
+      ray');
+    }
 
-
+    return $this->sendRequest('user', 'update', array($user_id, $update_values));
+      
+  }
+\end{DoxyCode}
 \hypertarget{class_max_c_d_n_a9dbe6ee3e3316947a53c7449b5058cdb}{
 \index{MaxCDN@{MaxCDN}!updateVodZone@{updateVodZone}}
 \index{updateVodZone@{updateVodZone}!MaxCDN@{MaxCDN}}
@@ -1345,13 +1556,22 @@ object xmlrpcresp $|$ int \$value (0 is success, 1 if failed)
 \end{DoxyReturn}
 
 
-Definition at line 701 of file MaxCDN.php.
+Definition at line 700 of file MaxCDN.php.
 
 
+\begin{DoxyCode}
+                                                                                 
+       {
+    if (empty($zone_id)) {
+      throw new MissingRequiredParameterException('One or more required parameter
+      s are empty');
+    }
 
-Here is the call graph for this function:
+        $zone_values = array($name, $password, $label);
 
-
+    $this->sendRequest('vodzone', 'update', array($zone_id, $zone_values);
+  }
+\end{DoxyCode}
 
 
 \subsection{Field Documentation}
@@ -1362,7 +1582,16 @@ Here is the call graph for this function:
 \label{class_max_c_d_n_a186dfe06d14a3bc248c4eb4bcdaec562}
 
 
-Definition at line 23 of file MaxCDN.php.
+Definition at line 22 of file MaxCDN.php.
+
+\hypertarget{class_max_c_d_n_a3538f42031d718c9e5de4b6cd8b7789e}{
+\index{MaxCDN@{MaxCDN}!\$auth\_\-string@{\$auth\_\-string}}
+\index{\$auth\_\-string@{\$auth\_\-string}!MaxCDN@{MaxCDN}}
+\subsubsection[{\$auth\_\-string}]{\setlength{\rightskip}{0pt plus 5cm}\$auth\_\-string\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}
+\label{class_max_c_d_n_a3538f42031d718c9e5de4b6cd8b7789e}
+
+
+Definition at line 26 of file MaxCDN.php.
 
 \hypertarget{class_max_c_d_n_a6886427c9c643f707fcb35c018049bc7}{
 \index{MaxCDN@{MaxCDN}!\$base\_\-url@{\$base\_\-url}}
@@ -1371,7 +1600,7 @@ Definition at line 23 of file MaxCDN.php.
 \label{class_max_c_d_n_a6886427c9c643f707fcb35c018049bc7}
 
 
-Definition at line 26 of file MaxCDN.php.
+Definition at line 25 of file MaxCDN.php.
 
 \hypertarget{class_max_c_d_n_af0fcd925f00973e32f7214859dfb3c6b}{
 \index{MaxCDN@{MaxCDN}!\$user\_\-id@{\$user\_\-id}}
@@ -1380,7 +1609,7 @@ Definition at line 26 of file MaxCDN.php.
 \label{class_max_c_d_n_af0fcd925f00973e32f7214859dfb3c6b}
 
 
-Definition at line 24 of file MaxCDN.php.
+Definition at line 23 of file MaxCDN.php.
 
 \hypertarget{class_max_c_d_n_aa9300810e8d9adff7d3fdc176c218363}{
 \index{MaxCDN@{MaxCDN}!\$xml\_\-rpc\_\-options@{\$xml\_\-rpc\_\-options}}
@@ -1389,7 +1618,7 @@ Definition at line 24 of file MaxCDN.php.
 \label{class_max_c_d_n_aa9300810e8d9adff7d3fdc176c218363}
 
 
-Definition at line 25 of file MaxCDN.php.
+Definition at line 24 of file MaxCDN.php.
 
 
 

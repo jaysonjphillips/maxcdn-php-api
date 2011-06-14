@@ -82,7 +82,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pub-attribs">Data Fields</a>  </div>
+<a href="#pub-attribs">Data Fields</a> &#124;
+<a href="#pri-attribs">Private Attributes</a>  </div>
   <div class="headertitle">
 <div class="title">MaxCDN Class Reference</div>  </div>
 </div>
@@ -130,10 +131,13 @@ Data Fields</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_max_c_d_n.html#af0fcd925f00973e32f7214859dfb3c6b">$user_id</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_max_c_d_n.html#aa9300810e8d9adff7d3fdc176c218363">$xml_rpc_options</a> = array()</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_max_c_d_n.html#a6886427c9c643f707fcb35c018049bc7">$base_url</a> = &quot;api.netdna.com/xmlrpc/&quot;</td></tr>
+<tr><td colspan="2"><h2><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_max_c_d_n.html#a3538f42031d718c9e5de4b6cd8b7789e">$auth_string</a></td></tr>
 </table>
 <hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
 <div class="textblock">
-<p>Definition at line <a class="el" href="_max_c_d_n_8php_source.html#l00021">21</a> of file <a class="el" href="_max_c_d_n_8php_source.html">MaxCDN.php</a>.</p>
+<p>Definition at line <a class="el" href="#L20">20</a> of file <a class="el" href="">MaxCDN.php</a>.</p>
 </div><hr/><h2>Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="a190228266dc0a8defc0c6a8fa8bf2079"></a><!-- doxytag: member="MaxCDN::__construct" ref="a190228266dc0a8defc0c6a8fa8bf2079" args="($api_key, $user_id)" -->
 <div class="memitem">
@@ -168,8 +172,13 @@ Data Fields</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="_max_c_d_n_8php_source.html#l00037">37</a> of file <a class="el" href="_max_c_d_n_8php_source.html">MaxCDN.php</a>.</p>
+<p>Definition at line <a class="el" href="#L36">36</a> of file <a class="el" href="">MaxCDN.php</a>.</p>
+<div class="fragment"><pre class="fragment">                                           {
 
+    $this-&gt;api_key = <a class="code" href="class_max_c_d_n.html#a186dfe06d14a3bc248c4eb4bcdaec562">$api_key</a>;
+    $this-&gt;user_id = <a class="code" href="class_max_c_d_n.html#af0fcd925f00973e32f7214859dfb3c6b">$user_id</a>;
+  }
+</pre></div>
 </div>
 </div>
 <hr/><h2>Member Function Documentation</h2>
@@ -216,17 +225,16 @@ Data Fields</h2></td></tr>
 </dl>
 <dl class="return"><dt><b>Returns:</b></dt><dd>object xmlrpcresp | array $value (if failed, array(int errorCode, string errorMessage)) </dd></dl>
 
-<p>Definition at line <a class="el" href="_max_c_d_n_8php_source.html#l00772">772</a> of file <a class="el" href="_max_c_d_n_8php_source.html">MaxCDN.php</a>.</p>
+<p>Definition at line <a class="el" href="#L771">771</a> of file <a class="el" href="">MaxCDN.php</a>.</p>
+<div class="fragment"><pre class="fragment">                                                           {
+    <span class="keywordflow">if</span> (empty($name) || empty($password)) {
+      <span class="keywordflow">throw</span> <span class="keyword">new</span> MissingRequiredParameterException(<span class="stringliteral">&#39;One or more required parameters are empty&#39;</span>);
+    }
 
-<p><div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="class_max_c_d_n_a541ec1657aca049f04e53517f95d8bf6_cgraph.png" border="0" usemap="#class_max_c_d_n_a541ec1657aca049f04e53517f95d8bf6_cgraph" alt=""/></div>
-<map name="class_max_c_d_n_a541ec1657aca049f04e53517f95d8bf6_cgraph" id="class_max_c_d_n_a541ec1657aca049f04e53517f95d8bf6_cgraph">
-</map>
-</div>
-</p>
-
+        $zone_values = array($name, $password, $label);
+    $this-&gt;<a class="code" href="class_max_c_d_n.html#aa496f1ad190fdbd8682df3dea24abf1a">sendRequest</a>(<span class="stringliteral">&#39;livezone&#39;</span>, <span class="stringliteral">&#39;create&#39;</span>, array($zone_values));
+  }
+</pre></div>
 </div>
 </div>
 <a class="anchor" id="a842e2c679ffc3af1d78bc67f35edfc8b"></a><!-- doxytag: member="MaxCDN::createPullZone" ref="a842e2c679ffc3af1d78bc67f35edfc8b" args="($name, $origin, $vhost=null, $ip=null, $compress=null, $vanity_url=null, $label=null)" -->
@@ -300,17 +308,16 @@ Here is the call graph for this function:</div>
 </dl>
 <dl class="return"><dt><b>Returns:</b></dt><dd>object xmlrpcresp | array $value (if failed, array(int errorCode, string errorMessage)) </dd></dl>
 
-<p>Definition at line <a class="el" href="_max_c_d_n_8php_source.html#l00493">493</a> of file <a class="el" href="_max_c_d_n_8php_source.html">MaxCDN.php</a>.</p>
-
-<p><div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="class_max_c_d_n_a842e2c679ffc3af1d78bc67f35edfc8b_cgraph.png" border="0" usemap="#class_max_c_d_n_a842e2c679ffc3af1d78bc67f35edfc8b_cgraph" alt=""/></div>
-<map name="class_max_c_d_n_a842e2c679ffc3af1d78bc67f35edfc8b_cgraph" id="class_max_c_d_n_a842e2c679ffc3af1d78bc67f35edfc8b_cgraph">
-</map>
-</div>
-</p>
-
+<p>Definition at line <a class="el" href="#L492">492</a> of file <a class="el" href="">MaxCDN.php</a>.</p>
+<div class="fragment"><pre class="fragment">                                                                                                                          {
+    <span class="keywordflow">if</span> (empty($name) || empty($origin)) {
+      <span class="keywordflow">throw</span> <span class="keyword">new</span> MissingRequiredParameterException(<span class="stringliteral">&#39;One or more required parameters are empty&#39;</span>);
+    }
+    
+        $zone_values = array($name, $origin, $vhost, $ip, $compress, $vanity_url, $label);
+    $this-&gt;<a class="code" href="class_max_c_d_n.html#aa496f1ad190fdbd8682df3dea24abf1a">sendRequest</a>(<span class="stringliteral">&#39;pullzone&#39;</span>, <span class="stringliteral">&#39;create&#39;</span>, array($zone_values));
+  }
+</pre></div>
 </div>
 </div>
 <a class="anchor" id="a56f74befea49b5aad3ce999b0b700cd0"></a><!-- doxytag: member="MaxCDN::createPushZone" ref="a56f74befea49b5aad3ce999b0b700cd0" args="($name, $password, $compress=null, $vanity_url=null, $label=null)" -->
@@ -370,17 +377,16 @@ Here is the call graph for this function:</div>
 </dl>
 <dl class="return"><dt><b>Returns:</b></dt><dd>object xmlrpcresp | array $value (if failed, array(int errorCode, string errorMessage)) </dd></dl>
 
-<p>Definition at line <a class="el" href="_max_c_d_n_8php_source.html#l00575">575</a> of file <a class="el" href="_max_c_d_n_8php_source.html">MaxCDN.php</a>.</p>
+<p>Definition at line <a class="el" href="#L574">574</a> of file <a class="el" href="">MaxCDN.php</a>.</p>
+<div class="fragment"><pre class="fragment">                                                                                                 {
+    <span class="keywordflow">if</span> (empty($name) || empty($password)) {
+      <span class="keywordflow">throw</span> <span class="keyword">new</span> MissingRequiredParameterException(<span class="stringliteral">&#39;One or more required parameters are empty&#39;</span>);
+    }
 
-<p><div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="class_max_c_d_n_a56f74befea49b5aad3ce999b0b700cd0_cgraph.png" border="0" usemap="#class_max_c_d_n_a56f74befea49b5aad3ce999b0b700cd0_cgraph" alt=""/></div>
-<map name="class_max_c_d_n_a56f74befea49b5aad3ce999b0b700cd0_cgraph" id="class_max_c_d_n_a56f74befea49b5aad3ce999b0b700cd0_cgraph">
-</map>
-</div>
-</p>
-
+        $zone_values = array($name, $password, $compress, $vanity_url, $label);
+    $this-&gt;<a class="code" href="class_max_c_d_n.html#aa496f1ad190fdbd8682df3dea24abf1a">sendRequest</a>(<span class="stringliteral">&#39;pushzone&#39;</span>, <span class="stringliteral">&#39;create&#39;</span>, array($zone_values));
+  }
+</pre></div>
 </div>
 </div>
 <a class="anchor" id="aa692957f148655dfb52b57856752cb1a"></a><!-- doxytag: member="MaxCDN::createVodZone" ref="aa692957f148655dfb52b57856752cb1a" args="($name, $password, $label=null)" -->
@@ -426,17 +432,16 @@ Here is the call graph for this function:</div>
 </dl>
 <dl class="return"><dt><b>Returns:</b></dt><dd>object xmlrpcresp | array $value (if failed, array(int errorCode, string errorMessage)) </dd></dl>
 
-<p>Definition at line <a class="el" href="_max_c_d_n_8php_source.html#l00674">674</a> of file <a class="el" href="_max_c_d_n_8php_source.html">MaxCDN.php</a>.</p>
+<p>Definition at line <a class="el" href="#L673">673</a> of file <a class="el" href="">MaxCDN.php</a>.</p>
+<div class="fragment"><pre class="fragment">                                                          {
+    <span class="keywordflow">if</span> (empty($name) || empty($password)) {
+      <span class="keywordflow">throw</span> <span class="keyword">new</span> MissingRequiredParameterException(<span class="stringliteral">&#39;One or more required parameters are empty&#39;</span>);
+    }
 
-<p><div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="class_max_c_d_n_aa692957f148655dfb52b57856752cb1a_cgraph.png" border="0" usemap="#class_max_c_d_n_aa692957f148655dfb52b57856752cb1a_cgraph" alt=""/></div>
-<map name="class_max_c_d_n_aa692957f148655dfb52b57856752cb1a_cgraph" id="class_max_c_d_n_aa692957f148655dfb52b57856752cb1a_cgraph">
-</map>
-</div>
-</p>
-
+        $zone_values = array($name, $password, $label);
+    $this-&gt;<a class="code" href="class_max_c_d_n.html#aa496f1ad190fdbd8682df3dea24abf1a">sendRequest</a>(<span class="stringliteral">&#39;vodzone&#39;</span>, <span class="stringliteral">&#39;create&#39;</span>, array($zone_values));
+  }
+</pre></div>
 </div>
 </div>
 <a class="anchor" id="a4a95c42a3716d9f45be0cbe37db33ff9"></a><!-- doxytag: member="MaxCDN::deleteLiveZone" ref="a4a95c42a3716d9f45be0cbe37db33ff9" args="($zone_id)" -->
@@ -464,17 +469,15 @@ Here is the call graph for this function:</div>
 </dl>
 <dl class="return"><dt><b>Returns:</b></dt><dd>object xmlrpcresp | int $value (0 is success, 1 if failed) </dd></dl>
 
-<p>Definition at line <a class="el" href="_max_c_d_n_8php_source.html#l00824">824</a> of file <a class="el" href="_max_c_d_n_8php_source.html">MaxCDN.php</a>.</p>
+<p>Definition at line <a class="el" href="#L823">823</a> of file <a class="el" href="">MaxCDN.php</a>.</p>
+<div class="fragment"><pre class="fragment">                                    {
+    <span class="keywordflow">if</span> (empty($zone_id)) {
+      <span class="keywordflow">throw</span> <span class="keyword">new</span> MissingRequiredParameterException(<span class="stringliteral">&#39;One or more required parameters are empty&#39;</span>);
+    }
 
-<p><div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="class_max_c_d_n_a4a95c42a3716d9f45be0cbe37db33ff9_cgraph.png" border="0" usemap="#class_max_c_d_n_a4a95c42a3716d9f45be0cbe37db33ff9_cgraph" alt=""/></div>
-<map name="class_max_c_d_n_a4a95c42a3716d9f45be0cbe37db33ff9_cgraph" id="class_max_c_d_n_a4a95c42a3716d9f45be0cbe37db33ff9_cgraph">
-</map>
-</div>
-</p>
-
+    $this-&gt;<a class="code" href="class_max_c_d_n.html#aa496f1ad190fdbd8682df3dea24abf1a">sendRequest</a>(<span class="stringliteral">&#39;livezone&#39;</span>, <span class="stringliteral">&#39;delete&#39;</span>, array($zone_id);
+  }
+</pre></div>
 </div>
 </div>
 <a class="anchor" id="a020946e4c4bd99908cf439113569ef2b"></a><!-- doxytag: member="MaxCDN::deletePushZone" ref="a020946e4c4bd99908cf439113569ef2b" args="($zone_id)" -->
@@ -502,17 +505,15 @@ Here is the call graph for this function:</div>
 </dl>
 <dl class="return"><dt><b>Returns:</b></dt><dd>object xmlrpcresp | int $value (0 is success, 1 if failed) </dd></dl>
 
-<p>Definition at line <a class="el" href="_max_c_d_n_8php_source.html#l00627">627</a> of file <a class="el" href="_max_c_d_n_8php_source.html">MaxCDN.php</a>.</p>
+<p>Definition at line <a class="el" href="#L626">626</a> of file <a class="el" href="">MaxCDN.php</a>.</p>
+<div class="fragment"><pre class="fragment">                                    {
+    <span class="keywordflow">if</span> (empty($zone_id)) {
+      <span class="keywordflow">throw</span> <span class="keyword">new</span> MissingRequiredParameterException(<span class="stringliteral">&#39;One or more required parameters are empty&#39;</span>);
+    }
 
-<p><div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="class_max_c_d_n_a020946e4c4bd99908cf439113569ef2b_cgraph.png" border="0" usemap="#class_max_c_d_n_a020946e4c4bd99908cf439113569ef2b_cgraph" alt=""/></div>
-<map name="class_max_c_d_n_a020946e4c4bd99908cf439113569ef2b_cgraph" id="class_max_c_d_n_a020946e4c4bd99908cf439113569ef2b_cgraph">
-</map>
-</div>
-</p>
-
+    $this-&gt;<a class="code" href="class_max_c_d_n.html#aa496f1ad190fdbd8682df3dea24abf1a">sendRequest</a>(<span class="stringliteral">&#39;pushzone&#39;</span>, <span class="stringliteral">&#39;delete&#39;</span>, array($zone_id);
+  }
+</pre></div>
 </div>
 </div>
 <a class="anchor" id="a44ef0c0f3348b3823a827d4f8fd1f69b"></a><!-- doxytag: member="MaxCDN::deleteVodZone" ref="a44ef0c0f3348b3823a827d4f8fd1f69b" args="($zone_id)" -->
@@ -540,17 +541,15 @@ Here is the call graph for this function:</div>
 </dl>
 <dl class="return"><dt><b>Returns:</b></dt><dd>object xmlrpcresp | int $value (0 is success, 1 if failed) </dd></dl>
 
-<p>Definition at line <a class="el" href="_max_c_d_n_8php_source.html#l00726">726</a> of file <a class="el" href="_max_c_d_n_8php_source.html">MaxCDN.php</a>.</p>
+<p>Definition at line <a class="el" href="#L725">725</a> of file <a class="el" href="">MaxCDN.php</a>.</p>
+<div class="fragment"><pre class="fragment">                                   {
+    <span class="keywordflow">if</span> (empty($zone_id)) {
+      <span class="keywordflow">throw</span> <span class="keyword">new</span> MissingRequiredParameterException(<span class="stringliteral">&#39;One or more required parameters are empty&#39;</span>);
+    }
 
-<p><div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="class_max_c_d_n_a44ef0c0f3348b3823a827d4f8fd1f69b_cgraph.png" border="0" usemap="#class_max_c_d_n_a44ef0c0f3348b3823a827d4f8fd1f69b_cgraph" alt=""/></div>
-<map name="class_max_c_d_n_a44ef0c0f3348b3823a827d4f8fd1f69b_cgraph" id="class_max_c_d_n_a44ef0c0f3348b3823a827d4f8fd1f69b_cgraph">
-</map>
-</div>
-</p>
-
+    $this-&gt;<a class="code" href="class_max_c_d_n.html#aa496f1ad190fdbd8682df3dea24abf1a">sendRequest</a>(<span class="stringliteral">&#39;vodzone&#39;</span>, <span class="stringliteral">&#39;delete&#39;</span>, array($zone_id);
+  }
+</pre></div>
 </div>
 </div>
 <a class="anchor" id="ab03d4f2c7f3b6d1e3505f25c33ac4eb4"></a><!-- doxytag: member="MaxCDN::encodeParameters" ref="ab03d4f2c7f3b6d1e3505f25c33ac4eb4" args="($method, $params)" -->
@@ -587,26 +586,24 @@ Here is the call graph for this function:</div>
 </dl>
 <dl class="return"><dt><b>Returns:</b></dt><dd>array $xmlrpc_encoded_params </dd></dl>
 
-<p>Definition at line <a class="el" href="_max_c_d_n_8php_source.html#l00073">73</a> of file <a class="el" href="_max_c_d_n_8php_source.html">MaxCDN.php</a>.</p>
+<p>Definition at line <a class="el" href="#L72">72</a> of file <a class="el" href="">MaxCDN.php</a>.</p>
+<div class="fragment"><pre class="fragment">                                              {
+    $xmlrpc_encoded_params = array(
+        php_xmlrpc_encode($this-&gt;user_id),
+        php_xmlrpc_encode($this-&gt;<a class="code" href="class_max_c_d_n.html#ae777d7e14890a345988fffed800d0e8e">setAuthString</a>($method)),
+        php_xmlrpc_encode(date(<span class="charliteral">&#39;c&#39;</span>))
+    );
 
-<p><div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="class_max_c_d_n_ab03d4f2c7f3b6d1e3505f25c33ac4eb4_cgraph.png" border="0" usemap="#class_max_c_d_n_ab03d4f2c7f3b6d1e3505f25c33ac4eb4_cgraph" alt=""/></div>
-<map name="class_max_c_d_n_ab03d4f2c7f3b6d1e3505f25c33ac4eb4_cgraph" id="class_max_c_d_n_ab03d4f2c7f3b6d1e3505f25c33ac4eb4_cgraph">
-</map>
-</div>
-</p>
-
-<p><div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="class_max_c_d_n_ab03d4f2c7f3b6d1e3505f25c33ac4eb4_icgraph.png" border="0" usemap="#class_max_c_d_n_ab03d4f2c7f3b6d1e3505f25c33ac4eb4_icgraph" alt=""/></div>
-<map name="class_max_c_d_n_ab03d4f2c7f3b6d1e3505f25c33ac4eb4_icgraph" id="class_max_c_d_n_ab03d4f2c7f3b6d1e3505f25c33ac4eb4_icgraph">
-</map>
-</div>
-</p>
-
+    <span class="keywordflow">if</span> (is_array($params)) {
+      <span class="keywordflow">foreach</span> ($params as $param) {
+        <span class="keywordflow">if</span> (!empty($param)) {
+          $xmlrpc_encoded_params[] = php_xmlrpc_encode($param);
+        }
+      }
+    }
+    <span class="keywordflow">return</span> $xmlrpc_encoded_params;
+  }
+</pre></div>
 </div>
 </div>
 <a class="anchor" id="aa7c52da790e6d9e3acceb12d93c90de6"></a><!-- doxytag: member="MaxCDN::getBandwidth" ref="aa7c52da790e6d9e3acceb12d93c90de6" args="($from=null, $to=null)" -->
@@ -643,17 +640,11 @@ Here is the caller graph for this function:</div>
 </dl>
 <dl class="return"><dt><b>Returns:</b></dt><dd>object $xmlrpcresp </dd></dl>
 
-<p>Definition at line <a class="el" href="_max_c_d_n_8php_source.html#l00137">137</a> of file <a class="el" href="_max_c_d_n_8php_source.html">MaxCDN.php</a>.</p>
-
-<p><div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="class_max_c_d_n_aa7c52da790e6d9e3acceb12d93c90de6_cgraph.png" border="0" usemap="#class_max_c_d_n_aa7c52da790e6d9e3acceb12d93c90de6_cgraph" alt=""/></div>
-<map name="class_max_c_d_n_aa7c52da790e6d9e3acceb12d93c90de6_cgraph" id="class_max_c_d_n_aa7c52da790e6d9e3acceb12d93c90de6_cgraph">
-</map>
-</div>
-</p>
-
+<p>Definition at line <a class="el" href="#L136">136</a> of file <a class="el" href="">MaxCDN.php</a>.</p>
+<div class="fragment"><pre class="fragment">                                                  {
+    <span class="keywordflow">return</span> $this-&gt;<a class="code" href="class_max_c_d_n.html#aa496f1ad190fdbd8682df3dea24abf1a">sendRequest</a>(<span class="stringliteral">&#39;account&#39;</span>, <span class="stringliteral">&#39;getBandwidth&#39;</span>, array($from, $to));
+  }
+</pre></div>
 </div>
 </div>
 <a class="anchor" id="a2eba6ff5a4ac4d5348b6fc17ad4e90de"></a><!-- doxytag: member="MaxCDN::getCacheHitStats" ref="a2eba6ff5a4ac4d5348b6fc17ad4e90de" args="($company_id, $date_from, $date_to, $zone_id, $sort_by=null, $maximum=null, $offset=null, $timezone=null)" -->
@@ -733,17 +724,16 @@ Here is the call graph for this function:</div>
 </dl>
 <dl class="return"><dt><b>Returns:</b></dt><dd>object $xmlrpcresp | int $value </dd></dl>
 
-<p>Definition at line <a class="el" href="_max_c_d_n_8php_source.html#l00212">212</a> of file <a class="el" href="_max_c_d_n_8php_source.html">MaxCDN.php</a>.</p>
+<p>Definition at line <a class="el" href="#L211">211</a> of file <a class="el" href="">MaxCDN.php</a>.</p>
+<div class="fragment"><pre class="fragment">                                                                                                                                             {
 
-<p><div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="class_max_c_d_n_a2eba6ff5a4ac4d5348b6fc17ad4e90de_cgraph.png" border="0" usemap="#class_max_c_d_n_a2eba6ff5a4ac4d5348b6fc17ad4e90de_cgraph" alt=""/></div>
-<map name="class_max_c_d_n_a2eba6ff5a4ac4d5348b6fc17ad4e90de_cgraph" id="class_max_c_d_n_a2eba6ff5a4ac4d5348b6fc17ad4e90de_cgraph">
-</map>
-</div>
-</p>
-
+    <span class="keywordflow">if</span> (empty($company_id) || empty($zone_id) || empty($date_from) || empty($date_to)) {
+      <span class="keywordflow">throw</span> <span class="keyword">new</span> MissingRequiredParameterException(<span class="stringliteral">&#39;One or more required parameters are empty&#39;</span>);
+    }
+    <span class="keywordflow">return</span> $this-&gt;<a class="code" href="class_max_c_d_n.html#aa496f1ad190fdbd8682df3dea24abf1a">sendRequest</a>(<span class="stringliteral">&#39;report&#39;</span>, <span class="stringliteral">&#39;getCacheHitStats&#39;</span>, array($company_id, $zone_id, $date_from, $date_to, $sort_by,
+        $maximum, $offset, $timezone));
+  }
+</pre></div>
 </div>
 </div>
 <a class="anchor" id="a0ccdaad45884b8d37ec214a9fef96f69"></a><!-- doxytag: member="MaxCDN::getConnectionStats" ref="a0ccdaad45884b8d37ec214a9fef96f69" args="($company_id, $date_from, $date_to, $zone_id, $sort_by=null, $maximum=null, $offset=null, $timezone=null)" -->
@@ -823,17 +813,16 @@ Here is the call graph for this function:</div>
 </dl>
 <dl class="return"><dt><b>Returns:</b></dt><dd>object $xmlrpcresp | array $value </dd></dl>
 
-<p>Definition at line <a class="el" href="_max_c_d_n_8php_source.html#l00332">332</a> of file <a class="el" href="_max_c_d_n_8php_source.html">MaxCDN.php</a>.</p>
+<p>Definition at line <a class="el" href="#L331">331</a> of file <a class="el" href="">MaxCDN.php</a>.</p>
+<div class="fragment"><pre class="fragment">                                                                                                                                               {
 
-<p><div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="class_max_c_d_n_a0ccdaad45884b8d37ec214a9fef96f69_cgraph.png" border="0" usemap="#class_max_c_d_n_a0ccdaad45884b8d37ec214a9fef96f69_cgraph" alt=""/></div>
-<map name="class_max_c_d_n_a0ccdaad45884b8d37ec214a9fef96f69_cgraph" id="class_max_c_d_n_a0ccdaad45884b8d37ec214a9fef96f69_cgraph">
-</map>
-</div>
-</p>
-
+    <span class="keywordflow">if</span> (empty($company_id) || empty($zone_id) || empty($date_from) || empty($date_to)) {
+      <span class="keywordflow">throw</span> <span class="keyword">new</span> MissingRequiredParameterException(<span class="stringliteral">&#39;One or more required parameters are empty&#39;</span>);
+    }
+    <span class="keywordflow">return</span> $this-&gt;<a class="code" href="class_max_c_d_n.html#aa496f1ad190fdbd8682df3dea24abf1a">sendRequest</a>(<span class="stringliteral">&#39;report&#39;</span>, <span class="stringliteral">&#39;getConnectionStats&#39;</span>, array($company_id, $zone_id, $date_from, $date_to, $sort_by,
+        $maximum, $offset, $timezone));
+  }
+</pre></div>
 </div>
 </div>
 <a class="anchor" id="a6a37fba9236e945837fdab2615463fd8"></a><!-- doxytag: member="MaxCDN::getHourlyConnectionStats" ref="a6a37fba9236e945837fdab2615463fd8" args="($company_id, $date_from, $zone_id, $sort_by=null, $maximum=null, $offset=null, $timezone=null)" -->
@@ -906,17 +895,16 @@ Here is the call graph for this function:</div>
 </dl>
 <dl class="return"><dt><b>Returns:</b></dt><dd>object $xmlrpcresp | array $value </dd></dl>
 
-<p>Definition at line <a class="el" href="_max_c_d_n_8php_source.html#l00362">362</a> of file <a class="el" href="_max_c_d_n_8php_source.html">MaxCDN.php</a>.</p>
+<p>Definition at line <a class="el" href="#L361">361</a> of file <a class="el" href="">MaxCDN.php</a>.</p>
+<div class="fragment"><pre class="fragment">                                                                                                                                           {
 
-<p><div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="class_max_c_d_n_a6a37fba9236e945837fdab2615463fd8_cgraph.png" border="0" usemap="#class_max_c_d_n_a6a37fba9236e945837fdab2615463fd8_cgraph" alt=""/></div>
-<map name="class_max_c_d_n_a6a37fba9236e945837fdab2615463fd8_cgraph" id="class_max_c_d_n_a6a37fba9236e945837fdab2615463fd8_cgraph">
-</map>
-</div>
-</p>
-
+    <span class="keywordflow">if</span> (empty($company_id) || empty($zone_id) || empty($date_from)) {
+      <span class="keywordflow">throw</span> <span class="keyword">new</span> MissingRequiredParameterException(<span class="stringliteral">&#39;One or more required parameters are empty&#39;</span>);
+    }
+    <span class="keywordflow">return</span> $this-&gt;<a class="code" href="class_max_c_d_n.html#aa496f1ad190fdbd8682df3dea24abf1a">sendRequest</a>(<span class="stringliteral">&#39;report&#39;</span>, <span class="stringliteral">&#39;getHourlyConnectionStats&#39;</span>, array($company_id, $zone_id, $date_from, $sort_by,
+        $maximum, $offset, $timezone));
+  }
+</pre></div>
 </div>
 </div>
 <a class="anchor" id="a1492bb1d403e0e37bbb6694ceade7431"></a><!-- doxytag: member="MaxCDN::getLiveZones" ref="a1492bb1d403e0e37bbb6694ceade7431" args="()" -->
@@ -936,17 +924,11 @@ Here is the call graph for this function:</div>
 <p><code> $this-&gt;<a class="el" href="class_max_c_d_n.html#a1492bb1d403e0e37bbb6694ceade7431">getLiveZones()</a>; </code></p>
 <dl class="return"><dt><b>Returns:</b></dt><dd>object xmlrpcresp | array $value </dd></dl>
 
-<p>Definition at line <a class="el" href="_max_c_d_n_8php_source.html#l00844">844</a> of file <a class="el" href="_max_c_d_n_8php_source.html">MaxCDN.php</a>.</p>
-
-<p><div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="class_max_c_d_n_a1492bb1d403e0e37bbb6694ceade7431_cgraph.png" border="0" usemap="#class_max_c_d_n_a1492bb1d403e0e37bbb6694ceade7431_cgraph" alt=""/></div>
-<map name="class_max_c_d_n_a1492bb1d403e0e37bbb6694ceade7431_cgraph" id="class_max_c_d_n_a1492bb1d403e0e37bbb6694ceade7431_cgraph">
-</map>
-</div>
-</p>
-
+<p>Definition at line <a class="el" href="#L843">843</a> of file <a class="el" href="">MaxCDN.php</a>.</p>
+<div class="fragment"><pre class="fragment">                          {
+    $this-&gt;<a class="code" href="class_max_c_d_n.html#aa496f1ad190fdbd8682df3dea24abf1a">sendRequest</a>(<span class="stringliteral">&#39;livezone&#39;</span>, <span class="stringliteral">&#39;listZones&#39;</span>);
+  }
+</pre></div>
 </div>
 </div>
 <a class="anchor" id="a5edac3917b1fc456d9919a2b27954032"></a><!-- doxytag: member="MaxCDN::getNodeHits" ref="a5edac3917b1fc456d9919a2b27954032" args="($company_id, $date_from, $date_to, $zone_id, $sort_by=null, $maximum=null, $offset=null)" -->
@@ -1019,17 +1001,16 @@ Here is the call graph for this function:</div>
 </dl>
 <dl class="return"><dt><b>Returns:</b></dt><dd>object $xmlrpcresp | array $value </dd></dl>
 
-<p>Definition at line <a class="el" href="_max_c_d_n_8php_source.html#l00301">301</a> of file <a class="el" href="_max_c_d_n_8php_source.html">MaxCDN.php</a>.</p>
+<p>Definition at line <a class="el" href="#L300">300</a> of file <a class="el" href="">MaxCDN.php</a>.</p>
+<div class="fragment"><pre class="fragment">                                                                                                                      {
 
-<p><div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="class_max_c_d_n_a5edac3917b1fc456d9919a2b27954032_cgraph.png" border="0" usemap="#class_max_c_d_n_a5edac3917b1fc456d9919a2b27954032_cgraph" alt=""/></div>
-<map name="class_max_c_d_n_a5edac3917b1fc456d9919a2b27954032_cgraph" id="class_max_c_d_n_a5edac3917b1fc456d9919a2b27954032_cgraph">
-</map>
-</div>
-</p>
-
+    <span class="keywordflow">if</span> (empty($company_id) || empty($zone_id) || empty($date_from) || empty($date_to)) {
+      <span class="keywordflow">throw</span> <span class="keyword">new</span> MissingRequiredParameterException(<span class="stringliteral">&#39;One or more required parameters are empty&#39;</span>);
+    }
+    <span class="keywordflow">return</span> $this-&gt;<a class="code" href="class_max_c_d_n.html#aa496f1ad190fdbd8682df3dea24abf1a">sendRequest</a>(<span class="stringliteral">&#39;report&#39;</span>, <span class="stringliteral">&#39;getNodeHits&#39;</span>, array($company_id, $zone_id, $date_from, $date_to, $sort_by,
+        $maximum, $offset));
+  }
+</pre></div>
 </div>
 </div>
 <a class="anchor" id="ad34a2fa79fb678324ec5d8a98f6f58f4"></a><!-- doxytag: member="MaxCDN::getPopularFiles" ref="ad34a2fa79fb678324ec5d8a98f6f58f4" args="($company_id, $date_from, $date_to, $zone_id, $sort_by=null, $maximum=null, $offset=null)" -->
@@ -1103,17 +1084,16 @@ Here is the call graph for this function:</div>
 </dl>
 <dl class="return"><dt><b>Returns:</b></dt><dd>object $xmlrpcresp | array $value </dd></dl>
 
-<p>Definition at line <a class="el" href="_max_c_d_n_8php_source.html#l00243">243</a> of file <a class="el" href="_max_c_d_n_8php_source.html">MaxCDN.php</a>.</p>
+<p>Definition at line <a class="el" href="#L242">242</a> of file <a class="el" href="">MaxCDN.php</a>.</p>
+<div class="fragment"><pre class="fragment">                                                                                                                          {
 
-<p><div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="class_max_c_d_n_ad34a2fa79fb678324ec5d8a98f6f58f4_cgraph.png" border="0" usemap="#class_max_c_d_n_ad34a2fa79fb678324ec5d8a98f6f58f4_cgraph" alt=""/></div>
-<map name="class_max_c_d_n_ad34a2fa79fb678324ec5d8a98f6f58f4_cgraph" id="class_max_c_d_n_ad34a2fa79fb678324ec5d8a98f6f58f4_cgraph">
-</map>
-</div>
-</p>
-
+    <span class="keywordflow">if</span> (empty($company_id) || empty($zone_id) || empty($date_from) || empty($date_to)) {
+      <span class="keywordflow">throw</span> <span class="keyword">new</span> MissingRequiredParameterException(<span class="stringliteral">&#39;One or more required parameters are empty&#39;</span>);
+    }
+    <span class="keywordflow">return</span> $this-&gt;<a class="code" href="class_max_c_d_n.html#aa496f1ad190fdbd8682df3dea24abf1a">sendRequest</a>(<span class="stringliteral">&#39;report&#39;</span>, <span class="stringliteral">&#39;getPopularFiles&#39;</span>, array($company_id, $zone_id, $date_from, $date_to, $sort_by,
+        $maximum, $offset));
+  }
+</pre></div>
 </div>
 </div>
 <a class="anchor" id="af25dffec4a45683331d76e16ac82f125"></a><!-- doxytag: member="MaxCDN::getPullZones" ref="af25dffec4a45683331d76e16ac82f125" args="()" -->
@@ -1133,17 +1113,12 @@ Here is the call graph for this function:</div>
 <p><code> $this-&gt;<a class="el" href="class_max_c_d_n.html#af25dffec4a45683331d76e16ac82f125">getPullZones()</a>; </code></p>
 <dl class="return"><dt><b>Returns:</b></dt><dd>object xmlrpcresp | array $value </dd></dl>
 
-<p>Definition at line <a class="el" href="_max_c_d_n_8php_source.html#l00546">546</a> of file <a class="el" href="_max_c_d_n_8php_source.html">MaxCDN.php</a>.</p>
+<p>Definition at line <a class="el" href="#L545">545</a> of file <a class="el" href="">MaxCDN.php</a>.</p>
+<div class="fragment"><pre class="fragment">                          {
 
-<p><div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="class_max_c_d_n_af25dffec4a45683331d76e16ac82f125_cgraph.png" border="0" usemap="#class_max_c_d_n_af25dffec4a45683331d76e16ac82f125_cgraph" alt=""/></div>
-<map name="class_max_c_d_n_af25dffec4a45683331d76e16ac82f125_cgraph" id="class_max_c_d_n_af25dffec4a45683331d76e16ac82f125_cgraph">
-</map>
-</div>
-</p>
-
+    $this-&gt;<a class="code" href="class_max_c_d_n.html#aa496f1ad190fdbd8682df3dea24abf1a">sendRequest</a>(<span class="stringliteral">&#39;pullzone&#39;</span>, <span class="stringliteral">&#39;listZones&#39;</span>);
+  }
+</pre></div>
 </div>
 </div>
 <a class="anchor" id="a16b0ec27cb42588cc908b1fa1fb5dc3b"></a><!-- doxytag: member="MaxCDN::getPushZones" ref="a16b0ec27cb42588cc908b1fa1fb5dc3b" args="()" -->
@@ -1163,17 +1138,12 @@ Here is the call graph for this function:</div>
 <p><code> $this-&gt;<a class="el" href="class_max_c_d_n.html#a16b0ec27cb42588cc908b1fa1fb5dc3b">getPushZones()</a>; </code></p>
 <dl class="return"><dt><b>Returns:</b></dt><dd>object xmlrpcresp | array $value </dd></dl>
 
-<p>Definition at line <a class="el" href="_max_c_d_n_8php_source.html#l00647">647</a> of file <a class="el" href="_max_c_d_n_8php_source.html">MaxCDN.php</a>.</p>
+<p>Definition at line <a class="el" href="#L646">646</a> of file <a class="el" href="">MaxCDN.php</a>.</p>
+<div class="fragment"><pre class="fragment">                          {
 
-<p><div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="class_max_c_d_n_a16b0ec27cb42588cc908b1fa1fb5dc3b_cgraph.png" border="0" usemap="#class_max_c_d_n_a16b0ec27cb42588cc908b1fa1fb5dc3b_cgraph" alt=""/></div>
-<map name="class_max_c_d_n_a16b0ec27cb42588cc908b1fa1fb5dc3b_cgraph" id="class_max_c_d_n_a16b0ec27cb42588cc908b1fa1fb5dc3b_cgraph">
-</map>
-</div>
-</p>
-
+    $this-&gt;<a class="code" href="class_max_c_d_n.html#aa496f1ad190fdbd8682df3dea24abf1a">sendRequest</a>(<span class="stringliteral">&#39;pushzone&#39;</span>, <span class="stringliteral">&#39;listZones&#39;</span>);
+  }
+</pre></div>
 </div>
 </div>
 <a class="anchor" id="aa14c507a271bdd2536047035549153e7"></a><!-- doxytag: member="MaxCDN::getTotalHits" ref="aa14c507a271bdd2536047035549153e7" args="($zone_id, $type, $from=null, $to=null, $timezone=null)" -->
@@ -1219,17 +1189,14 @@ Here is the call graph for this function:</div>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="_max_c_d_n_8php_source.html#l00152">152</a> of file <a class="el" href="_max_c_d_n_8php_source.html">MaxCDN.php</a>.</p>
-
-<p><div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="class_max_c_d_n_aa14c507a271bdd2536047035549153e7_cgraph.png" border="0" usemap="#class_max_c_d_n_aa14c507a271bdd2536047035549153e7_cgraph" alt=""/></div>
-<map name="class_max_c_d_n_aa14c507a271bdd2536047035549153e7_cgraph" id="class_max_c_d_n_aa14c507a271bdd2536047035549153e7_cgraph">
-</map>
-</div>
-</p>
-
+<p>Definition at line <a class="el" href="#L151">151</a> of file <a class="el" href="">MaxCDN.php</a>.</p>
+<div class="fragment"><pre class="fragment">                                                                                     {
+    <span class="keywordflow">if</span> (empty($zone_id) || empty($type)) {
+      <span class="keywordflow">throw</span> <span class="keyword">new</span> <a class="code" href="class_missing_requirement_exception.html">MissingRequirementException</a>(<span class="stringliteral">&#39;One or more required parameters are empty&#39;</span>);
+    }
+    <span class="keywordflow">return</span> $this-&gt;<a class="code" href="class_max_c_d_n.html#aa496f1ad190fdbd8682df3dea24abf1a">sendRequest</a>(<span class="stringliteral">&#39;report&#39;</span>, <span class="stringliteral">&#39;getTotalHits&#39;</span>, array($zone_id, $type, $from, $to, $timezone));
+  }
+</pre></div>
 </div>
 </div>
 <a class="anchor" id="a4182fd3c7541817bfed426647cdf24b6"></a><!-- doxytag: member="MaxCDN::getTotalTransfer" ref="a4182fd3c7541817bfed426647cdf24b6" args="($zone_id, $type, $from=null, $to=null, $timezone=null)" -->
@@ -1276,17 +1243,14 @@ Here is the call graph for this function:</div>
 <div class="memdoc">
 <p>Reporting methods  report </p>
 
-<p>Definition at line <a class="el" href="_max_c_d_n_8php_source.html#l00145">145</a> of file <a class="el" href="_max_c_d_n_8php_source.html">MaxCDN.php</a>.</p>
-
-<p><div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="class_max_c_d_n_a4182fd3c7541817bfed426647cdf24b6_cgraph.png" border="0" usemap="#class_max_c_d_n_a4182fd3c7541817bfed426647cdf24b6_cgraph" alt=""/></div>
-<map name="class_max_c_d_n_a4182fd3c7541817bfed426647cdf24b6_cgraph" id="class_max_c_d_n_a4182fd3c7541817bfed426647cdf24b6_cgraph">
-</map>
-</div>
-</p>
-
+<p>Definition at line <a class="el" href="#L144">144</a> of file <a class="el" href="">MaxCDN.php</a>.</p>
+<div class="fragment"><pre class="fragment">                                                                                         {
+    <span class="keywordflow">if</span> (empty($zone_id) || empty($type)) {
+      <span class="keywordflow">throw</span> <span class="keyword">new</span> <a class="code" href="class_missing_requirement_exception.html">MissingRequirementException</a>(<span class="stringliteral">&#39;One or more required parameters are empty&#39;</span>);
+    }
+    <span class="keywordflow">return</span> $this-&gt;<a class="code" href="class_max_c_d_n.html#aa496f1ad190fdbd8682df3dea24abf1a">sendRequest</a>(<span class="stringliteral">&#39;report&#39;</span>, <span class="stringliteral">&#39;getTotalTransfer&#39;</span>, array($zone_id, $type, $from, $to, $timezone));
+  }
+</pre></div>
 </div>
 </div>
 <a class="anchor" id="a2f721064cd497651f42b949d8cbeae27"></a><!-- doxytag: member="MaxCDN::getTotalTransferStats" ref="a2f721064cd497651f42b949d8cbeae27" args="($company_id, $date_from, $date_to, $zone_id, $sort_by=null, $maximum=null, $offset=null, $timezone=null)" -->
@@ -1367,17 +1331,16 @@ Here is the call graph for this function:</div>
 </dl>
 <dl class="return"><dt><b>Returns:</b></dt><dd>object $xmlrpcresp | array $value </dd></dl>
 
-<p>Definition at line <a class="el" href="_max_c_d_n_8php_source.html#l00182">182</a> of file <a class="el" href="_max_c_d_n_8php_source.html">MaxCDN.php</a>.</p>
+<p>Definition at line <a class="el" href="#L181">181</a> of file <a class="el" href="">MaxCDN.php</a>.</p>
+<div class="fragment"><pre class="fragment">                                                                                                                                                  {
 
-<p><div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="class_max_c_d_n_a2f721064cd497651f42b949d8cbeae27_cgraph.png" border="0" usemap="#class_max_c_d_n_a2f721064cd497651f42b949d8cbeae27_cgraph" alt=""/></div>
-<map name="class_max_c_d_n_a2f721064cd497651f42b949d8cbeae27_cgraph" id="class_max_c_d_n_a2f721064cd497651f42b949d8cbeae27_cgraph">
-</map>
-</div>
-</p>
-
+    <span class="keywordflow">if</span> (empty($company_id) || empty($zone_id) || empty($date_from) || empty($date_to)) {
+      <span class="keywordflow">throw</span> <span class="keyword">new</span> MissingRequiredParameterException(<span class="stringliteral">&#39;One or more required parameters are empty&#39;</span>);
+    }
+    <span class="keywordflow">return</span> $this-&gt;<a class="code" href="class_max_c_d_n.html#aa496f1ad190fdbd8682df3dea24abf1a">sendRequest</a>(<span class="stringliteral">&#39;report&#39;</span>, <span class="stringliteral">&#39;getTotalTransferStats&#39;</span>, array($company_id, $zone_id, $date_from, $date_to, $sort_by,
+        $view_by, $maximum, $offset, $timezone));
+  }
+</pre></div>
 </div>
 </div>
 <a class="anchor" id="a0f0f34de0a9b9e8aee763a10620b0310"></a><!-- doxytag: member="MaxCDN::getUsagePerDay" ref="a0f0f34de0a9b9e8aee763a10620b0310" args="($company_id, $date_from, $date_to, $zone_id, $sort_by=null, $maximum=null, $offset=null)" -->
@@ -1450,17 +1413,16 @@ Here is the call graph for this function:</div>
 </dl>
 <dl class="return"><dt><b>Returns:</b></dt><dd>object $xmlrpcresp | int $value </dd></dl>
 
-<p>Definition at line <a class="el" href="_max_c_d_n_8php_source.html#l00272">272</a> of file <a class="el" href="_max_c_d_n_8php_source.html">MaxCDN.php</a>.</p>
+<p>Definition at line <a class="el" href="#L271">271</a> of file <a class="el" href="">MaxCDN.php</a>.</p>
+<div class="fragment"><pre class="fragment">                                                                                                                         {
 
-<p><div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="class_max_c_d_n_a0f0f34de0a9b9e8aee763a10620b0310_cgraph.png" border="0" usemap="#class_max_c_d_n_a0f0f34de0a9b9e8aee763a10620b0310_cgraph" alt=""/></div>
-<map name="class_max_c_d_n_a0f0f34de0a9b9e8aee763a10620b0310_cgraph" id="class_max_c_d_n_a0f0f34de0a9b9e8aee763a10620b0310_cgraph">
-</map>
-</div>
-</p>
-
+    <span class="keywordflow">if</span> (empty($company_id) || empty($zone_id) || empty($date_from) || empty($date_to)) {
+      <span class="keywordflow">throw</span> <span class="keyword">new</span> MissingRequiredParameterException(<span class="stringliteral">&#39;One or more required parameters are empty&#39;</span>);
+    }
+    <span class="keywordflow">return</span> $this-&gt;<a class="code" href="class_max_c_d_n.html#aa496f1ad190fdbd8682df3dea24abf1a">sendRequest</a>(<span class="stringliteral">&#39;report&#39;</span>, <span class="stringliteral">&#39;getUsagePerDay&#39;</span>, array($company_id, $zone_id, $date_from, $date_to, $sort_by,
+        $maximum, $offset));
+  }
+</pre></div>
 </div>
 </div>
 <a class="anchor" id="aeb20dee182d29e6d339cab9682b4ff04"></a><!-- doxytag: member="MaxCDN::getUserList" ref="aeb20dee182d29e6d339cab9682b4ff04" args="()" -->
@@ -1480,17 +1442,11 @@ Here is the call graph for this function:</div>
 <p><code> $this-&gt;<a class="el" href="class_max_c_d_n.html#aeb20dee182d29e6d339cab9682b4ff04">getUserList()</a>; </code></p>
 <dl class="return"><dt><b>Returns:</b></dt><dd>object xmlrpcresp | array $value </dd></dl>
 
-<p>Definition at line <a class="el" href="_max_c_d_n_8php_source.html#l00387">387</a> of file <a class="el" href="_max_c_d_n_8php_source.html">MaxCDN.php</a>.</p>
-
-<p><div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="class_max_c_d_n_aeb20dee182d29e6d339cab9682b4ff04_cgraph.png" border="0" usemap="#class_max_c_d_n_aeb20dee182d29e6d339cab9682b4ff04_cgraph" alt=""/></div>
-<map name="class_max_c_d_n_aeb20dee182d29e6d339cab9682b4ff04_cgraph" id="class_max_c_d_n_aeb20dee182d29e6d339cab9682b4ff04_cgraph">
-</map>
-</div>
-</p>
-
+<p>Definition at line <a class="el" href="#L386">386</a> of file <a class="el" href="">MaxCDN.php</a>.</p>
+<div class="fragment"><pre class="fragment">                         {
+    <span class="keywordflow">return</span> $this-&gt;<a class="code" href="class_max_c_d_n.html#aa496f1ad190fdbd8682df3dea24abf1a">sendRequest</a>(<span class="stringliteral">&#39;user&#39;</span>, <span class="stringliteral">&#39;listUsers&#39;</span>);
+  }
+</pre></div>
 </div>
 </div>
 <a class="anchor" id="a252e5eb5e92bda7e596ef52038156db8"></a><!-- doxytag: member="MaxCDN::getVodZones" ref="a252e5eb5e92bda7e596ef52038156db8" args="()" -->
@@ -1510,17 +1466,11 @@ Here is the call graph for this function:</div>
 <p><code> $this-&gt;<a class="el" href="class_max_c_d_n.html#a252e5eb5e92bda7e596ef52038156db8">getVodZones()</a>; </code></p>
 <dl class="return"><dt><b>Returns:</b></dt><dd>object xmlrpcresp | array $value </dd></dl>
 
-<p>Definition at line <a class="el" href="_max_c_d_n_8php_source.html#l00746">746</a> of file <a class="el" href="_max_c_d_n_8php_source.html">MaxCDN.php</a>.</p>
-
-<p><div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="class_max_c_d_n_a252e5eb5e92bda7e596ef52038156db8_cgraph.png" border="0" usemap="#class_max_c_d_n_a252e5eb5e92bda7e596ef52038156db8_cgraph" alt=""/></div>
-<map name="class_max_c_d_n_a252e5eb5e92bda7e596ef52038156db8_cgraph" id="class_max_c_d_n_a252e5eb5e92bda7e596ef52038156db8_cgraph">
-</map>
-</div>
-</p>
-
+<p>Definition at line <a class="el" href="#L745">745</a> of file <a class="el" href="">MaxCDN.php</a>.</p>
+<div class="fragment"><pre class="fragment">                         {
+    $this-&gt;<a class="code" href="class_max_c_d_n.html#aa496f1ad190fdbd8682df3dea24abf1a">sendRequest</a>(<span class="stringliteral">&#39;vodzone&#39;</span>, <span class="stringliteral">&#39;listZones&#39;</span>);
+  }
+</pre></div>
 </div>
 </div>
 <a class="anchor" id="a1ffd352aec7f5cbd343401630382316b"></a><!-- doxytag: member="MaxCDN::purgeAllCache" ref="a1ffd352aec7f5cbd343401630382316b" args="($zone)" -->
@@ -1548,17 +1498,15 @@ Here is the call graph for this function:</div>
 </dl>
 <dl class="return"><dt><b>Returns:</b></dt><dd>object xmlrpcresp | boolean $value </dd></dl>
 
-<p>Definition at line <a class="el" href="_max_c_d_n_8php_source.html#l00459">459</a> of file <a class="el" href="_max_c_d_n_8php_source.html">MaxCDN.php</a>.</p>
-
-<p><div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="class_max_c_d_n_a1ffd352aec7f5cbd343401630382316b_cgraph.png" border="0" usemap="#class_max_c_d_n_a1ffd352aec7f5cbd343401630382316b_cgraph" alt=""/></div>
-<map name="class_max_c_d_n_a1ffd352aec7f5cbd343401630382316b_cgraph" id="class_max_c_d_n_a1ffd352aec7f5cbd343401630382316b_cgraph">
-</map>
-</div>
-</p>
-
+<p>Definition at line <a class="el" href="#L458">458</a> of file <a class="el" href="">MaxCDN.php</a>.</p>
+<div class="fragment"><pre class="fragment">                                {
+    <span class="keywordflow">if</span> (empty($zone)) {
+      <span class="keywordflow">throw</span> <span class="keyword">new</span> MissingRequiredParameterException(<span class="stringliteral">&#39;One or more required parameters are empty&#39;</span>);
+    }
+    
+    $this-&gt;<a class="code" href="class_max_c_d_n.html#aa496f1ad190fdbd8682df3dea24abf1a">sendRequest</a>(<span class="stringliteral">&#39;cache&#39;</span>, <span class="stringliteral">&#39;purgeAllCache&#39;</span>, array($zone));
+  }
+</pre></div>
 </div>
 </div>
 <a class="anchor" id="a62a3e75f63fe9295ec761eaee62294fb"></a><!-- doxytag: member="MaxCDN::purgeFromCache" ref="a62a3e75f63fe9295ec761eaee62294fb" args="($url)" -->
@@ -1586,17 +1534,15 @@ Here is the call graph for this function:</div>
 </dl>
 <dl class="return"><dt><b>Returns:</b></dt><dd>object xmlrpcresp | boolean $value </dd></dl>
 
-<p>Definition at line <a class="el" href="_max_c_d_n_8php_source.html#l00436">436</a> of file <a class="el" href="_max_c_d_n_8php_source.html">MaxCDN.php</a>.</p>
-
-<p><div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="class_max_c_d_n_a62a3e75f63fe9295ec761eaee62294fb_cgraph.png" border="0" usemap="#class_max_c_d_n_a62a3e75f63fe9295ec761eaee62294fb_cgraph" alt=""/></div>
-<map name="class_max_c_d_n_a62a3e75f63fe9295ec761eaee62294fb_cgraph" id="class_max_c_d_n_a62a3e75f63fe9295ec761eaee62294fb_cgraph">
-</map>
-</div>
-</p>
-
+<p>Definition at line <a class="el" href="#L435">435</a> of file <a class="el" href="">MaxCDN.php</a>.</p>
+<div class="fragment"><pre class="fragment">                                {
+    <span class="keywordflow">if</span> (empty($url)) {
+      <span class="keywordflow">throw</span> <span class="keyword">new</span> MissingRequiredParameterException(<span class="stringliteral">&#39;One or more required parameters are empty&#39;</span>);
+    }
+    
+    $this-&gt;<a class="code" href="class_max_c_d_n.html#aa496f1ad190fdbd8682df3dea24abf1a">sendRequest</a>(<span class="stringliteral">&#39;cache&#39;</span>, <span class="stringliteral">&#39;purge&#39;</span>, array($url));
+  }
+</pre></div>
 </div>
 </div>
 <a class="anchor" id="aa496f1ad190fdbd8682df3dea24abf1a"></a><!-- doxytag: member="MaxCDN::sendRequest" ref="aa496f1ad190fdbd8682df3dea24abf1a" args="($namespace, $method, $params=null)" -->
@@ -1640,26 +1586,13 @@ Here is the call graph for this function:</div>
 </dl>
 <dl class="return"><dt><b>Returns:</b></dt><dd>object $result </dd></dl>
 
-<p>Definition at line <a class="el" href="_max_c_d_n_8php_source.html#l00116">116</a> of file <a class="el" href="_max_c_d_n_8php_source.html">MaxCDN.php</a>.</p>
-
-<p><div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="class_max_c_d_n_aa496f1ad190fdbd8682df3dea24abf1a_cgraph.png" border="0" usemap="#class_max_c_d_n_aa496f1ad190fdbd8682df3dea24abf1a_cgraph" alt=""/></div>
-<map name="class_max_c_d_n_aa496f1ad190fdbd8682df3dea24abf1a_cgraph" id="class_max_c_d_n_aa496f1ad190fdbd8682df3dea24abf1a_cgraph">
-</map>
-</div>
-</p>
-
-<p><div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="class_max_c_d_n_aa496f1ad190fdbd8682df3dea24abf1a_icgraph.png" border="0" usemap="#class_max_c_d_n_aa496f1ad190fdbd8682df3dea24abf1a_icgraph" alt=""/></div>
-<map name="class_max_c_d_n_aa496f1ad190fdbd8682df3dea24abf1a_icgraph" id="class_max_c_d_n_aa496f1ad190fdbd8682df3dea24abf1a_icgraph">
-</map>
-</div>
-</p>
-
+<p>Definition at line <a class="el" href="#L115">115</a> of file <a class="el" href="">MaxCDN.php</a>.</p>
+<div class="fragment"><pre class="fragment">                                                            {
+    $xmlrpc_request = $this-&gt;<a class="code" href="class_max_c_d_n.html#a8c54c313b1f5bbae025c3c30cf12a1ee">setXmlRpcMsg</a>($namespace, $method, $params);
+    $client = <span class="keyword">new</span> xmlrpc_client(<span class="stringliteral">&#39;/xmlrpc/&#39;</span> . $namespace, <span class="stringliteral">&quot;api.netdna.com&quot;</span>, 80, <span class="stringliteral">&#39;http11&#39;</span>);
+    <span class="keywordflow">return</span> $result = &amp; $client-&gt;send($xmlrpc_request);
+  }
+</pre></div>
 </div>
 </div>
 <a class="anchor" id="ae777d7e14890a345988fffed800d0e8e"></a><!-- doxytag: member="MaxCDN::setAuthString" ref="ae777d7e14890a345988fffed800d0e8e" args="($method)" -->
@@ -1685,17 +1618,11 @@ Here is the caller graph for this function:</div>
 </dl>
 <dl class="return"><dt><b>Returns:</b></dt><dd>string sha-256 hash for authstring </dd></dl>
 
-<p>Definition at line <a class="el" href="_max_c_d_n_8php_source.html#l00059">59</a> of file <a class="el" href="_max_c_d_n_8php_source.html">MaxCDN.php</a>.</p>
-
-<p><div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="class_max_c_d_n_ae777d7e14890a345988fffed800d0e8e_icgraph.png" border="0" usemap="#class_max_c_d_n_ae777d7e14890a345988fffed800d0e8e_icgraph" alt=""/></div>
-<map name="class_max_c_d_n_ae777d7e14890a345988fffed800d0e8e_icgraph" id="class_max_c_d_n_ae777d7e14890a345988fffed800d0e8e_icgraph">
-</map>
-</div>
-</p>
-
+<p>Definition at line <a class="el" href="#L58">58</a> of file <a class="el" href="">MaxCDN.php</a>.</p>
+<div class="fragment"><pre class="fragment">                                  {
+    <span class="keywordflow">return</span> hash(<span class="stringliteral">&#39;sha256&#39;</span>, date(<span class="charliteral">&#39;c&#39;</span>) . <span class="charliteral">&#39;:&#39;</span> . $this-&gt;api_key . <span class="charliteral">&#39;:&#39;</span> . $method);
+  }
+</pre></div>
 </div>
 </div>
 <a class="anchor" id="a8c54c313b1f5bbae025c3c30cf12a1ee"></a><!-- doxytag: member="MaxCDN::setXmlRpcMsg" ref="a8c54c313b1f5bbae025c3c30cf12a1ee" args="($namespace, $method, $params)" -->
@@ -1739,26 +1666,12 @@ Here is the caller graph for this function:</div>
 </dl>
 <dl class="return"><dt><b>Returns:</b></dt><dd>object xmlrpcmsg </dd></dl>
 
-<p>Definition at line <a class="el" href="_max_c_d_n_8php_source.html#l00100">100</a> of file <a class="el" href="_max_c_d_n_8php_source.html">MaxCDN.php</a>.</p>
-
-<p><div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="class_max_c_d_n_a8c54c313b1f5bbae025c3c30cf12a1ee_cgraph.png" border="0" usemap="#class_max_c_d_n_a8c54c313b1f5bbae025c3c30cf12a1ee_cgraph" alt=""/></div>
-<map name="class_max_c_d_n_a8c54c313b1f5bbae025c3c30cf12a1ee_cgraph" id="class_max_c_d_n_a8c54c313b1f5bbae025c3c30cf12a1ee_cgraph">
-</map>
-</div>
-</p>
-
-<p><div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="class_max_c_d_n_a8c54c313b1f5bbae025c3c30cf12a1ee_icgraph.png" border="0" usemap="#class_max_c_d_n_a8c54c313b1f5bbae025c3c30cf12a1ee_icgraph" alt=""/></div>
-<map name="class_max_c_d_n_a8c54c313b1f5bbae025c3c30cf12a1ee_icgraph" id="class_max_c_d_n_a8c54c313b1f5bbae025c3c30cf12a1ee_icgraph">
-</map>
-</div>
-</p>
-
+<p>Definition at line <a class="el" href="#L99">99</a> of file <a class="el" href="">MaxCDN.php</a>.</p>
+<div class="fragment"><pre class="fragment">                                                      {
+    $xmlrpc_msg_array = $this-&gt;<a class="code" href="class_max_c_d_n.html#ab03d4f2c7f3b6d1e3505f25c33ac4eb4">encodeParameters</a>($method, $params);
+    <span class="keywordflow">return</span> <span class="keyword">new</span> xmlrpcmsg(<span class="stringliteral">&quot;$namespace.$method&quot;</span>, $xmlrpc_msg_array);
+  }
+</pre></div>
 </div>
 </div>
 <a class="anchor" id="a887cf925e7b0137f584f75c0ea253a64"></a><!-- doxytag: member="MaxCDN::updateLiveZone" ref="a887cf925e7b0137f584f75c0ea253a64" args="($zone_id, $name=null, $password=null, $label=null)" -->
@@ -1811,17 +1724,17 @@ Here is the caller graph for this function:</div>
 </dl>
 <dl class="return"><dt><b>Returns:</b></dt><dd>object xmlrpcresp | int $value (0 is success, 1 if failed) </dd></dl>
 
-<p>Definition at line <a class="el" href="_max_c_d_n_8php_source.html#l00799">799</a> of file <a class="el" href="_max_c_d_n_8php_source.html">MaxCDN.php</a>.</p>
+<p>Definition at line <a class="el" href="#L798">798</a> of file <a class="el" href="">MaxCDN.php</a>.</p>
+<div class="fragment"><pre class="fragment">                                                                                   {
+    <span class="keywordflow">if</span> (empty($zone_id)) {
+      <span class="keywordflow">throw</span> <span class="keyword">new</span> MissingRequiredParameterException(<span class="stringliteral">&#39;One or more required parameters are empty&#39;</span>);
+    }
 
-<p><div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="class_max_c_d_n_a887cf925e7b0137f584f75c0ea253a64_cgraph.png" border="0" usemap="#class_max_c_d_n_a887cf925e7b0137f584f75c0ea253a64_cgraph" alt=""/></div>
-<map name="class_max_c_d_n_a887cf925e7b0137f584f75c0ea253a64_cgraph" id="class_max_c_d_n_a887cf925e7b0137f584f75c0ea253a64_cgraph">
-</map>
-</div>
-</p>
+        $zone_values = array($name, $password, $label);
 
+    $this-&gt;<a class="code" href="class_max_c_d_n.html#aa496f1ad190fdbd8682df3dea24abf1a">sendRequest</a>(<span class="stringliteral">&#39;livezone&#39;</span>, <span class="stringliteral">&#39;update&#39;</span>, array($zone_id, $zone_values);
+  }
+</pre></div>
 </div>
 </div>
 <a class="anchor" id="ad95bc411959f49b988bed017381a6103"></a><!-- doxytag: member="MaxCDN::updatePullZone" ref="ad95bc411959f49b988bed017381a6103" args="($zone_id, $name=null, $origin=null, $vhost=null, $ip=null, $compress=null, $vanity_url=null, $label=null)" -->
@@ -1902,17 +1815,17 @@ Here is the call graph for this function:</div>
 </dl>
 <dl class="return"><dt><b>Returns:</b></dt><dd>object xmlrpcresp | int $value (0 is success, 1 if failed) </dd></dl>
 
-<p>Definition at line <a class="el" href="_max_c_d_n_8php_source.html#l00524">524</a> of file <a class="el" href="_max_c_d_n_8php_source.html">MaxCDN.php</a>.</p>
-
-<p><div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="class_max_c_d_n_ad95bc411959f49b988bed017381a6103_cgraph.png" border="0" usemap="#class_max_c_d_n_ad95bc411959f49b988bed017381a6103_cgraph" alt=""/></div>
-<map name="class_max_c_d_n_ad95bc411959f49b988bed017381a6103_cgraph" id="class_max_c_d_n_ad95bc411959f49b988bed017381a6103_cgraph">
-</map>
-</div>
-</p>
-
+<p>Definition at line <a class="el" href="#L523">523</a> of file <a class="el" href="">MaxCDN.php</a>.</p>
+<div class="fragment"><pre class="fragment">                                                                                                                                                  {
+    <span class="keywordflow">if</span> (empty($zone_id)) {
+      <span class="keywordflow">throw</span> <span class="keyword">new</span> MissingRequiredParameterException(<span class="stringliteral">&#39;One or more required parameters are empty&#39;</span>);
+    }
+        
+        $zone_values = array($name, $origin, $vhost, $ip, $compress, $vanity_url, $label);
+        
+    $this-&gt;<a class="code" href="class_max_c_d_n.html#aa496f1ad190fdbd8682df3dea24abf1a">sendRequest</a>(<span class="stringliteral">&#39;pullzone&#39;</span>, <span class="stringliteral">&#39;update&#39;</span>, array($zone_id, $zone_values);
+  }
+</pre></div>
 </div>
 </div>
 <a class="anchor" id="a6f76399ae6628212637357d101c3a37f"></a><!-- doxytag: member="MaxCDN::updatePushZone" ref="a6f76399ae6628212637357d101c3a37f" args="($zone_id, $name=null, $password=null, $label=null)" -->
@@ -1965,17 +1878,17 @@ Here is the call graph for this function:</div>
 </dl>
 <dl class="return"><dt><b>Returns:</b></dt><dd>object xmlrpcresp | int $value (0 is success, 1 if failed) </dd></dl>
 
-<p>Definition at line <a class="el" href="_max_c_d_n_8php_source.html#l00602">602</a> of file <a class="el" href="_max_c_d_n_8php_source.html">MaxCDN.php</a>.</p>
+<p>Definition at line <a class="el" href="#L601">601</a> of file <a class="el" href="">MaxCDN.php</a>.</p>
+<div class="fragment"><pre class="fragment">                                                                                   {
+    <span class="keywordflow">if</span> (empty($zone_id)) {
+      <span class="keywordflow">throw</span> <span class="keyword">new</span> MissingRequiredParameterException(<span class="stringliteral">&#39;One or more required parameters are empty&#39;</span>);
+    }
 
-<p><div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="class_max_c_d_n_a6f76399ae6628212637357d101c3a37f_cgraph.png" border="0" usemap="#class_max_c_d_n_a6f76399ae6628212637357d101c3a37f_cgraph" alt=""/></div>
-<map name="class_max_c_d_n_a6f76399ae6628212637357d101c3a37f_cgraph" id="class_max_c_d_n_a6f76399ae6628212637357d101c3a37f_cgraph">
-</map>
-</div>
-</p>
+        $zone_values = array($name, $password, $label);
 
+    $this-&gt;<a class="code" href="class_max_c_d_n.html#aa496f1ad190fdbd8682df3dea24abf1a">sendRequest</a>(<span class="stringliteral">&#39;pushzone&#39;</span>, <span class="stringliteral">&#39;update&#39;</span>, array($zone_id, $zone_values);
+  }
+</pre></div>
 </div>
 </div>
 <a class="anchor" id="a1d86f2ee4963b6bfeb447979f58e8e0e"></a><!-- doxytag: member="MaxCDN::updateUser" ref="a1d86f2ee4963b6bfeb447979f58e8e0e" args="($user_id, $update_values)" -->
@@ -2014,17 +1927,19 @@ Here is the call graph for this function:</div>
 </dl>
 <dl class="return"><dt><b>Returns:</b></dt><dd>object xmlrpcresp | array $value </dd></dl>
 
-<p>Definition at line <a class="el" href="_max_c_d_n_8php_source.html#l00405">405</a> of file <a class="el" href="_max_c_d_n_8php_source.html">MaxCDN.php</a>.</p>
+<p>Definition at line <a class="el" href="#L404">404</a> of file <a class="el" href="">MaxCDN.php</a>.</p>
+<div class="fragment"><pre class="fragment">                                                {
+    <span class="keywordflow">if</span> (empty(<a class="code" href="class_max_c_d_n.html#af0fcd925f00973e32f7214859dfb3c6b">$user_id</a>) || empty($update_values)) {
+      <span class="keywordflow">throw</span> <span class="keyword">new</span> MissingRequiredParameterException(<span class="stringliteral">&#39;One or more required parameters are empty&#39;</span>);
+    }
 
-<p><div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="class_max_c_d_n_a1d86f2ee4963b6bfeb447979f58e8e0e_cgraph.png" border="0" usemap="#class_max_c_d_n_a1d86f2ee4963b6bfeb447979f58e8e0e_cgraph" alt=""/></div>
-<map name="class_max_c_d_n_a1d86f2ee4963b6bfeb447979f58e8e0e_cgraph" id="class_max_c_d_n_a1d86f2ee4963b6bfeb447979f58e8e0e_cgraph">
-</map>
-</div>
-</p>
+    <span class="keywordflow">if</span> (!is_array($update_values)) {
+      <span class="keywordflow">throw</span> <span class="keyword">new</span> <a class="code" href="class_variable_type_exception.html">VariableTypeException</a>(<span class="stringliteral">&#39;Required parameter is expected to be an array&#39;</span>);
+    }
 
+    <span class="keywordflow">return</span> $this-&gt;<a class="code" href="class_max_c_d_n.html#aa496f1ad190fdbd8682df3dea24abf1a">sendRequest</a>(<span class="stringliteral">&#39;user&#39;</span>, <span class="stringliteral">&#39;update&#39;</span>, array(<a class="code" href="class_max_c_d_n.html#af0fcd925f00973e32f7214859dfb3c6b">$user_id</a>, $update_values));
+  }
+</pre></div>
 </div>
 </div>
 <a class="anchor" id="a9dbe6ee3e3316947a53c7449b5058cdb"></a><!-- doxytag: member="MaxCDN::updateVodZone" ref="a9dbe6ee3e3316947a53c7449b5058cdb" args="($zone_id, $name=null, $password=null, $label=null)" -->
@@ -2077,17 +1992,17 @@ Here is the call graph for this function:</div>
 </dl>
 <dl class="return"><dt><b>Returns:</b></dt><dd>object xmlrpcresp | int $value (0 is success, 1 if failed) </dd></dl>
 
-<p>Definition at line <a class="el" href="_max_c_d_n_8php_source.html#l00701">701</a> of file <a class="el" href="_max_c_d_n_8php_source.html">MaxCDN.php</a>.</p>
+<p>Definition at line <a class="el" href="#L700">700</a> of file <a class="el" href="">MaxCDN.php</a>.</p>
+<div class="fragment"><pre class="fragment">                                                                                  {
+    <span class="keywordflow">if</span> (empty($zone_id)) {
+      <span class="keywordflow">throw</span> <span class="keyword">new</span> MissingRequiredParameterException(<span class="stringliteral">&#39;One or more required parameters are empty&#39;</span>);
+    }
 
-<p><div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="class_max_c_d_n_a9dbe6ee3e3316947a53c7449b5058cdb_cgraph.png" border="0" usemap="#class_max_c_d_n_a9dbe6ee3e3316947a53c7449b5058cdb_cgraph" alt=""/></div>
-<map name="class_max_c_d_n_a9dbe6ee3e3316947a53c7449b5058cdb_cgraph" id="class_max_c_d_n_a9dbe6ee3e3316947a53c7449b5058cdb_cgraph">
-</map>
-</div>
-</p>
+        $zone_values = array($name, $password, $label);
 
+    $this-&gt;<a class="code" href="class_max_c_d_n.html#aa496f1ad190fdbd8682df3dea24abf1a">sendRequest</a>(<span class="stringliteral">&#39;vodzone&#39;</span>, <span class="stringliteral">&#39;update&#39;</span>, array($zone_id, $zone_values);
+  }
+</pre></div>
 </div>
 </div>
 <hr/><h2>Field Documentation</h2>
@@ -2102,7 +2017,22 @@ Here is the call graph for this function:</div>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="_max_c_d_n_8php_source.html#l00023">23</a> of file <a class="el" href="_max_c_d_n_8php_source.html">MaxCDN.php</a>.</p>
+<p>Definition at line <a class="el" href="#L22">22</a> of file <a class="el" href="">MaxCDN.php</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a3538f42031d718c9e5de4b6cd8b7789e"></a><!-- doxytag: member="MaxCDN::$auth_string" ref="a3538f42031d718c9e5de4b6cd8b7789e" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">$auth_string<code> [private]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="#L26">26</a> of file <a class="el" href="">MaxCDN.php</a>.</p>
 
 </div>
 </div>
@@ -2117,7 +2047,7 @@ Here is the call graph for this function:</div>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="_max_c_d_n_8php_source.html#l00026">26</a> of file <a class="el" href="_max_c_d_n_8php_source.html">MaxCDN.php</a>.</p>
+<p>Definition at line <a class="el" href="#L25">25</a> of file <a class="el" href="">MaxCDN.php</a>.</p>
 
 </div>
 </div>
@@ -2132,7 +2062,7 @@ Here is the call graph for this function:</div>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="_max_c_d_n_8php_source.html#l00024">24</a> of file <a class="el" href="_max_c_d_n_8php_source.html">MaxCDN.php</a>.</p>
+<p>Definition at line <a class="el" href="#L23">23</a> of file <a class="el" href="">MaxCDN.php</a>.</p>
 
 </div>
 </div>
@@ -2147,19 +2077,19 @@ Here is the call graph for this function:</div>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="_max_c_d_n_8php_source.html#l00025">25</a> of file <a class="el" href="_max_c_d_n_8php_source.html">MaxCDN.php</a>.</p>
+<p>Definition at line <a class="el" href="#L24">24</a> of file <a class="el" href="">MaxCDN.php</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li><a class="el" href="_max_c_d_n_8php_source.html">MaxCDN.php</a></li>
+<li><a class="el" href="">MaxCDN.php</a></li>
 </ul>
 </div>
 </div>
   <div id="nav-path" class="navpath">
     <ul>
       <li class="navelem"><a class="el" href="class_max_c_d_n.html">MaxCDN</a>      </li>
-      <li class="footer">Generated on Sat Jun 11 2011 10:11:06 for MaxCDN PHP API by&#160;
+      <li class="footer">Generated on Sat Jun 11 2011 14:10:16 for MaxCDN PHP API by&#160;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.4 </li>
     </ul>

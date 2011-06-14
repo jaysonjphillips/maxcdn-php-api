@@ -44,7 +44,7 @@ class MaxCDN {
 
   /**
    * The MaxCDN XMLRPC API Class
-   * @package chroniumlabs.maxcdn-api
+   * @package chroniumlabs.maxcdn-api.utilities
    * @subpackage utilities
    */
 
