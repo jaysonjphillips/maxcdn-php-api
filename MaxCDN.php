@@ -527,7 +527,7 @@ class MaxCDN {
 	
 	$zone_values = array($name, $origin, $vhost, $ip, $compress, $vanity_url, $label);
 	
-    $this->sendRequest('pullzone', 'update', array($zone_id, $zone_values);
+    $this->sendRequest('pullzone', 'update', array($zone_id, $zone_values));
   }
 
 /**
@@ -605,7 +605,7 @@ class MaxCDN {
 
 	$zone_values = array($name, $password, $label);
 
-    $this->sendRequest('pushzone', 'update', array($zone_id, $zone_values);
+    $this->sendRequest('pushzone', 'update', array($zone_id, $zone_values));
   }
 
 /**
@@ -628,7 +628,7 @@ class MaxCDN {
       throw new MissingRequiredParameterException('One or more required parameters are empty');
     }
 
-    $this->sendRequest('pushzone', 'delete', array($zone_id);
+    $this->sendRequest('pushzone', 'delete', array($zone_id));
   }
 
 /**
@@ -704,7 +704,7 @@ class MaxCDN {
 
 	$zone_values = array($name, $password, $label);
 
-    $this->sendRequest('vodzone', 'update', array($zone_id, $zone_values);
+    $this->sendRequest('vodzone', 'update', array($zone_id, $zone_values));
   }
 
 /**
@@ -727,7 +727,7 @@ class MaxCDN {
       throw new MissingRequiredParameterException('One or more required parameters are empty');
     }
 
-    $this->sendRequest('vodzone', 'delete', array($zone_id);
+    $this->sendRequest('vodzone', 'delete', array($zone_id));
   }
 
 /**
@@ -802,7 +802,7 @@ class MaxCDN {
 
 	$zone_values = array($name, $password, $label);
 
-    $this->sendRequest('livezone', 'update', array($zone_id, $zone_values);
+    $this->sendRequest('livezone', 'update', array($zone_id, $zone_values));
   }
 
 /**
@@ -825,7 +825,7 @@ class MaxCDN {
       throw new MissingRequiredParameterException('One or more required parameters are empty');
     }
 
-    $this->sendRequest('livezone', 'delete', array($zone_id);
+    $this->sendRequest('livezone', 'delete', array($zone_id));
   }
 
 /**
