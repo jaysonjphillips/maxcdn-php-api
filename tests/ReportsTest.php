@@ -3,7 +3,7 @@
 require_once realpath(dirname(__FILE__) . '/../MaxCDN.php');
 require_once realpath(dirname(__FILE__) . '/Test_Settings.php');
 
-class Reports extends PHPUnit_Framework_TestCase {
+class ReportsTest extends PHPUnit_Framework_TestCase {
 	
 	function __construct() {
 		$this->maxcdn = null;
