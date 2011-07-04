@@ -24,7 +24,7 @@ class AccountsTest extends PHPUnit_Framework_TestCase {
 		$this->assertTrue(!$result->faultCode());
 		
 		$bandwidth = $result->value();
-		$this->assertEquals(CURRENT_BANDWIDTH, $bandwidth->scalarval());
+		$this->assertLessThanOrEqual(CURRENT_BANDWIDTH, $bandwidth->scalarval());
 	}
 }
 
