@@ -178,7 +178,7 @@ class MaxCDN {
    * @param string $timezone (optional)
    * @return object $xmlrpcresp | array $value
    */
-  function getTotalTransferStats($company_id, $date_from, $date_to, $zone_id, $sort_by = null, $maximum = null, $offset = null, $timezone = null) {
+  function getTotalTransferStats($company_id, $date_from, $date_to, $zone_id, $sort_by = null, $maximum = null, $offset = null, $timezone = null, $view_by = null) {
 
     if (empty($company_id) || empty($zone_id) || empty($date_from) || empty($date_to)) {
       throw new MissingRequiredParameterException('One or more required parameters are empty');
