@@ -2,8 +2,9 @@
 
 Copyright (c) 2011 Jayson J. Phillips, Chronium Labs LLC
 
+##VERSION 1.0.1
 
-##ABOUT MAXCDN-API
+##ABOUT MAXCDN-API 
 This project is a PHP wrapper that allows a programatic interface to [MaxCDN's](http://wiki.netdna.com/Glossary/API_Documentation "MaxCDN API Docs") XML-RPC API. This library only has one dependency, the open source XMLRPC for PHP library (specifically, lib folder). The aim of this class is to be a lightweight drop-in for use in any project or framework. It is licensed under the MIT License, the text of which is at the bottom of this document.
 
 
@@ -26,7 +27,8 @@ From here, you can simply use xmlrpc for php methods on the returned object
 As you can see, no need to fuss around with dropping in namespaces, method names, ISO formatted dates or the like. 
 Two lines and you're ready to cook. _Simple_
 
-
+##CONTRIBUTORS
+Thanks to @philsturgeon for the timezone heads-up and his [CodeIgniter](https://github.com/philsturgeon/codeigniter-maxcdn) port/mod of this class.
 
 ## LICENSE
 

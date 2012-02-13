@@ -39,6 +39,7 @@ class MaxCDN {
 		
 		// Thanks to Phil Sturgeon for pointing out the rather fucked up way of generating a PDT timestamp.
 		// This below is also in his version of the lib that he used as a more proper way.
+		
 		$this->current_date = new DateTime("now", new DateTimeZone('America/Los_Angeles'));
   }
 
