@@ -4,7 +4,7 @@
  * @author Jayson J. Phillips <jayson.phillips@chroniumlabs.com>
  * @copyright Copyright (c) 2011 Chronium Labs LLC
  * @license http://opensource.org/licenses/mit-license.php MIT License
- * @version 0.5
+ * @version 1.0.1
  * @package chroniumlabs.maxcdn-api
  *
  */
@@ -13,7 +13,6 @@
  * @package chroniumlabs.maxcdn-api
  * @todo Add remaining tests and cleanup test suite
  */
-date_default_timezone_set('America/Los_Angeles');
 require 'MaxCDN_Exceptions.php';
 require 'lib/xmlrpc.inc';
 
@@ -37,6 +36,10 @@ class MaxCDN {
 
     $this->api_key = $api_key;
     $this->user_id = $user_id;
+		
+		// Thanks to Phil Sturgeon for pointing out the rather fucked up way of generating a PDT timestamp.
+		// This below is also in his version of the lib that he used as a more proper way.
+		$this->current_date = new DateTime("now", new DateTimeZone('America/Los_Angeles'));
   }
 
   // Utility functions for setting up the pieces for transmitting data. 
@@ -56,7 +59,7 @@ class MaxCDN {
    * @return string sha-256 hash for authstring
    */
   function setAuthString($method) {
-    return hash('sha256', date('c') . ':' . $this->api_key . ':' . $method);
+    return hash('sha256', $this->current_date->format('c') . ':' . $this->api_key . ':' . $method);
   }
 
   /**
